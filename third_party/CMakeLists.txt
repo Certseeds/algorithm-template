@@ -6,8 +6,8 @@ set("BUILD_${LIB_WAY}_LIBS" YES)
 
 Include(FetchContent)
 CMAKE_CMP_0135()
-set(CATCH2_URL https://github.com/catchorg/Catch2/archive/refs/tags/v3.5.3.tar.gz)
-set(CATCH2_HASH "1f51d817ce81d54b12e87d06e159305f")
+set(CATCH2_URL https://github.com/catchorg/Catch2/archive/refs/tags/v3.6.0.tar.gz)
+set(CATCH2_HASH "86a9fec7afecaec687faaa988ac6818e")
 if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
     FetchContent_Declare(
             Catch2
