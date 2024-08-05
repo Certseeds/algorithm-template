@@ -379,8 +379,8 @@ TEST_CASE("operator plus", "[test_3]") {
     m25 = m2 + m5;
     Matrix<int32_t> m36{m3 + m6};
     Matrix<int32_t> temp = m1 + m4 + m7;
-    Matrix<int32_t> temp2 = m1 + m4 + m7 + 2;
-    Matrix<int32_t> temp4 = m1 + m4 + 2 + m7;
+    Matrix<int32_t> temp2 = m1 + m4 + m7 + make_number(2);
+    Matrix<int32_t> temp4 = m1 + m4 + make_number(2) + m7;
     CHECK(Matrix<int32_t>::inside_equal(m1 + m4, m7));
     CHECK(Matrix<int32_t>::inside_equal(m14, m7));
     CHECK(Matrix<int32_t>::inside_equal(m2 + m5, m8));

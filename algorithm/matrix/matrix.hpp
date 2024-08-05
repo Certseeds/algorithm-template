@@ -486,15 +486,20 @@ public:
 
     // work function, computing this expression at position i, import for lazy computing
 
-    T value(size_t i, size_t j) const { return this->num; }
+    T value(size_t i, size_t j) const { return this->num;}
+
     //before invoke, invoke the ~number
     // 感觉是优化错误
 
     size_t rows() const { return 0x3f3f3f3f; }
 
     size_t cols() const { return 0x3f3f3f3f; }
-
 };
+
+template<opencv_type T>
+static number<T> make_number(T t){
+    return number<T>(t);
+}
 
 template<typename T1, typename T2>
 inline EXPRESSION::BinaryOp<Add, T1, T2>
@@ -502,29 +507,11 @@ operator+(const Expression<T1> &lhs, const Expression<T2> &rhs) {
     return expToBinaryOp<Add>(lhs, rhs);
 }
 
-template<typename T1, opencv_type T2>
-inline EXPRESSION::BinaryOp<Add, T1, number<T2>>
-operator+(const Expression<T1> &lhs, const T2 &rhs) {
-    return expToBinaryOp<Add>(lhs, number<T2>(rhs));
-}
-
-template<typename T1, opencv_type T2>
-inline EXPRESSION::BinaryOp<Add, number<T1>, T2>
-operator+(const T1 &lhs, const Expression<T2> &rhs) {
-    return expToBinaryOp<Add>(rhs, lhs);
-}
-
 /**
  * matrix + matrix, must equal.
  *  * input mat1,mat2 and will_return's type is same.
  * */
 
-
-template<opencv_type T1, typename T2>
-inline EXPRESSION::BinaryOp<Add, number<T1>, T2>
-operator-(const T1 &lhs, const Expression<T2> &rhs) {
-    return expToBinaryOp<Add>(number<T2>(lhs * -1), rhs);
-}
 
 /**
  * matrix - matrix, must equal.
@@ -534,12 +521,6 @@ template<typename T1, typename T2>
 inline EXPRESSION::BinaryOp<Minus, T1, T2>
 operator-(const Expression<T1> &lhs, const Expression<T2> &rhs) {
     return expToBinaryOp<Minus>(lhs, rhs);
-}
-
-template<typename T1, opencv_type T2>
-inline EXPRESSION::BinaryOp<Minus, T1, number<T2>>
-operator-(const Expression<T1> &lhs, const T2 &rhs) {
-    return expToBinaryOp<Minus>(lhs, number<T2>(rhs));
 }
 
 
