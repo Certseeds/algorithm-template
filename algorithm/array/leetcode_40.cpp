@@ -5,12 +5,18 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#include "leetcode_40_test.hpp"
+#ifdef CS203_DSAA_TEST_MACRO
+
+#include <vector>
 #include <algorithm>
 #include <map>
+#include <cstdint>
 
 namespace leetcode_40 {
+using std::vector;
 using std::map;
+#endif
+
 struct pair final {
     int32_t number;
     int32_t times;
@@ -41,20 +47,25 @@ void combinSumTrace(vector<vector<int32_t>> &combinations, const vector<pair> &c
     }
 }
 
-vector<vector<int32_t>> leetcode_40::combinationSum2(const vector<int32_t> &candidates, int32_t target) {
-    map<int32_t, int32_t> umap;
-    for (const auto candidate: candidates) {
-        umap[candidate]++;
+class Solution {
+public:
+    vector<vector<int32_t>> combinationSum2(const vector<int32_t> &candidates, int32_t target) {
+        map<int32_t, int32_t> umap;
+        for (const auto candidate: candidates) {
+            umap[candidate]++;
+        }
+        vector<pair> pairs;
+        pairs.reserve(umap.size());
+        for (const auto [k, v]: umap) {
+            pairs.push_back(pair{k, v});
+        }
+        vector<vector<int32_t>> combinations;
+        vector<int32_t> combination;
+        combinSumTrace(combinations, pairs, combination, target, static_cast<size_t>(0));
+        return combinations;
     }
-    vector<pair> pairs;
-    pairs.reserve(umap.size());
-    for (const auto[k, v]: umap) {
-        pairs.push_back(pair{k, v});
-    }
-    vector<vector<int32_t>> combinations;
-    vector<int32_t> combination;
-    combinSumTrace(combinations, pairs, combination, target, static_cast<size_t>(0));
-    return combinations;
-}
+};
 
+#ifdef CS203_DSAA_TEST_MACRO
 }
+#endif

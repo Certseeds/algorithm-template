@@ -5,9 +5,19 @@ CS203_DSAA_template
 Copyright (C) 2022-2023  nanoseeds
 
 */
-#include "leetcode_1329_test.hpp"
+#ifdef CS203_DSAA_TEST_MACRO
+
+#include <cstdint>
+#include <cstddef>
+#include <vector>
+#include <tuple>
+#include <algorithm>
+
+using std::vector;
 
 namespace leetcode_1329 {
+#endif
+
 namespace unstable {
 
 size_t matrixToLines(const vector<vector<int32_t>> &mat) {
@@ -70,11 +80,15 @@ vector<vector<int32_t>> diagonalSort(vector<vector<int32_t>> &mat) {
 }
 }
 
-vector<vector<int32_t>> leetcode_1329::diagonalSort(const vector<vector<int32_t>> &mat) {
-    vector<vector<int32_t>> will_return{mat};
-    unstable::diagonalSort(will_return);
-    return will_return;
-}
+class Solution {
+public:
+    vector<vector<int32_t>> diagonalSort(const vector<vector<int32_t>> &mat) {
+        vector<vector<int32_t>> will_return{mat};
+        unstable::diagonalSort(will_return);
+        return will_return;
+    }
+};
 
-
+#ifdef CS203_DSAA_TEST_MACRO
 }
+#endif
