@@ -316,8 +316,6 @@ build/
 
 # idea
 .idea/*
-!.idea/codeStyles
-!.idea/fileTemplates
 
 # File-based project format
 *.iws
