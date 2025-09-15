@@ -11,16 +11,10 @@ Copyright (C) 2020-2023 nanos
 #define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_684_TEST_CPP
 
 #include <catch_main.hpp>
-#include <cstdint>
-#include <cstddef>
-#include <vector>
+#include "leetcode_684.cpp"
 
 namespace leetcode_684 {
 using std::vector;
-
-struct leetcode_684 {
-    static vector<int> findRedundantConnection(const vector<vector<int>> &edges);
-};
 
 using Catch::Matchers::Equals;
 
@@ -29,7 +23,8 @@ TEST_CASE("1 [test_684]", "[test_684]") {
                                         {1, 3},
                                         {2, 3}};
     const vector<int32_t> results{2, 3};
-    CHECK_THAT(leetcode_684::findRedundantConnection(edges), Equals(results));
+    Solution solution;
+    CHECK_THAT(solution.findRedundantConnection(edges), Equals(results));
 }
 
 TEST_CASE("2 [test_684]", "[test_684]") {
@@ -39,7 +34,8 @@ TEST_CASE("2 [test_684]", "[test_684]") {
                                         {1, 4},
                                         {1, 5}};
     const vector<int32_t> results{1, 4};
-    CHECK_THAT(leetcode_684::findRedundantConnection(edges), Equals(results));
+    Solution solution;
+    CHECK_THAT(solution.findRedundantConnection(edges), Equals(results));
 }
 
 }

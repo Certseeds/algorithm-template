@@ -2,9 +2,10 @@
 // Created by nanos on 2021/11/9.
 //
 
+#include "disjoint_set_linkedlist.hpp"
 #include <catch_main.hpp>
 #include <iostream>
-#include "disjoint_set_linkedlist.hpp"
+#include <cstddef>
 
 namespace disjoint_set {
 namespace linkedlist {

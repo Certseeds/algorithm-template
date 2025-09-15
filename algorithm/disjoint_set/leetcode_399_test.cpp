@@ -11,21 +11,11 @@ Copyright (C) 2020-2023 nanos
 #define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_399_TEST_CPP
 
 #include <catch_main.hpp>
-#include <cstdint>
-#include <cstddef>
-#include <vector>
-#include <string>
-#include <cmath>
+#include "leetcode_399.cpp"
 
 namespace leetcode_399 {
 using std::string;
 using std::vector;
-
-struct leetcode_399 {
-    static vector<double>
-    calcEquation(const vector<vector<string>> &equations, const vector<double> &values,
-                 const vector<vector<string>> &queries);
-};
 
 using Catch::Matchers::ApproxMatcher;
 using Catch::Matchers::Approx;
@@ -44,7 +34,8 @@ TEST_CASE("1 [test_399]", "[test_399]") {
             {"x", "x"},
     };
     const vector<double_t> results{6.0f, 0.5f, -1.0f, 1.0f, -1.0f};
-    CHECK_THAT(results, Approx(leetcode_399::calcEquation(edges, values, queries)).epsilon(0.01f));
+    Solution solution;
+    CHECK_THAT(results, Approx(solution.calcEquation(edges, values, queries)).epsilon(0.01f));
 }
 
 TEST_CASE("2 [test_399]", "[test_399]") {
@@ -59,7 +50,8 @@ TEST_CASE("2 [test_399]", "[test_399]") {
             {"x", "y"},
     };
     const vector<double_t> results{0.5f, 2.0f, -1.0f, -1.0f};
-    CHECK_THAT(results, Approx(leetcode_399::calcEquation(edges, values, queries)).epsilon(0.01f));
+    Solution solution;
+    CHECK_THAT(results, Approx(solution.calcEquation(edges, values, queries)).epsilon(0.01f));
 }
 
 TEST_CASE("3 [test_399]", "[test_399]") {
@@ -76,7 +68,8 @@ TEST_CASE("3 [test_399]", "[test_399]") {
             {"cd", "bc"},
     };
     const vector<double_t> results{3.75f, 0.4f, 5.0f, 0.2f};
-    CHECK_THAT(results, Approx(leetcode_399::calcEquation(edges, values, queries)).epsilon(0.01f));
+    Solution solution;
+    CHECK_THAT(results, Approx(solution.calcEquation(edges, values, queries)).epsilon(0.01f));
 }
 
 
@@ -100,7 +93,8 @@ TEST_CASE("5 [test_399]", "[test_399]") {
             {"x0", "x0"},
     };
     const vector<double_t> results{1.13333, 16.8, 1.5, 1.0, 0.05952, 2.26667, 0.44118, -1.0, -1.0};
-    CHECK_THAT(results, Approx(leetcode_399::calcEquation(edges, values, queries)).epsilon(0.01f));
+    Solution solution;
+    CHECK_THAT(results, Approx(solution.calcEquation(edges, values, queries)).epsilon(0.01f));
 }
 
 TEST_CASE("4 [test_399]", "[test_399]") {
@@ -115,7 +109,8 @@ TEST_CASE("4 [test_399]", "[test_399]") {
             {"x", "x"},
     };
     const vector<double_t> results{1.3333f, 1.0f, -1.0f};
-    CHECK_THAT(results, Approx(leetcode_399::calcEquation(edges, values, queries)).epsilon(0.01f));
+    Solution solution;
+    CHECK_THAT(results, Approx(solution.calcEquation(edges, values, queries)).epsilon(0.01f));
 }
 
 TEST_CASE("6 [test_399]", "[test_399]") {
@@ -130,7 +125,8 @@ TEST_CASE("6 [test_399]", "[test_399]") {
             {"x", "x"},
     };
     const vector<double_t> results{1.3333f, 1.0f, -1.0f};
-    CHECK_THAT(results, Approx(leetcode_399::calcEquation(edges, values, queries)).epsilon(0.01f));
+    Solution solution;
+    CHECK_THAT(results, Approx(solution.calcEquation(edges, values, queries)).epsilon(0.01f));
 }
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_399_TEST_CPP

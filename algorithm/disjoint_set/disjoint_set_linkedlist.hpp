@@ -10,7 +10,9 @@ Copyright (C) 2020-2023 nanos
 #define CS203_DSAA_TEMPLATE_ALGORITHM_DISJOINT_SET_DISJOINT_SET_LINKEDLIST_HPP
 
 #include <vector>
-#include <class_helper/nonable.hpp>
+#include <cstdint>
+#include <cstddef>
+#include "class_helper/nonable.hpp"
 
 namespace disjoint_set {
 namespace linkedlist {

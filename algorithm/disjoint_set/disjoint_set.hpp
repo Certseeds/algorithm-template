@@ -16,7 +16,7 @@ Copyright (C) 2020-2023 nanos
 namespace disjoint_set {
 using std::vector;
 
-class disjoint_set : private nonCopyMoveAble{
+class disjoint_set : private nonCopyMoveAble {
 public:
     virtual ~disjoint_set() = default;
 

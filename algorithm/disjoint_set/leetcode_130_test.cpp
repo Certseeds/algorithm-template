@@ -15,49 +15,40 @@ Copyright (C) 2020-2023 nanos
 #define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_130_TEST_CPP
 
 #include <catch_main.hpp>
-#include <cstdint>
-#include <cstddef>
-#include <vector>
+#include "leetcode_130.cpp"
 
 namespace leetcode_130 {
 using std::vector;
-enum GRID : char {
-    WATER = 'X',
-    LAND = 'O',
-    KEEP_LAND = 'K',
-};
-
-struct leetcode_130 {
-    static void solve(vector<vector<char>> &board);
-};
 
 using Catch::Matchers::Equals;
 
 TEST_CASE("1 [test_130]", "[test_130]") {
     vector<vector<char>> edges{
-            {WATER, WATER, WATER, WATER},
-            {WATER, LAND,  LAND,  WATER},
-            {WATER, WATER, LAND,  WATER},
-            {WATER, LAND,  WATER, WATER},
+            {GRID::WATER, GRID::WATER, GRID::WATER, GRID::WATER},
+            {GRID::WATER, GRID::LAND,  GRID::LAND,  GRID::WATER},
+            {GRID::WATER, GRID::WATER, GRID::LAND,  GRID::WATER},
+            {GRID::WATER, GRID::LAND,  GRID::WATER, GRID::WATER},
     };
     const vector<vector<char>> results{
-            {WATER, WATER, WATER, WATER},
-            {WATER, WATER, WATER, WATER},
-            {WATER, WATER, WATER, WATER},
-            {WATER, LAND,  WATER, WATER},
+            {GRID::WATER, GRID::WATER, GRID::WATER, GRID::WATER},
+            {GRID::WATER, GRID::WATER, GRID::WATER, GRID::WATER},
+            {GRID::WATER, GRID::WATER, GRID::WATER, GRID::WATER},
+            {GRID::WATER, GRID::LAND,  GRID::WATER, GRID::WATER},
     };
-    leetcode_130::solve(edges);
+    Solution solution;
+    solution.solve(edges);
     CHECK_THAT(results, Equals(edges));
 }
 
 TEST_CASE("2 [test_130]", "[test_130]") {
     vector<vector<char>> edges{
-            {WATER}
+            {GRID::WATER}
     };
     const vector<vector<char>> results{
-            {WATER}
+            {GRID::WATER}
     };
-    leetcode_130::solve(edges);
+    Solution solution;
+    solution.solve(edges);
     CHECK_THAT(results, Equals(edges));
 }
 

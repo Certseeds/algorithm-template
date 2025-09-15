@@ -5,9 +5,20 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanos
 
 */
-#include "leetcode_399_test.hpp"
+#ifdef CS203_DSAA_TEST_MACRO
+
 #include <numeric>
 #include <unordered_map>
+#include <cstddef>
+#include <vector>
+#include <string>
+#include <cmath>
+
+namespace leetcode_399 {
+using std::unordered_map;
+using std::string;
+using std::vector;
+#endif
 
 namespace disjoint_set_weight {
 // 节点之间是一张 有向无环图
@@ -55,50 +66,50 @@ public:
 };
 }
 
-namespace leetcode_399 {
-using disjoint_set_weight::disjoint_set;
-using std::unordered_map;
-
-vector<double> leetcode_399::calcEquation(const vector<vector<string>> &equations, const vector<double> &values,
-                                          const vector<vector<string>> &queries) {
-    unordered_map<string, size_t> str_to_num{};
-    for (const auto &pair: equations) {
-        for (const auto &str: pair) {
-            if (str_to_num.count(str) == 0) {
-                str_to_num.emplace(str, str_to_num.size() + 1);
+class Solution {
+public:
+    vector<double> calcEquation(const vector<vector<string>> &equations, const vector<double> &values,
+                                const vector<vector<string>> &queries) {
+        unordered_map<string, size_t> str_to_num{};
+        for (const auto &pair: equations) {
+            for (const auto &str: pair) {
+                if (str_to_num.count(str) == 0) {
+                    str_to_num.emplace(str, str_to_num.size() + 1);
+                }
             }
         }
-    }
-    disjoint_set dset(str_to_num.size());
-    for (size_t i{0}; i < equations.size(); i++) {
-        const auto &pair = equations[i];
-        const auto first{str_to_num[pair[0]]},
-                second{str_to_num[pair[1]]};
-        dset.merge(first, second, values[i]);
-    }
-    vector<double_t> results(queries.size(), -1);
-    for (size_t i{0}; i < queries.size(); i++) {
-        const auto &query{queries[i]};
-        const auto &first{query[0]}, second{query[1]};
-        if (str_to_num.count(first) == 0 || str_to_num.count(second) == 0) {
-            continue;
+        disjoint_set_weight::disjoint_set dset(str_to_num.size());
+        for (size_t i{0}; i < equations.size(); i++) {
+            const auto &pair = equations[i];
+            const auto first{str_to_num[pair[0]]},
+                    second{str_to_num[pair[1]]};
+            dset.merge(first, second, values[i]);
         }
-        const auto firstNum{str_to_num[first]},
-                secondNum{str_to_num[second]};
-        if (dset.find(firstNum) != dset.find(secondNum)) {
-            continue;
+        vector<double_t> results(queries.size(), -1);
+        for (size_t i{0}; i < queries.size(); i++) {
+            const auto &query{queries[i]};
+            const auto &first{query[0]}, second{query[1]};
+            if (str_to_num.count(first) == 0 || str_to_num.count(second) == 0) {
+                continue;
+            }
+            const auto firstNum{str_to_num[first]},
+                    secondNum{str_to_num[second]};
+            if (dset.find(firstNum) != dset.find(secondNum)) {
+                continue;
+            }
+            if (firstNum == secondNum) {
+                results[i] = 1.0f;
+                continue;
+            }
+            auto multiOne{dset.findWeight(firstNum)},
+                    multiTwo{dset.findWeight(secondNum)};
+            results[i] = multiOne / multiTwo;
         }
-        if (firstNum == secondNum) {
-            results[i] = 1.0f;
-            continue;
-        }
-        auto multiOne{dset.findWeight(firstNum)},
-                multiTwo{dset.findWeight(secondNum)};
-        results[i] = multiOne / multiTwo;
-    }
 
-    return results;
+        return results;
+    }
+};
+
+#ifdef CS203_DSAA_TEST_MACRO
 }
-
-
-}
+#endif
