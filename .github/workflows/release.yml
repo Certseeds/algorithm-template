@@ -16,10 +16,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-22.04, ubuntu-24.04 ]
+        os: [ ubuntu-24.04 ]
     env:
-      CC:   gcc-12
-      CXX:  g++-12
+      CC:   gcc-13
+      CXX:  g++-13
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
 

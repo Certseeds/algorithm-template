@@ -86,7 +86,7 @@ This is an example of how to list things you need to use the software and how to
 
 #### Windows
 
-1. WSL(推荐ubuntu 22.04 | 20.04), `sudo apt install build-essential ccache`
+1. WSL(推荐ubuntu 24.04), `sudo apt install build-essential ccache`
 
 + 命令行检测gcc版本
 
