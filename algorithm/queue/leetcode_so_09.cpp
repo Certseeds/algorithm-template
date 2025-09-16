@@ -5,11 +5,24 @@ CS203_DSAA_template
 Copyright (C) 2022-2023  nanoseeds
 
 */
-#include "leetcode_so_09_test.hpp"
 #include <stack>
+#include <cstdint>
+
+#ifdef CS203_DSAA_TEST_MACRO
 
 namespace leetcode_so_09 {
 using std::stack;
+#endif
+
+struct CQueue {
+    CQueue() = default;
+
+    virtual void appendTail(int32_t value) = 0;
+
+    virtual int deleteHead() = 0;
+
+    virtual ~CQueue() = default;
+};
 
 struct StackQueue : CQueue {
 private:
@@ -70,12 +83,17 @@ public:
     }
 };
 
-CQueue *leetcode_so_09::pure() {
-    return new StackQueue();
-}
+class Solution {
+public:
+    CQueue *pure() {
+        return new StackQueue();
+    }
 
-CQueue *leetcode_so_09::effective() {
-    return new StackQueue2();
-}
+    CQueue *effective() {
+        return new StackQueue2();
+    }
+};
 
+#ifdef CS203_DSAA_TEST_MACRO
 }
+#endif

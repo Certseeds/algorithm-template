@@ -5,9 +5,27 @@ CS203_DSAA_template
 Copyright (C) 2022-2023 nanoseeds
 
 */
-#include "leetcode_1532_test.hpp"
+#include <vector>
+#include <cstdint>
+#include <cstddef>
+
+#ifdef CS203_DSAA_TEST_MACRO
 
 namespace leetcode_1532 {
+using std::vector;
+#endif
+
+class ProductOfNumbers {
+protected:
+    ProductOfNumbers() = default;
+
+public:
+    virtual void add(int32_t num) = 0;
+
+    virtual int32_t getProduct(int32_t k) = 0;
+
+    virtual ~ProductOfNumbers() = default;
+};
 
 class ProductOfNumbersNormal : public ProductOfNumbers {
 private:
@@ -35,7 +53,13 @@ public:
     }
 };
 
-ProductOfNumbers *leetcode_1532::pure() {
-    return new ProductOfNumbersNormal();
+class Solution {
+public:
+    ProductOfNumbers *pure() {
+        return new ProductOfNumbersNormal();
+    }
+};
+
+#ifdef CS203_DSAA_TEST_MACRO
 }
-}
+#endif

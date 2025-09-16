@@ -16,32 +16,18 @@ Copyright (C) 2022-2023  nanoseeds
 #include <string>
 #include <functional>
 #include <memory>
+#include "leetcode_so_09.cpp"
 
 namespace leetcode_so_09 {
 using std::string;
 
-struct CQueue {
-    CQueue() = default;
-
-    virtual void appendTail(int32_t value) = 0;
-
-    virtual int deleteHead() = 0;
-
-    virtual ~CQueue() = default;
-};
-
-struct leetcode_so_09 {
-    static CQueue *pure();
-
-    static CQueue *effective();
-};
-
 TEST_CASE("test case pure-1 [test_sw_09]", "[test_sw_09]") {
     std::function<CQueue *()> lambda;
+    Solution solution;
     SECTION("pure") {
-        lambda = leetcode_so_09::pure;
+        lambda = [&solution]() { return solution.pure(); };
     }SECTION("effective") {
-        lambda = leetcode_so_09::effective;
+        lambda = [&solution]() { return solution.effective(); };
     }
     const auto ptr = std::unique_ptr<CQueue>(lambda());
     ptr->appendTail(3);
@@ -51,10 +37,11 @@ TEST_CASE("test case pure-1 [test_sw_09]", "[test_sw_09]") {
 
 TEST_CASE("test case pure-2 [test_sw_09]", "[test_sw_09]") {
     std::function<CQueue *()> lambda;
+    Solution solution;
     SECTION("pure") {
-        lambda = leetcode_so_09::pure;
+        lambda = [&solution]() { return solution.pure(); };
     }SECTION("effective") {
-        lambda = leetcode_so_09::effective;
+        lambda = [&solution]() { return solution.effective(); };
     }
     const auto ptr = std::unique_ptr<CQueue>(lambda());
     CHECK(-1 == ptr->deleteHead());

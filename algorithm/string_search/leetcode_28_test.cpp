@@ -13,23 +13,21 @@ Copyright (C) 2020-2023 nanoseeds
 
 #include <catch_main.hpp>
 #include <string>
+#include "leetcode_28.cpp"
 
 namespace leetcode_28 {
 using std::string;
 
-struct leetcode_28 {
-    static int32_t strStr(const string &haystack, const string &needle);
-};
-
 using Catch::Matchers::UnorderedEquals;
 
 TEST_CASE("1 [test_28]", "[test_28]") {
-    CHECK(leetcode_28::strStr("hello", "ll") == 2);
-    CHECK(leetcode_28::strStr("aaaaa", "bba") == -1);
-    CHECK(leetcode_28::strStr("aaaaa", "") == 0);
-    CHECK(leetcode_28::strStr("a", "a") == 0);
-    CHECK(leetcode_28::strStr("mississippi", "issi") == 1);
-    CHECK(leetcode_28::strStr("mississippi", "issip") == 4);
+    Solution solution;
+    CHECK(solution.strStr("hello", "ll") == 2);
+    CHECK(solution.strStr("aaaaa", "bba") == -1);
+    CHECK(solution.strStr("aaaaa", "") == 0);
+    CHECK(solution.strStr("a", "a") == 0);
+    CHECK(solution.strStr("mississippi", "issi") == 1);
+    CHECK(solution.strStr("mississippi", "issip") == 4);
 }
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_28_TEST_HPP

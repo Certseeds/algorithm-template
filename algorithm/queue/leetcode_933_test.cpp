@@ -15,26 +15,14 @@ Copyright (C) 2022-2023  nanoseeds
 #include <string>
 #include <functional>
 #include <memory>
+#include "leetcode_933.cpp"
 
 namespace leetcode_933 {
 using std::string;
 
-class RecentCounter {
-protected:
-    RecentCounter() = default;
-
-public:
-    virtual int ping(int t) = 0;
-
-    virtual ~RecentCounter() = default;
-};
-
-struct leetcode_933 {
-    static RecentCounter *pure();
-};
-
 TEST_CASE("test case pure-1 [test_933]", "[test_933]") {
-    const std::unique_ptr<RecentCounter> pointer = std::unique_ptr<RecentCounter>(leetcode_933::pure());
+    Solution solution;
+    const std::unique_ptr<RecentCounter> pointer = std::unique_ptr<RecentCounter>(solution.pure());
     CHECK(1 == pointer->ping(1));
     CHECK(2 == pointer->ping(100));
     CHECK(3 == pointer->ping(3000));

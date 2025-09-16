@@ -15,28 +15,14 @@ Copyright (C) 2023 nanoseeds
 #include <string>
 #include <functional>
 #include <memory>
+#include "leetcode_1532.cpp"
 
 namespace leetcode_1532 {
 using std::string;
 
-class ProductOfNumbers {
-protected:
-    ProductOfNumbers() = default;
-
-public:
-    virtual void add(int32_t num) = 0;
-
-    virtual int32_t getProduct(int32_t k) = 0;
-
-    virtual ~ProductOfNumbers() = default;
-};
-
-struct leetcode_1532 {
-    static ProductOfNumbers *pure();
-};
-
 TEST_CASE("test case pure-1 [test_1532]", "[test_1532]") {
-    const std::unique_ptr<ProductOfNumbers> pointer = std::unique_ptr<ProductOfNumbers>(leetcode_1532::pure());
+    Solution solution;
+    const std::unique_ptr<ProductOfNumbers> pointer = std::unique_ptr<ProductOfNumbers>(solution.pure());
     pointer->add(3);
     pointer->add(0);
     pointer->add(2);

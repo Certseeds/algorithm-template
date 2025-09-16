@@ -10,31 +10,12 @@ Copyright (C) 2024 nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_QUEUE_RINGBUFFER_QUEUE_HPP
 
 #include <catch_main.hpp>
+#include "leetcode_ringbuffer_queue.cpp"
 
 #include <optional>
 #include <cstdint>
-#include <queue>
 
 namespace rbqueue {
-
-class ringbuffer_queue {
-private:
-    std::vector<int32_t> vec;
-    size_t read{0}, write{0};
-    size_t csize{};
-public:
-    explicit ringbuffer_queue(size_t size);
-
-    bool isFull() const;
-
-    bool isEmpty() const;
-
-    void push(int32_t value);
-
-    void pop();
-
-    int32_t front();
-};
 
 TEST_CASE("test case pure-1 [test_rbqueue_09]", "[test_rbqueue_09]") {
     ringbuffer_queue rbq(3);

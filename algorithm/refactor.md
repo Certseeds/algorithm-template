@@ -1,5 +1,7 @@
 # CS203_DSAA_Template Array 重构任务
 
+> 只使用模型自身能力进行重构, 不使用任何形式的脚本.
+
 ## 原始任务描述
 
 将文件夹 array 中的 leetcode 成对的文件执行类似 leetcode_1.cpp leetcode_1_test.cpp的变更，目的是能让 leetcode_${number}.cpp 能直接复制到网页中运行。
