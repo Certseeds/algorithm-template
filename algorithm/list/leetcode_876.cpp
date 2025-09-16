@@ -5,22 +5,32 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#include "leetcode_876_test.hpp"
+#ifdef CS203_DSAA_TEST_MACRO
+
+#include <list/listnode.hpp>
 
 namespace leetcode_876 {
+using LISTNODE::ListNode;
 
-ListNode *leetcode_876::middleNode(ListNode *const head) {
-    ListNode *one = head;
-    for (const ListNode *two = head; two != nullptr;) {
-        if (two->next != nullptr) {
+#endif
+
+class Solution {
+public:
+    ListNode *middleNode(ListNode *const head) {
+        ListNode *one = head;
+        for (const ListNode *two = head; two != nullptr;) {
+            if (two->next != nullptr) {
+                two = two->next;
+            } else {
+                return one;
+            }
             two = two->next;
-        } else {
-            return one;
+            one = one->next;
         }
-        two = two->next;
-        one = one->next;
+        return one;
     }
-    return one;
-}
+};
 
+#ifdef CS203_DSAA_TEST_MACRO
 }
+#endif

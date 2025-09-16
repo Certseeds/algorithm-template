@@ -13,22 +13,9 @@ Copyright (C) 2020-2023 nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_SO_35_TEST_HPP
 
 #include <catch_main.hpp>
-#include <cstdint>
-#include <cstddef>
+#include "leetcode_so_35.cpp"
 
 namespace leetcode_so_35 {
-struct Node {
-public:
-    int val;
-    Node *next;
-    Node *random;
-
-    explicit Node(int32_t _val) : val(_val), next(nullptr), random(nullptr) {}
-};
-
-struct leetcode_so_35 final : private nonCopyMoveAble {
-    static Node *copyRandomList(Node *head);
-};
 
 TEST_CASE("test case 1 [test_206]", "[test_206]") {}
 

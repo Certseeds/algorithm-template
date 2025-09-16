@@ -5,23 +5,33 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#include "leetcode_24_test.hpp"
+#ifdef CS203_DSAA_TEST_MACRO
+
+#include <list/listnode.hpp>
 
 namespace leetcode_24 {
+using LISTNODE::ListNode;
 
-ListNode *leetcode_24::swapPairs(ListNode *head) {
-    if (head == nullptr) {
-        return nullptr;
-    } else if (head->next == nullptr) {
-        return head;
+#endif
+
+class Solution {
+public:
+    ListNode *swapPairs(ListNode *head) {
+        if (head == nullptr) {
+            return nullptr;
+        } else if (head->next == nullptr) {
+            return head;
+        }
+        ListNode *const fir = head;
+        ListNode *const sec = fir->next;
+        ListNode *const third = swapPairs(sec->next);
+        sec->next = fir;
+        fir->next = third;
+        return sec;
     }
-    ListNode *const fir = head;
-    ListNode *const sec = fir->next;
-    ListNode *const third = swapPairs(sec->next);
-    sec->next = fir;
-    fir->next = third;
-    return sec;
-}
+};
 
+#ifdef CS203_DSAA_TEST_MACRO
 }
+#endif
 

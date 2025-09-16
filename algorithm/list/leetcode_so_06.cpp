@@ -5,23 +5,36 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#include "leetcode_so_06_test.hpp"
+#ifdef CS203_DSAA_TEST_MACRO
+
+#include <cstdint>
+#include <cstddef>
+#include <vector>
 #include <stack>
+#include <list/listnode.hpp>
 
 namespace leetcode_so_06 {
+using std::vector;
+using LISTNODE::ListNode;
+#endif
 
-vector<int> leetcode_so_06::reversePrint(ListNode *head) {
-    std::stack<int32_t> sta;
-    while (head != nullptr) {
-        sta.push(head->val);
-        head = head->next;
+class Solution {
+public:
+    vector<int> reversePrint(ListNode *head) {
+        std::stack<int32_t> sta;
+        while (head != nullptr) {
+            sta.push(head->val);
+            head = head->next;
+        }
+        vector<int32_t> will_return;
+        while (!sta.empty()) {
+            will_return.push_back(sta.top());
+            sta.pop();
+        }
+        return will_return;
     }
-    vector<int32_t> will_return;
-    while (!sta.empty()) {
-        will_return.push_back(sta.top());
-        sta.pop();
-    }
-    return will_return;
-}
+};
 
+#ifdef CS203_DSAA_TEST_MACRO
 }
+#endif

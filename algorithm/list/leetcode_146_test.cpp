@@ -11,32 +11,13 @@ Copyright (C) 2022-2023  nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_146_TEST_HPP
 
 #include <catch_main.hpp>
-#include <cstdint>
-#include <cstddef>
-#include <memory>
+#include "leetcode_146.cpp"
 
 namespace leetcode_146 {
 
-class LRUCache {
-protected:
-    const size_t size;
-public:
-    explicit LRUCache(int32_t capacity) : size(capacity) {}
-
-    virtual int32_t get(int32_t key) = 0;
-
-    virtual void put(int32_t key, int32_t value) = 0;
-
-    virtual ~LRUCache() = default;
-};
-
-
-struct leetcode_146 {
-    static std::unique_ptr<LRUCache> get(int32_t cap);
-};
-
 TEST_CASE("fst [test_146]", "[test_146]") {
-    const auto ptr = leetcode_146::get(2);
+    Solution solution;
+    const auto ptr = solution.get(2);
     ptr->put(1, 1);
     ptr->put(2, 2);
     CHECK(1 == ptr->get(1));

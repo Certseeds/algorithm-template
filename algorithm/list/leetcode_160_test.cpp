@@ -13,16 +13,9 @@ Copyright (C) 2020-2023 nanoseeds
 #define CS160_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_160_TEST_HPP
 
 #include <catch_main.hpp>
-#include <cstdint>
-#include <cstddef>
-#include <list/listnode.hpp>
+#include "leetcode_160.cpp"
 
 namespace leetcode_160 {
-using LISTNODE::ListNode;
-
-struct leetcode_160 final : private nonCopyMoveAble {
-    static ListNode *getIntersectionNode(ListNode *headA, ListNode *headB);
-};
 
 using LISTNODE::ListNodeLink;
 
@@ -33,13 +26,16 @@ TEST_CASE("test case 1 [test_160]", "[test_160]") {
     vec1[1]->next = vecCommon[0];
     vec2[2]->next = vecCommon[0];
     const vector<int32_t> output{8, 4, 5};
-    const ListNode *const result = leetcode_160::getIntersectionNode(vec1[0], vec2[0]);
+    Solution solution;
+    const ListNode *const result = solution.getIntersectionNode(vec1[0], vec2[0]);
     CHECK(ListNode::equal(output, result));
 }
+
 TEST_CASE("test case 2 [test_160]", "[test_160]") {
     const ListNodeLink vecCommon{1};
     const vector<int32_t> output{1};
-    const ListNode *const result = leetcode_160::getIntersectionNode(vecCommon[0], vecCommon[0]);
+    Solution solution;
+    const ListNode *const result = solution.getIntersectionNode(vecCommon[0], vecCommon[0]);
     CHECK(ListNode::equal(output, result));
 }
 }

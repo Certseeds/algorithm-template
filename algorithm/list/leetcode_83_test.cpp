@@ -12,63 +12,64 @@ Copyright (C) 2020-2023 nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_83_TEST_HPP
 
 #include <catch_main.hpp>
-#include <cstdint>
-#include <cstddef>
-#include <list/listnode.hpp>
+#include "leetcode_83.cpp"
 
 namespace leetcode_83 {
-using LISTNODE::ListNode;
-
-struct leetcode_83 {
-    static ListNode *deleteDuplicates(ListNode *head);
-};
 
 using LISTNODE::ListNodeLink;
 
 TEST_CASE("-1 [test _83]", "[test _83]") {
     const ListNodeLink vec1{1};
-    const ListNode *const result = leetcode_83::deleteDuplicates(vec1[0]);
+    Solution solution;
+    const ListNode *const result = solution.deleteDuplicates(vec1[0]);
     CHECK(ListNode::equal({1}, result));
 }
 
 TEST_CASE("0 [test _83]", "[test _83]") {
     const ListNodeLink vec1{1, 2};
-    const ListNode *const result = leetcode_83::deleteDuplicates(vec1[0]);
+    Solution solution;
+    const ListNode *const result = solution.deleteDuplicates(vec1[0]);
     CHECK(ListNode::equal({1, 2}, result));
 }
 
 TEST_CASE("1 [test _83]", "[test _83]") {
     const ListNodeLink vec1{1, 2, 3, 4, 5};
-    const ListNode *const result = leetcode_83::deleteDuplicates(vec1[0]);
+    Solution solution;
+    const ListNode *const result = solution.deleteDuplicates(vec1[0]);
     CHECK(ListNode::equal({1, 2, 3, 4, 5}, result));
 }
 
 TEST_CASE("2 [test _83]", "[test _83]") {
-    const ListNode *const result = leetcode_83::deleteDuplicates(nullptr);
+    Solution solution;
+    const ListNode *const result = solution.deleteDuplicates(nullptr);
     CHECK(ListNode::equal({}, result));
 }
 
 TEST_CASE("3 [test _83]", "[test _83]") {
     const ListNodeLink vec1{1};
-    const ListNode *const result = leetcode_83::deleteDuplicates(vec1[0]);
+    Solution solution;
+    const ListNode *const result = solution.deleteDuplicates(vec1[0]);
     CHECK(ListNode::equal({1}, result));
 }
 
 TEST_CASE("4 [test _83]", "[test _83]") {
     const ListNodeLink vec1{1, 2, 2, 3, 4, 5};
-    const ListNode *const result = leetcode_83::deleteDuplicates(vec1[0]);
+    Solution solution;
+    const ListNode *const result = solution.deleteDuplicates(vec1[0]);
     CHECK(ListNode::equal({1, 2, 3, 4, 5}, result));
 }
 
 TEST_CASE("5 [test _83]", "[test _83]") {
     const ListNodeLink vec1{1, 2, 2, 3, 3, 4, 5};
-    const ListNode *const result = leetcode_83::deleteDuplicates(vec1[0]);
+    Solution solution;
+    const ListNode *const result = solution.deleteDuplicates(vec1[0]);
     CHECK(ListNode::equal({1, 2, 3, 4, 5}, result));
 }
 
 TEST_CASE("6 [test _83]", "[test _83]") {
     const ListNodeLink vec1{1, 1, 2, 2, 3, 3, 4, 4, 5};
-    const ListNode *const result = leetcode_83::deleteDuplicates(vec1[0]);
+    Solution solution;
+    const ListNode *const result = solution.deleteDuplicates(vec1[0]);
     CHECK(ListNode::equal({1, 2, 3, 4, 5}, result));
 }
 }

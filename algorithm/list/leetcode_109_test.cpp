@@ -12,19 +12,9 @@ Copyright (C) 2020-2023 nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_109_TEST_HPP
 
 #include <catch_main.hpp>
-#include <cstdint>
-#include <cstddef>
-#include <list/listnode.hpp>
-#include <tree/treenode.hpp>
-#include <tree/treenode_link.hpp>
+#include "leetcode_109.cpp"
 
 namespace leetcode_109 {
-using LISTNODE::ListNode;
-using TreeNode = TREE_NODE::TreeNode<int32_t>;
-
-struct leetcode_109 {
-    static TreeNode *sortedListToBST(ListNode *head);
-};
 
 using LISTNODE::ListNodeLink;
 using TreeNodeLink = TREE_NODE::TreeNodeLink<int32_t>;
@@ -35,9 +25,11 @@ TEST_CASE("-1 [test _109]", "[test _109]") {
                                  -3, 9,
                                  -10, TreeNode::No, 5, TreeNode::No,
                                  TreeNode::No, TreeNode::No, TreeNode::No, TreeNode::No};
-    const TreeNode *const result = leetcode_109::sortedListToBST(vec1[0]);
+    Solution solution;
+    const TreeNode *const result = solution.sortedListToBST(vec1[0]);
     const TreeNodeLink link{const_cast<TreeNode *>(result)};
     CHECK(TREE_NODE::judge_equal(const_cast<TreeNode *>(result), output));
 }
+
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_109_TEST_HPP
