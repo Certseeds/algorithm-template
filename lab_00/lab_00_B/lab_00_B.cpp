@@ -11,6 +11,7 @@ Copyright (C) 2020-2023 nanoseeds
 #include <string>
 #include <vector>
 #include <iostream>
+#include <cstdint>
 
 #ifdef CS203_DSAA_TEST_MACRO
 namespace lab_00_B{

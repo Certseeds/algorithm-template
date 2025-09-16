@@ -9,6 +9,7 @@ Copyright (C) 2020-2023 nanoseeds
 
 #include <tuple>
 #include <vector>
+#include <cstdint>
 #include <iostream>
 #include <catch_main.hpp>
 

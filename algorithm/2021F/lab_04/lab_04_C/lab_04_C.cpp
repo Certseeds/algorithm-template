@@ -69,6 +69,7 @@ struct ListNode {
 
 #include <tuple>
 #include <vector>
+#include <cstdint>
 #include <iostream>
 #include <algorithm>
 #include <unordered_map>

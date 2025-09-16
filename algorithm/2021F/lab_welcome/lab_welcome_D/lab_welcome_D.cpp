@@ -14,6 +14,7 @@ Copyright (C) 2020-2023 nanoseeds
 #include <string>
 #include <limits>
 #include <vector>
+#include <cstdint>
 #include <iostream>
 #include <algorithm>
 #include <unordered_map>

@@ -14,6 +14,7 @@ Copyright (C) 2020-2023 nanoseeds
 #include <string>
 #include <vector>
 #include <vector>
+#include <cstdint>
 #include <numeric>
 #include <iostream>
 #include <algorithm>

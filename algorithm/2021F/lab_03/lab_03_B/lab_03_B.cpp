@@ -27,6 +27,7 @@ Copyright (C) 2020-2023 nanoseeds
 #pragma GCC target("mmx")
 
 #include <vector>
+#include <cstdint>
 #include <iostream>
 #include <algorithm>
 #include <cstring>

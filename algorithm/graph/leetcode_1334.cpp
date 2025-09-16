@@ -7,6 +7,7 @@ Copyright (C) 2020-2023 nanoseeds
 */
 #include "leetcode_1334_test.hpp"
 #include <queue>
+#include <climits>
 #include <algorithm>
 
 namespace leetcode_1334 {
@@ -21,7 +22,7 @@ vector<int> minimum_path(const vector<vector<std::pair<int32_t, int32_t>>> &map,
         return p1.second < p2.second;
     };
     priority_queue<std::pair<int32_t, int32_t>, vector<std::pair<int32_t, int32_t>>, decltype(cmp)> nodes(cmp);
-    vector<int32_t> d(map.size(), INT32_MAX);
+    vector<int32_t> d(map.size(), std::numeric_limits<int32_t>::max());
     d[n] = 0;
     nodes.emplace(n, 0);
     while (!nodes.empty()) {

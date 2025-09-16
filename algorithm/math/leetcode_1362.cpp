@@ -9,13 +9,15 @@ Copyright (C) 2020-2023 nanoseeds
 
 #include <cassert>
 #include <cmath>
+#include <cstdint>
+#include <limits>
 
 namespace leetcode_1362 {
 using num_type = int64_t;
 array<num_type, 2> closetDivisors_inside(num_type num) {
     assert(num > 0);
     num_type a{0}, b{0};
-    num_type min_diff{INT64_MAX};
+    num_type min_diff{std::numeric_limits<int64_t>::max()};
     const auto sqrt_num = static_cast<num_type>(std::sqrt(num));
     for (num_type i{sqrt_num}; i > 0; i--) {
         if (num % i == 0) {

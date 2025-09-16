@@ -3,8 +3,9 @@
     Copyright (C) 2020-2023  nanoseeds
 */
 
-#include <iostream>
 #include <vector>
+#include <limits>
+#include <iostream>
 #include <algorithm>
 #include <unordered_map>
 
@@ -16,7 +17,7 @@ int main() {
     int32_t n;
     cin >> n;
     unordered_map<int32_t, int32_t> value_max;
-    int32_t max_v = INT32_MIN / 2;
+    int32_t max_v = std::numeric_limits<int32_t>::min() / 2;
     for (int32_t i = 0; i < n; ++i) {
         int32_t a;
         int32_t b;

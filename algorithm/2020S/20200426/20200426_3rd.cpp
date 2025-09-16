@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <iostream>
 #include <cmath>
+#include <limits>
 
 int32_t main() {
     int32_t n{0};
@@ -25,7 +26,7 @@ int32_t main() {
     }
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
-    double min_value = INT32_MAX / 2;
+    double min_value = std::numeric_limits<int32_t>::max() / 2;
     struct compare {
         bool operator()(const std::pair<int, int> &value,
                         const int &key) {

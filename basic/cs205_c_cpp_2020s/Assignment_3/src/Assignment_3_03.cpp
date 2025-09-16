@@ -13,6 +13,7 @@
 #include <string>
 #include <sstream>
 #include <cstring>
+#include <limits>
 #include "utf8.hpp"
 
 using std::cin;
@@ -81,7 +82,7 @@ int32_t sub_main_assignment_3_03() {
         chars_count[find_alphabeta(blocks, block_count, code_point)]++;
         //  强制类型转换,search and count
     }
-    int32_t max_v = INT32_MIN / 2;
+    int32_t max_v = std::numeric_limits<int32_t>::min() / 2;
     int32_t max_posi = 0;
     for (int i = 0; i < unicode_part_number; ++i) {
         if (chars_count[i] > max_v) {

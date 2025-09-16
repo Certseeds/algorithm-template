@@ -52,6 +52,7 @@ Copyright (C) 2020-2023 nanoseeds
 #include <stack>
 #include <queue>
 #include <vector>
+#include <cstdint>
 #include <iostream>
 #include <algorithm>
 

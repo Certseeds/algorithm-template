@@ -8,6 +8,7 @@ Copyright (C) 2020-2023 nanoseeds
 //@Tag Done
 
 #include <vector>
+#include <cstdint>
 #include <numeric>
 #include <iostream>
 #include <algorithm>

@@ -14,6 +14,7 @@ Copyright (C) 2020-2023 nanoseeds
 #include <catch_main.hpp>
 #include <tuple>
 #include <vector>
+#include <cstdint>
 #include <iostream>
 
 #include "lab_03_A.cpp"

@@ -24,6 +24,7 @@ Copyright (C) 2020-2023 nanoseeds
 #include <limits>
 #include <string>
 #include <vector>
+#include <cstdint>
 #include <iostream>
 
 #ifdef CS203_DSAA_TEST_MACRO

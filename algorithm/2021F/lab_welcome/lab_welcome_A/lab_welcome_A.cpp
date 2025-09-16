@@ -21,6 +21,7 @@ The 4th line contains T integers b1,b2,...,bT.For each bi∈[1,10^9]
 #include <tuple>
 #include <string>
 #include <vector>
+#include <cstdint>
 #include <iostream>
 #include <algorithm>
 #include <unordered_set>

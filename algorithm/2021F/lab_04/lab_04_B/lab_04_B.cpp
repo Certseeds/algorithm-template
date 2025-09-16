@@ -58,6 +58,7 @@ struct ListNode {
 #endif //CS203_DSAA_TEST_MACRO
 
 #include <vector>
+#include <cstdint>
 #include <numeric>
 #include <iostream>
 #include <algorithm>
