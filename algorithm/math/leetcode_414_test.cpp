@@ -15,35 +15,36 @@ Copyright (C) 2020-2023 nanoseeds
 #include <cstdint>
 #include <cstddef>
 #include <vector>
+#include "leetcode_414.cpp"
 
 namespace leetcode_414 {
-
-struct leetcode_414 {
-    static int32_t thirdMax(const vector<int32_t> &nums);
-};
 
 TEST_CASE("1 [test_414]", "[test_414]") {
     const vector<int32_t> input{3, 2, 1};
     static constexpr const auto result{1};
-    CHECK(result == leetcode_414::thirdMax(input));
+    Solution solution;
+    CHECK(result == solution.thirdMax(input));
 }
 
 TEST_CASE("2 [test_414]", "[test_414]") {
     const vector<int32_t> input{2, 1};
     static constexpr const auto result{2};
-    CHECK(result == leetcode_414::thirdMax(input));
+    Solution solution;
+    CHECK(result == solution.thirdMax(input));
 }
 
 TEST_CASE("3 [test_414]", "[test_414]") {
     const vector<int32_t> input{1, 1, 4, 5, 1, 4};
     static constexpr const auto result{1};
-    CHECK(result == leetcode_414::thirdMax(input));
+    Solution solution;
+    CHECK(result == solution.thirdMax(input));
 }
 
 TEST_CASE("4 [test_414]", "[test_414]") {
     const vector<int32_t> input{1, 9, 1, 9, 8, 1, 0};
     static constexpr const auto result{1};
-    CHECK(result == leetcode_414::thirdMax(input));
+    Solution solution;
+    CHECK(result == solution.thirdMax(input));
 }
 
 }

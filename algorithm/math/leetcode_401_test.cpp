@@ -15,14 +15,10 @@ Copyright (C) 2020-2023 nanoseeds
 #include <cstdint>
 #include <cstddef>
 #include <vector>
+#include "leetcode_401.cpp"
 
 namespace leetcode_401 {
 using std::vector;
-
-struct leetcode_401 {
-    static vector<string> readBinaryWatch(int32_t num);
-};
-
 using Catch::Matchers::UnorderedEquals;
 
 TEST_CASE("1 [test_401]", "[test_401]") {
@@ -30,7 +26,8 @@ TEST_CASE("1 [test_401]", "[test_401]") {
     const vector<string> result{
             "0:01", "0:02", "0:04", "0:08", "0:16", "0:32", "1:00", "2:00", "4:00", "8:00"
     };
-    CHECK_THAT(result, UnorderedEquals(leetcode_401::readBinaryWatch(input)));
+    Solution solution;
+    CHECK_THAT(result, UnorderedEquals(solution.readBinaryWatch(input)));
 }
 
 }

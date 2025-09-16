@@ -5,16 +5,26 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#include "leetcode_136_test.hpp"
+#ifdef CS203_DSAA_TEST_MACRO
+
+#include <cstdint>
+#include <vector>
 
 namespace leetcode_136 {
+using std::vector;
+#endif
 
-int leetcode_136::singleNumber(const vector<int32_t> &nums) {
-    int will_return{0};
-    for (const auto num: nums) {
-        will_return ^= num;
+class Solution {
+public:
+    int singleNumber(const vector<int32_t> &nums) {
+        int will_return{0};
+        for (const auto num: nums) {
+            will_return ^= num;
+        }
+        return will_return;
     }
-    return will_return;
-}
+};
 
+#ifdef CS203_DSAA_TEST_MACRO
 }
+#endif

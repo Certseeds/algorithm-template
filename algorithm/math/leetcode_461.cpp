@@ -5,16 +5,24 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#include "leetcode_461_test.hpp"
+#ifdef CS203_DSAA_TEST_MACRO
+
+#include <cstdint>
 
 namespace leetcode_461 {
+#endif
 
-int32_t leetcode_461::hammingDistance(int32_t x, int32_t y) {
-    int32_t count{0};
-    for (int32_t temp{x ^ y}; temp != 0; temp = temp >> 1) {
-        count += (temp & 1);
+class Solution {
+public:
+    int32_t hammingDistance(int32_t x, int32_t y) {
+        int32_t count{0};
+        for (int32_t temp{x ^ y}; temp != 0; temp = temp >> 1) {
+            count += (temp & 1);
+        }
+        return count;
     }
-    return count;
-}
+};
 
+#ifdef CS203_DSAA_TEST_MACRO
 }
+#endif

@@ -15,25 +15,23 @@ Copyright (C) 2020-2023 nanoseeds
 #include <cstdint>
 #include <cstddef>
 #include <vector>
+#include "leetcode_728.cpp"
 
 namespace leetcode_728 {
-
-struct leetcode_728 {
-    static vector<int32_t> selfDividingNumbers(int32_t left, int32_t right);
-};
-
 using Catch::Matchers::Equals;
 
 TEST_CASE("1 [test_728]", "[test_728]") {
     static constexpr const auto left{1}, right{22};
     const vector<int32_t> results{1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22};
-    CHECK_THAT(results, Equals(leetcode_728::selfDividingNumbers(left, right)));
+    Solution solution;
+    CHECK_THAT(results, Equals(solution.selfDividingNumbers(left, right)));
 }
 
 TEST_CASE("2 [test_728]", "[test_728]") {
     static constexpr const auto left{47}, right{85};
     const vector<int32_t> results{48, 55, 66, 77};
-    CHECK_THAT(results, Equals(leetcode_728::selfDividingNumbers(left, right)));
+    Solution solution;
+    CHECK_THAT(results, Equals(solution.selfDividingNumbers(left, right)));
 }
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_728_TEST_HPP

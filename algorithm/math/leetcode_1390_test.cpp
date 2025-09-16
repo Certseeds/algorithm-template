@@ -15,25 +15,23 @@ Copyright (C) 2022 nanoseeds
 #include <cstdint>
 #include <cstddef>
 #include <vector>
+#include "leetcode_1390.cpp"
 
 namespace leetcode_1390 {
-
-namespace leetcode_1390 {
-int32_t sumFourDivisors(const vector<int32_t> &nums);
-}
-
 using Catch::Matchers::Equals;
 
 TEST_CASE("1-1 [test_1390]", "[test_1390]") {
     const vector<int32_t> input{1, 1, 4, 5, 1, 4};
     constexpr const auto result{0};
-    CHECK(result == leetcode_1390::sumFourDivisors(input));
+    Solution solution;
+    CHECK(result == solution.sumFourDivisors(input));
 }
 
 TEST_CASE("1-2 [test_1390]", "[test_1390]") {
     const vector<int32_t> input{21, 4, 7};
     constexpr const auto result{32};
-    CHECK(result == leetcode_1390::sumFourDivisors(input));
+    Solution solution;
+    CHECK(result == solution.sumFourDivisors(input));
 }
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_1390_TEST_HPP

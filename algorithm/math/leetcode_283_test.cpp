@@ -15,28 +15,23 @@ Copyright (C) 2020-2023 nanoseeds
 #include <cassert>
 #include <cstdint>
 #include <vector>
+#include "leetcode_283.cpp"
 
 namespace leetcode_283 {
 using std::vector;
-
-struct leetcode_283 {
-    static void moveZeroes(vector<int32_t> &nums);
-
-    static void moveZeroes2(vector<int32_t> &nums);
-};
-
 using Catch::Matchers::Equals;
 
 TEST_CASE("1 [test_283]", "[test_283]") {
     vector<int32_t> input{0, 1, 0, 3, 12};
     const vector<int32_t> result{1, 3, 12, 0, 0};
+    Solution solution;
     WHEN("one node") {
-        leetcode_283::moveZeroes(input);
+        solution.moveZeroes(input);
         THEN("the values") {
             CHECK_THAT(result, Equals(input));
         }
     }WHEN("one node") {
-        leetcode_283::moveZeroes2(input);
+        solution.moveZeroes2(input);
         THEN("the values") {
             CHECK_THAT(result, Equals(input));
         }

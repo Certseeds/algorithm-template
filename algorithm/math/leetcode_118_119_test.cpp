@@ -12,17 +12,11 @@ Copyright (C) 2020-2023 nanoseeds
 #ifndef CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_118_119_TEST_HPP
 #define CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_118_119_TEST_HPP
 
+
 #include <catch_main.hpp>
-#include <cassert>
-#include <cstdint>
-#include <vector>
+#include "leetcode_118_119.cpp"
 
 namespace leetcode_118 {
-using std::vector;
-
-struct leetcode_118 {
-    static vector<vector<int32_t>> generate(int32_t numRows);
-};
 
 using Catch::Matchers::Equals;
 
@@ -35,7 +29,8 @@ TEST_CASE("1 [test_118]", "[test_118]") {
             {1, 3, 3, 1},
             {1, 4, 6, 4, 1},
     };
-    CHECK_THAT(result, Equals(leetcode_118::generate(input)));
+    Solution solution;
+    CHECK_THAT(result, Equals(solution.generate(input)));
 }
 
 
@@ -44,33 +39,29 @@ TEST_CASE("2 [test_118]", "[test_118]") {
     const vector<vector<int32_t>> result{
             {1},
     };
-    CHECK_THAT(result, Equals(leetcode_118::generate(input)));
+    Solution solution;
+    CHECK_THAT(result, Equals(solution.generate(input)));
 }
 }
 namespace leetcode_119 {
-using std::vector;
-
-struct leetcode_119 {
-    static vector<int32_t> getRow(int32_t rowIndex);
-
-    static vector<int32_t> getRowN(int32_t rowIndex);
-};
 
 using Catch::Matchers::Equals;
 
 TEST_CASE("1 [test_119]", "[test_119]") {
     static constexpr const auto input{3};
     const vector<int32_t> result{1, 3, 3, 1};
-    CHECK_THAT(result, Equals(leetcode_119::getRow(input)));
-    CHECK_THAT(result, Equals(leetcode_119::getRowN(input)));
+    Solution119 solution;
+    CHECK_THAT(result, Equals(solution.getRow(input)));
+    CHECK_THAT(result, Equals(solution.getRowN(input)));
 }
 
 
 TEST_CASE("2 [test_119]", "[test_119]") {
     static constexpr const auto input{1};
     const vector<int32_t> result{1, 1};
-    CHECK_THAT(result, Equals(leetcode_119::getRow(input)));
-    CHECK_THAT(result, Equals(leetcode_119::getRowN(input)));
+    Solution119 solution;
+    CHECK_THAT(result, Equals(solution.getRow(input)));
+    CHECK_THAT(result, Equals(solution.getRowN(input)));
 }
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_118_119_TEST_HPP
