@@ -5,21 +5,31 @@ CS203_DSAA_template
 Copyright (C) 2022-2023  nanos
 
 */
-#include "leetcode_392_test.hpp"
 
+#include <string>
+
+#ifdef CS203_DSAA_TEST_MACRO
 namespace leetcode_392 {
+using std::string;
+#endif
 
-bool leetcode_392::isSubsequence(const string &s, const string &t) {
-    const auto tSize{t.size()}, sSize{s.size()};
-    if (tSize < sSize) {
-        return false;
-    }
-    size_t sNum{0};
-    for (size_t i{0}; i < tSize && sNum != sSize; i++) {
-        if (t[i] == s[sNum]) {
-            sNum++;
+class Solution {
+public:
+    bool isSubsequence(const string &s, const string &t) {
+        const auto tSize{t.size()}, sSize{s.size()};
+        if (tSize < sSize) {
+            return false;
         }
+        size_t sNum{0};
+        for (size_t i{0}; i < tSize && sNum != sSize; i++) {
+            if (t[i] == s[sNum]) {
+                sNum++;
+            }
+        }
+        return sNum == sSize;
     }
-    return sNum == sSize;
+};
+
+#ifdef CS203_DSAA_TEST_MACRO
 }
-}
+#endif

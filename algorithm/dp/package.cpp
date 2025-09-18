@@ -7,7 +7,6 @@ Copyright (C) 2020-2023 nanos
 */
 
 #include "package.hpp"
-#include "package_test.hpp"
 
 namespace dp_package {
 
