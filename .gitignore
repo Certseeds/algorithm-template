@@ -338,3 +338,7 @@ fabric.properties
 *.o
 *.so
 *.exe
+
+## 
+
+*.old
