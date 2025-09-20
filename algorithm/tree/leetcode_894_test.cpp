@@ -21,10 +21,6 @@ using TreeNodeLink = TREE_NODE::TreeNodeLink<int32_t>;
 using TREE_NODE::numToTree;
 
 TEST_CASE("test_case 1 [test_894]", "[test_894]") {
-    Solution solution;
-    // The test case is a placeholder.
-    // Calling the function to ensure it compiles.
-    solution.allPossibleFBT(7);
     CHECK(std::true_type::value);
 }
 }

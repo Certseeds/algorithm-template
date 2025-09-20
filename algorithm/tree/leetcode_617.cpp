@@ -36,11 +36,11 @@ private:
         return willreturn;
     }
 public:
-    TreeNode *mergeTrees(TreeNode *t1, TreeNode *t2) {
+    std::pair<TreeNode *, vector<TreeNode *>> mergeTrees(TreeNode *t1, TreeNode *t2) {
         vector<TreeNode *> will_return{};
         const auto func = [&will_return](TreeNode *node) { will_return.push_back(node); };
         const auto result = mergeTreesRec(t1, t2, func);
-        return result;
+        return {result, will_return};
     }
 };
 

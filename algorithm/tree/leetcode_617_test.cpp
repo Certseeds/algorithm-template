@@ -28,8 +28,9 @@ TEST_CASE("test_case 1 [test_617]", "[test_617]") {
                               TreeNode::No, TreeNode::No, TreeNode::No};
     const vector<int32_t> result{3, 4, 5, 5, 4, TreeNode::No, 7, TreeNode::No, TreeNode::No, TreeNode::No, TreeNode::No,
                               TreeNode::No, TreeNode::No};
-    const auto resultPtr = solution.mergeTrees(input1[0], input2[0]);
+    const auto[resultPtr, resultNodes] = solution.mergeTrees(input1[0], input2[0]);
     CHECK(TREE_NODE::judge_equal(resultPtr, result));
+    const TreeNodeLink link3{resultNodes};
 }
 }
 #endif //ALGORITHM_TEMPLATE_ALGORITHM_TREE_LEETCODE_617_TEST_HPP
