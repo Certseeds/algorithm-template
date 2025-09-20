@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
@@ -10,8 +10,8 @@ Copyright (C) 2020-2023 nanoseeds
 //@Sword-Offer 28
 //@Plan 数据结构入门 Day11
 //@Plan 剑指OfferII-I Day07
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_TREE_LEETCODE_101_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_TREE_LEETCODE_101_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_TREE_LEETCODE_101_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_TREE_LEETCODE_101_TEST_HPP
 
 #include <catch_main.hpp>
 #include "leetcode_101.cpp"
@@ -39,4 +39,4 @@ TEST_CASE("test_case 2 [test_101]", "[test_101]") {
     CHECK_FALSE(solution.isSymmetric(vec[0]));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_TREE_LEETCODE_101_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_TREE_LEETCODE_101_TEST_HPP

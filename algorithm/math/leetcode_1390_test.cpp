@@ -2,14 +2,14 @@
 
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2022 nanoseeds
 
 */
 //@Tag 数学
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_1390_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_1390_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_1390_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_1390_TEST_HPP
 
 #include <catch_main.hpp>
 #include <cstdint>
@@ -34,5 +34,5 @@ TEST_CASE("1-2 [test_1390]", "[test_1390]") {
     CHECK(result == solution.sumFourDivisors(input));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_1390_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_1390_TEST_HPP
 

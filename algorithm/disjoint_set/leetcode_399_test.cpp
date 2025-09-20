@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
 */
 //@Tag disjoint_set
 //@Tag 并查集
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_399_TEST_CPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_399_TEST_CPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_399_TEST_CPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_399_TEST_CPP
 
 #include <catch_main.hpp>
 #include "leetcode_399.cpp"
@@ -129,4 +129,4 @@ TEST_CASE("6 [test_399]", "[test_399]") {
     CHECK_THAT(results, Approx(solution.calcEquation(edges, values, queries)).epsilon(0.01f));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_399_TEST_CPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_399_TEST_CPP

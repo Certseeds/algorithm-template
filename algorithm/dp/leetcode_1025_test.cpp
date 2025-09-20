@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
@@ -10,8 +10,8 @@ Copyright (C) 2020-2023 nanos
 //@Tag 位运算
 //@Tag 数学归纳法
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_1025_TEST_CPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_1025_TEST_CPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_1025_TEST_CPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_1025_TEST_CPP
 
 #include <catch_main.hpp>
 #include "leetcode_1025.cpp"
@@ -39,4 +39,4 @@ TEST_CASE("3 [test_1025]", "[test_1025]") {
     CHECK_FALSE(solution.divisorGame2(input));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_1025_TEST_CPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_1025_TEST_CPP

@@ -1,9 +1,3 @@
-/**
- * @Github: https://github.com/Certseeds/CS203_DSAA_template
- * @Author: nanoseeds
- * @Date: 2020-07-15 21:42:36
- * @LastEditors: nanoseeds
- */
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
 CS203_DSAA_template
@@ -11,8 +5,8 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#ifndef CS203_DSAA_TEMPLATE_INCLUDE_INCLUDE_CS203_TIMER_HPP
-#define CS203_DSAA_TEMPLATE_INCLUDE_INCLUDE_CS203_TIMER_HPP
+#ifndef ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_CS203_TIMER_HPP
+#define ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_CS203_TIMER_HPP
 
 #include <iostream>
 #include <chrono>
@@ -34,4 +28,4 @@ public:
     }
 };
 
-#endif //CS203_DSAA_TEMPLATE_INCLUDE_INCLUDE_CS203_TIMER_HPP
+#endif //ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_CS203_TIMER_HPP

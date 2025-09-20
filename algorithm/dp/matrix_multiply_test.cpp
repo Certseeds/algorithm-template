@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
 */
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_MATRIX_MULTIPLY_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_MATRIX_MULTIPLY_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_MATRIX_MULTIPLY_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_MATRIX_MULTIPLY_TEST_HPP
 
 #include <catch_main.hpp>
 #include "matrix_multiply.cpp"
@@ -52,4 +52,4 @@ TEST_CASE("1 [rec::test_matrix_multiply]", "[test_matrix_multiply]") {
 }
 }
 
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_MATRIX_MULTIPLY_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_MATRIX_MULTIPLY_TEST_HPP

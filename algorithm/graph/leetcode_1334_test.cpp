@@ -1,28 +1,26 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_1334_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_1334_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_1334_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_1334_TEST_HPP
 
 #include <catch_main.hpp>
 #include <cstdint>
 #include <cstddef>
 #include <vector>
+#include "leetcode_1334.cpp"
 
 namespace leetcode_1334 {
 using std::vector;
 
-namespace leetcode_1334 {
-int32_t findTheCity(int32_t n, const vector<vector<int32_t>> &edges, int32_t distanceThreshold);
-}
-
 using Catch::Matchers::UnorderedEquals;
 
 TEST_CASE("basic tests [test_1334]", "[test_1334]") {
+    Solution s;
     const vector<vector<int32_t>> vec{
             {0, 1, 3},
             {1, 2, 1},
@@ -30,10 +28,11 @@ TEST_CASE("basic tests [test_1334]", "[test_1334]") {
             {2, 3, 1},
     };
     constexpr const auto n{4}, distanceThreshold{4};
-    CHECK(3 == leetcode_1334::findTheCity(n, vec, distanceThreshold));
+    CHECK(3 == s.findTheCity(n, vec, distanceThreshold));
 }
 
 TEST_CASE("basic tests 2 [test_1334]", "[test_1334]") {
+    Solution s;
     const vector<vector<int32_t>> vec{
             {0, 1, 2},
             {0, 4, 8},
@@ -43,10 +42,11 @@ TEST_CASE("basic tests 2 [test_1334]", "[test_1334]") {
             {3, 4, 1},
     };
     constexpr const auto n{5}, distanceThreshold{2};
-    CHECK(0 == leetcode_1334::findTheCity(n, vec, distanceThreshold));
+    CHECK(0 == s.findTheCity(n, vec, distanceThreshold));
 }
 
 TEST_CASE("basic tests 3 [test_1334]", "[test_1334]") {
+    Solution s;
     const vector<vector<int32_t>> vec{
             {0, 2, 3996},
             {0, 3, 7495},
@@ -69,8 +69,8 @@ TEST_CASE("basic tests 3 [test_1334]", "[test_1334]") {
             {6, 7, 2202},
     };
     constexpr const auto n{8}, distanceThreshold{7937};
-    CHECK(7 == leetcode_1334::findTheCity(n, vec, distanceThreshold));
+    CHECK(7 == s.findTheCity(n, vec, distanceThreshold));
 }
 
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_1334_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_1334_TEST_HPP

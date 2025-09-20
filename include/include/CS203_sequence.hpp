@@ -1,5 +1,4 @@
 /**
- * @Github: https://github.com/Certseeds/CS203_DSAA_template
  * @Author: nanoseeds
  * @Date: 2020/9/19 21:42:36
  * @LastEditors: nanoseeds
@@ -11,8 +10,8 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#ifndef CS203_DSAA_TEMPLATE_INCLUDE_INCLUDE_CS203_SEQUENCE_HPP
-#define CS203_DSAA_TEMPLATE_INCLUDE_INCLUDE_CS203_SEQUENCE_HPP
+#ifndef ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_CS203_SEQUENCE_HPP
+#define ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_CS203_SEQUENCE_HPP
 
 #include <fstream>
 #include <iostream>
@@ -105,4 +104,4 @@ public:
     }
 };
 
-#endif //CS203_DSAA_TEMPLATE_INCLUDE_INCLUDE_CS203_SEQUENCE_HPP
+#endif //ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_CS203_SEQUENCE_HPP

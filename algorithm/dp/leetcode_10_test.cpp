@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
 */
 //@Tag DP
 //@Tag 动态规划
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_10_TEST_CPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_10_TEST_CPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_10_TEST_CPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_10_TEST_CPP
 
 #include <catch_main.hpp>
 #include "leetcode_10.cpp"
@@ -25,4 +25,4 @@ TEST_CASE("test case 1", "[test_10]") {
     CHECK_FALSE(solution.isMatch("mississippi", "mis*is*p*."));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_10_TEST_CPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_10_TEST_CPP

@@ -1,22 +1,22 @@
 /**
- * @Github: https://github.com/Certseeds/CS203_DSAA_template
+ * @Github: https://github.com/Certseeds/algorithm_template
  * @Author: nanoseeds
  * @Date: 2020-07-22 22:33:32
  * @LastEditors: nanoseeds
  */
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_SORT_SORT_WRAPPER_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_SORT_SORT_WRAPPER_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_SORT_SORT_WRAPPER_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_SORT_SORT_WRAPPER_HPP
 
 #include <vector>
 #include <iostream>
 
 void sort_warpper(std::vector<int32_t> &nums);
 
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_SORT_SORT_WRAPPER_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_SORT_SORT_WRAPPER_HPP

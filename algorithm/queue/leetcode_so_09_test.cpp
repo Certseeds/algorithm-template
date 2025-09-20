@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2022-2023  nanoseeds
 
@@ -9,8 +9,8 @@ Copyright (C) 2022-2023  nanoseeds
 //@Tag 队列
 //@Tag 模拟
 //@Plan 剑指OfferII-I Day01
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_QUEUE_LEETCODE_SO_09_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_QUEUE_LEETCODE_SO_09_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_QUEUE_LEETCODE_SO_09_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_QUEUE_LEETCODE_SO_09_TEST_HPP
 
 #include <catch_main.hpp>
 #include <string>
@@ -51,4 +51,4 @@ TEST_CASE("test case pure-2 [test_sw_09]", "[test_sw_09]") {
     CHECK(2 == ptr->deleteHead());
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_QUEUE_LEETCODE_SO_09_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_QUEUE_LEETCODE_SO_09_TEST_HPP

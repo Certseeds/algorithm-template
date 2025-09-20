@@ -5,8 +5,8 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#ifndef CS203_DSAA_TEMPLATE_INCLUDES_TREENODE_HPP
-#define CS203_DSAA_TEMPLATE_INCLUDES_TREENODE_HPP
+#ifndef ALGORITHM_TEMPLATE_INCLUDES_TREENODE_HPP
+#define ALGORITHM_TEMPLATE_INCLUDES_TREENODE_HPP
 
 #include <tree/treenode_template.hpp>
 #include <vector>
@@ -74,4 +74,4 @@ static bool judge_equal(TreeNode<T> *const root, const vector<T> &vec) {
 }
 };
 
-#endif  //CS203_DSAA_TEMPLATE_INCLUDES_TREENODE_HPP
+#endif  //ALGORITHM_TEMPLATE_INCLUDES_TREENODE_HPP

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
@@ -10,8 +10,8 @@ Copyright (C) 2020-2023 nanoseeds
 //@Description 最大值
 //@Description 最小值
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_MIN_MAX_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_MIN_MAX_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_MIN_MAX_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_MIN_MAX_HPP
 
 #include <catch_main.hpp>
 #include "min_max_middle.cpp"
@@ -91,4 +91,4 @@ TEST_CASE("basic test 8 [test_minmax]", "[test_minmax]") {
     }
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_MIN_MAX_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_MIN_MAX_HPP

@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
 */
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DP_PACKAGE_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DP_PACKAGE_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_PACKAGE_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DP_PACKAGE_HPP
 
 #include <cstddef>
 #include <cstdint>
@@ -73,4 +73,4 @@ public:
 }
 
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_PACKAGE_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DP_PACKAGE_HPP

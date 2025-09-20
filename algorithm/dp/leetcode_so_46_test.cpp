@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
@@ -8,8 +8,8 @@ Copyright (C) 2020-2023 nanos
 //@Tag DP
 //@Tag 动态规划
 //@Plan 剑指OfferII-I Day10
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_SO_46_TEST_CPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_SO_46_TEST_CPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_SO_46_TEST_CPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_SO_46_TEST_CPP
 
 #include <catch_main.hpp>
 #include "leetcode_so_46.cpp"
@@ -25,4 +25,4 @@ TEST_CASE("1 [test_so_46]", "[test_so_46]") {
 
 
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_SO_46_TEST_CPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_SO_46_TEST_CPP

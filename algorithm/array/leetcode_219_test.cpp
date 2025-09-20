@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
@@ -8,8 +8,8 @@ Copyright (C) 2020-2023 nanoseeds
 //@Tag array
 //@Tag 数组
 //@Tag 哈希表
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_219_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_219_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_219_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_219_TEST_HPP
 
 #include <catch_main.hpp>
 #include <cstdint>
@@ -41,4 +41,4 @@ TEST_CASE("test case 3 [test_219]", "[test_219]") {
     CHECK_FALSE(solution.containsNearbyDuplicate(input, k));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_219_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_219_TEST_HPP

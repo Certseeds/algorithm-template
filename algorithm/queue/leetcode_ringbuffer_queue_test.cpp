@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2024 nanoseeds
 
 */
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_QUEUE_RINGBUFFER_QUEUE_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_QUEUE_RINGBUFFER_QUEUE_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_QUEUE_RINGBUFFER_QUEUE_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_QUEUE_RINGBUFFER_QUEUE_HPP
 
 #include <catch_main.hpp>
 #include "leetcode_ringbuffer_queue.cpp"
@@ -71,4 +71,4 @@ TEST_CASE("test case pure-1 [test_rbqueue_09]", "[test_rbqueue_09]") {
 }
 }
 
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_QUEUE_RINGBUFFER_QUEUE_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_QUEUE_RINGBUFFER_QUEUE_HPP

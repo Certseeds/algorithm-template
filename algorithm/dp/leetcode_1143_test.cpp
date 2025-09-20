@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
@@ -10,8 +10,8 @@ Copyright (C) 2020-2023 nanos
 //@Description 最长公共子序列
 //@Plan 动态规划入门 Day19
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_1143_TEST_CPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_1143_TEST_CPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_1143_TEST_CPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_1143_TEST_CPP
 
 #include <catch_main.hpp>
 #include "leetcode_1143.cpp"
@@ -88,4 +88,4 @@ TEST_CASE("8 [test_1143]", "[test_1143]") {
     CHECK(result == solution.longestCommonSubsequence2(input1, input2));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_1143_TEST_CPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_1143_TEST_CPP

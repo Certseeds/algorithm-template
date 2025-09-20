@@ -6,8 +6,8 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#ifndef CS203_DSAA_TEMPLATE_INCLUDE_INCLUDE_CS203_HELPER_HPP
-#define CS203_DSAA_TEMPLATE_INCLUDE_INCLUDE_CS203_HELPER_HPP
+#ifndef ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_CS203_HELPER_HPP
+#define ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_CS203_HELPER_HPP
 static constexpr const double eps{0.00000001}, neps{-eps};
 
 constexpr inline int32_t sign(int32_t x) {
@@ -18,4 +18,4 @@ constexpr inline int32_t sign(double x) {
     return ((x < neps) ? -1 : (x > neps));
 }
 
-#endif //CS203_DSAA_TEMPLATE_INCLUDE_INCLUDE_CS203_HELPER_HPP
+#endif //ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_CS203_HELPER_HPP

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
@@ -8,8 +8,8 @@ Copyright (C) 2020-2023 nanoseeds
 //@Tag string
 //@Tag 字符串
 //@Tag 模拟
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_12_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_12_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_STRING_LEETCODE_12_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_STRING_LEETCODE_12_TEST_HPP
 
 #include "leetcode_12.cpp"
 #include <catch_main.hpp>
@@ -75,4 +75,4 @@ TEST_CASE("test case 6 [test_12]", "[test_12]") {
 }
 
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_12_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_STRING_LEETCODE_12_TEST_HPP

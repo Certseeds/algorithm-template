@@ -1,26 +1,24 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_743_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_743_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_743_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_743_TEST_HPP
 
 #include <catch_main.hpp>
 #include <cstdint>
 #include <cstddef>
 #include <vector>
+#include "leetcode_743.cpp"
 
 namespace leetcode_743 {
 using std::vector;
 
-struct leetcode_743 {
-    static int32_t networkDelayTime(const vector<vector<int32_t>> &times, int32_t n, int32_t k);
-};
-
 TEST_CASE("basic tests [test_743]", "[test_743]") {
+    Solution s;
     const vector<vector<int32_t>> input{
             {2, 1, 1},
             {2, 3, 1},
@@ -28,16 +26,17 @@ TEST_CASE("basic tests [test_743]", "[test_743]") {
     };
     static constexpr const auto n{4}, k{2};
     static constexpr const auto result{2};
-    CHECK(result == leetcode_743::networkDelayTime(input, n, k));
+    CHECK(result == s.networkDelayTime(input, n, k));
 }
 
 TEST_CASE("basic tests 2[test_743]", "[test_743]") {
+    Solution s;
     const vector<vector<int32_t>> input{
             {1, 2, 1},
     };
     static constexpr const auto n{2}, k{1};
     static constexpr const auto result{1};
-    CHECK(result == leetcode_743::networkDelayTime(input, n, k));
+    CHECK(result == s.networkDelayTime(input, n, k));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_743_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_743_TEST_HPP

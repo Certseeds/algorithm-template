@@ -1,30 +1,26 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_797_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_797_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_797_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_797_TEST_HPP
 
 #include <catch_main.hpp>
 #include <cstdint>
 #include <cstddef>
 #include <vector>
+#include "leetcode_797.cpp"
 
 namespace leetcode_797 {
 using std::vector;
 
-struct leetcode_797 {
-    static vector<vector<int32_t>> allPathsSourceTarget(const vector<vector<int32_t>> &graph);
-
-    static vector<vector<int32_t>> allPathsSourceTarget2(const vector<vector<int32_t>> &graph);
-};
-
 using Catch::Matchers::UnorderedEquals;
 
 TEST_CASE("basic tests [test_797]", "[test_797]") {
+    Solution s;
     const vector<vector<int32_t>> input{
             {4, 3, 1},
             {3, 2, 4},
@@ -39,9 +35,9 @@ TEST_CASE("basic tests [test_797]", "[test_797]") {
             {0, 1, 2, 3, 4},
             {0, 1, 4}
     };
-    CHECK_THAT(result, UnorderedEquals(leetcode_797::allPathsSourceTarget(input)));
-    CHECK_THAT(result, UnorderedEquals(leetcode_797::allPathsSourceTarget2(input)));
+    CHECK_THAT(result, UnorderedEquals(s.allPathsSourceTarget(input)));
+    CHECK_THAT(result, UnorderedEquals(s.allPathsSourceTarget2(input)));
 }
 
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_797_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_GRAPH_LEETCODE_797_TEST_HPP

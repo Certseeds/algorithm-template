@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2022-2023  nanoseeds
 
@@ -8,8 +8,8 @@ Copyright (C) 2022-2023  nanoseeds
 //@Tag associative_container
 //@Tag arrays as hashmap
 //@Tag 自定义hash函数
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_ASSOCIATIVE_CONTAINER_LEETCODE_914_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_ASSOCIATIVE_CONTAINER_LEETCODE_914_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_ASSOCIATIVE_CONTAINER_LEETCODE_914_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_ASSOCIATIVE_CONTAINER_LEETCODE_914_TEST_HPP
 
 #include "leetcode_914.cpp"
 #include <catch_main.hpp>
@@ -28,4 +28,4 @@ TEST_CASE("test case 2 {test_914}", "{test_914}") {
     CHECK_FALSE(solution.hasGroupsSizeX(input));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_ASSOCIATIVE_CONTAINER_LEETCODE_914_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_ASSOCIATIVE_CONTAINER_LEETCODE_914_TEST_HPP

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2022-2023  nanoseeds
 
@@ -11,8 +11,8 @@ Copyright (C) 2022-2023  nanoseeds
 //@Description 利用地址不重复
 //@Plan 数据结构入门 Day7
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_141_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_141_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_141_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_141_TEST_HPP
 
 
 #include <catch_main.hpp>
@@ -40,4 +40,4 @@ TEST_CASE("2nd [test_141]", "[test_141]") {
     CHECK(clas.hasCycle2(link[0]));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_141_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_141_TEST_HPP

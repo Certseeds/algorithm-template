@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
@@ -8,8 +8,8 @@ Copyright (C) 2020-2023 nanoseeds
 //@Tag tree
 //@Tag 树
 //@Plan 数据结构入门 Day11
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_TREE_LEETCODE_104_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_TREE_LEETCODE_104_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_TREE_LEETCODE_104_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_TREE_LEETCODE_104_TEST_HPP
 
 #include <catch_main.hpp>
 #include "leetcode_104.cpp"
@@ -27,4 +27,4 @@ TEST_CASE("test_case 1 [test_104]", "[test_104]") {
     CHECK(result == solution.maxDepth(input[0]));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_TREE_LEETCODE_104_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_TREE_LEETCODE_104_TEST_HPP

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*  CS203_DSAA_template
+/*  algorithm_template
     Copyright (C) 2022-2023  nanoseeds
 */
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_CS302_BANKER_BANKER_BASE_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_CS302_BANKER_BANKER_BASE_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_CS302_BANKER_BANKER_BASE_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_CS302_BANKER_BANKER_BASE_HPP
 
 #include <catch_main.hpp>
 #include <cstdint>
@@ -89,4 +89,4 @@ std::string getFilePath() noexcept {
 }
 
 const std::string CS203_redirect::file_paths = getFilePath();
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_CS302_BANKER_BANKER_BASE_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_CS302_BANKER_BANKER_BASE_HPP

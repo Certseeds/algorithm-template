@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
 */
 //@Tag list
 //@Tag 链表
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_82_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_82_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_82_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_82_TEST_HPP
 
 #include <catch_main.hpp>
 #include "leetcode_82.cpp"
@@ -72,4 +72,4 @@ TEST_CASE("6 [test _82]", "[test _82]") {
     CHECK(ListNode::equal({5}, result));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_82_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_82_TEST_HPP

@@ -25,7 +25,7 @@ foreach (elementName IN LISTS dependencies)
     add_executable(${PROJECT_NAME}_${elementName} ${CMAKE_CURRENT_SOURCE_DIR}/${elementName}_test.cpp)
     target_compile_definitions(${PROJECT_NAME}_${elementName} PRIVATE CS203_DSAA_TEST_MACRO)
     target_link_libraries(${PROJECT_NAME}_${elementName} PRIVATE
-                          CS203_DSAA_template_INCLUDE
+                          algorithm_template_INCLUDE
                           ${PROJECT_NAME}_basic_src)
     MESSAGE(STATUS "${PROJECT_NAME}_${elementName} from ${CMAKE_CURRENT_SOURCE_DIR}/${elementName}_test.cpp")
     add_test(${PROJECT_NAME}_${elementName}_CTEST ${PROJECT_NAME}_${elementName})

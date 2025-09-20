@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
@@ -8,8 +8,8 @@ Copyright (C) 2020-2023 nanoseeds
 //@Tag stack
 //@Tag 栈
 //@Tag 单调栈
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_STACK_LEETCODE_321_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_STACK_LEETCODE_321_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_STACK_LEETCODE_321_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_STACK_LEETCODE_321_TEST_HPP
 
 #include <catch_main.hpp>
 #include "leetcode_321.cpp"
@@ -45,4 +45,4 @@ TEST_CASE("1 [test_321]", "[test_321]") {
     CHECK_THAT(number, Equals(solution.maxNumber(nums1, nums2, k)));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_STACK_LEETCODE_321_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_STACK_LEETCODE_321_TEST_HPP

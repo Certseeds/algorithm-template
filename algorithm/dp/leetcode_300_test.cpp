@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
@@ -11,8 +11,8 @@ Copyright (C) 2020-2023 nanos
 //@Tag 单调栈
 //@Linked 121 122
 //@Plan 动态规划入门 Day18
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_300_TEST_CPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_300_TEST_CPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_300_TEST_CPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_300_TEST_CPP
 
 #include <catch_main.hpp>
 #include "leetcode_300.cpp"
@@ -48,4 +48,4 @@ TEST_CASE("3 [test_300]", "[test_300]") {
     CHECK(result == solution.lengthOfLIS(input));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_300_TEST_CPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_300_TEST_CPP

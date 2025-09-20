@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
 */
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_BINARY_SEARCH_BASIC_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_BINARY_SEARCH_BASIC_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_BINARY_SEARCH_BASIC_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_BINARY_SEARCH_BASIC_HPP
 
 #include <tuple>
 #include <vector>
@@ -40,4 +40,4 @@ num_t upper_bound_warpper(cVecRef nums, num_t first, num_t last, num_t value);
 
 num_t binary_search_pos(cVecRef vec, int32_t target, int32_t begin, int32_t end);
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_BINARY_SEARCH_BASIC_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_BINARY_SEARCH_BASIC_HPP

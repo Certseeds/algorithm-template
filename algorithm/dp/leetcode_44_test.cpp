@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
 */
 //@Tag DP
 //@Tag 动态规划
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_44_TEST_CPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_44_TEST_CPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_44_TEST_CPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_44_TEST_CPP
 
 #include <catch_main.hpp>
 #include "leetcode_44.cpp"
@@ -49,4 +49,4 @@ TEST_CASE("both * and ? [test_44]", "[test_44]") {
     CHECK_FALSE(solution.isMatch("acdcb", "a*c?b"));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_44_TEST_CPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_44_TEST_CPP

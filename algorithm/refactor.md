@@ -27,7 +27,7 @@
 
 - 不需要刻意添加 `#define CS203_DSAA_TEST_MACRO`，它是 cmake 注入的
 - 不需要添加 `#ifndef CS203_DSAA_TEST_MACRO`以及对应的 `#endif`
-- 不得删除 `#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_${number}_TEST_HPP` 相关宏
+- 不得删除 `#ifndef ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_${number}_TEST_HPP` 相关宏
 - 需要完全保持原有函数不变, 禁止 int32_t 转换为 int 等最小的变化
 
 ## 本次变更详细记录 (2025年9月15日)

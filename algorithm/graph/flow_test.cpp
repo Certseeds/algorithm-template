@@ -1,12 +1,12 @@
 /**
- * @Github: https://github.com/Certseeds/CS203_DSAA_template
+ * @Github: https://github.com/Certseeds/algorithm_template
  * @Author: nanos
  * @Date: 2021-06-08 23:10:45
  * @LastEditors: nanos
  */
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 

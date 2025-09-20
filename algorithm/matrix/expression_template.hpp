@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*  CS203_DSAA_template
+/*  algorithm_template
     Copyright (C) 2020-2023 nanoseeds
 */
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_MATRIX_EXPRESSION_TEMPLATE_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_MATRIX_EXPRESSION_TEMPLATE_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_MATRIX_EXPRESSION_TEMPLATE_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_MATRIX_EXPRESSION_TEMPLATE_HPP
 
 #include "template_helper.hpp"
 
@@ -119,4 +119,4 @@ max(const Expression<TLhs> &lhs, const Expression<TRhs> &rhs) {
 // no constructor and destructor to allocate and de-allocate memory
 
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_MATRIX_EXPRESSION_TEMPLATE_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_MATRIX_EXPRESSION_TEMPLATE_HPP

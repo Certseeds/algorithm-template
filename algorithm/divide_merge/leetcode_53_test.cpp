@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
@@ -12,8 +12,8 @@ Copyright (C) 2020-2023 nanos
 //@Plan 动态规划入门 Day5
 //@Plan 数据结构入门 Day1
 //@Plan 剑指OfferII-I Day09
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DIVIDE_MERGE_LEETCODE_53_TEST_CPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DIVIDE_MERGE_LEETCODE_53_TEST_CPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DIVIDE_MERGE_LEETCODE_53_TEST_CPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DIVIDE_MERGE_LEETCODE_53_TEST_CPP
 
 #include <catch_main.hpp>
 #include "leetcode_53.cpp"
@@ -78,4 +78,4 @@ TEST_CASE("7 [test_53]", "[test_53]") {
     CHECK(solution.maxSubArray2(input) == output);
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DIVIDE_MERGE_LEETCODE_53_TEST_CPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DIVIDE_MERGE_LEETCODE_53_TEST_CPP

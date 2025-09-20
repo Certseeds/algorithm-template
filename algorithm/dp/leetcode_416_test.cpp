@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
@@ -8,8 +8,8 @@ Copyright (C) 2020-2023 nanos
 //@Tag DP
 //@Tag 动态规划
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_416_TEST_CPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_416_TEST_CPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_416_TEST_CPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_416_TEST_CPP
 
 #include <catch_main.hpp>
 #include "leetcode_416.cpp"
@@ -38,4 +38,4 @@ TEST_CASE("3 [test_416]", "[test_416]") {
     CHECK_FALSE(solution.canPartition2(input));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_416_TEST_CPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_416_TEST_CPP

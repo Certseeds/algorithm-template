@@ -1,5 +1,4 @@
 /*
- * @Github: https://github.com/Certseeds/CS203_DSAA_template
  * @Author: nanoseeds
  * @Date: 2020-07-15 21:44:06
  * @LastEditors: nanoseeds
@@ -12,8 +11,8 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#ifndef CS203_DSAA_TEMPLATE_INCLUDE_INCLUDE_PUBLIC_HPP
-#define CS203_DSAA_TEMPLATE_INCLUDE_INCLUDE_PUBLIC_HPP
+#ifndef ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_PUBLIC_HPP
+#define ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_PUBLIC_HPP
 
 #include <string>
 #include <cstdint>
@@ -53,4 +52,4 @@ inline bool compareFiles(std::string p1, std::string p2) {
                       std::istreambuf_iterator<char>(f2.rdbuf()));
 }
 
-#endif //CS203_DSAA_TEMPLATE_INCLUDE_INCLUDE_PUBLIC_HPP
+#endif //ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_PUBLIC_HPP

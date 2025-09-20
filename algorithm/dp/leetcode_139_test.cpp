@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
@@ -10,8 +10,8 @@ Copyright (C) 2020-2023 nanos
 //@Tag Trie
 //@Tag 字典树
 //@Plan 动态规划入门 Day9
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_139_TEST_CPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_139_TEST_CPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_139_TEST_CPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_139_TEST_CPP
 
 #include <catch_main.hpp>
 #include "leetcode_139.cpp"
@@ -41,4 +41,4 @@ TEST_CASE("3 [test_139]", "[test_139]") {
     CHECK_FALSE(solution.wordBreak(input, {std::cbegin(wordDict), std::cend(wordDict)}));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_139_TEST_CPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_139_TEST_CPP

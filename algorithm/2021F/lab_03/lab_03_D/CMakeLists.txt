@@ -10,7 +10,7 @@ add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_ORDER}_${PR
 set(CMAKE_CXX_STANDARD 17)
 add_executable(${PROJECT_NAME}_test ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_ORDER}_${PROBLEM_ORDER}_test.cpp)
 target_compile_definitions(${PROJECT_NAME}_test PRIVATE CS203_DSAA_TEST_MACRO)
-target_link_libraries(${PROJECT_NAME}_test PRIVATE CS203_DSAA_template_INCLUDE)
+target_link_libraries(${PROJECT_NAME}_test PRIVATE algorithm_template_INCLUDE)
 MESSAGE(STATUS "${PROJECT_NAME}_${elementName} from ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_ORDER}_${PROBLEM_ORDER}_test.cpp")
 add_test(${PROJECT_NAME}_CTEST ${PROJECT_NAME}_test)
 set(CMAKE_CXX_STANDARD 11)

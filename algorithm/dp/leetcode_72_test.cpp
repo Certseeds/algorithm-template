@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2022-2023  nanos
 
@@ -9,8 +9,8 @@ Copyright (C) 2022-2023  nanos
 //@Tag 动态规划
 //@Description 最小路径和
 //@Plan 动态规划入门 Day19
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_72_TEST_CPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_72_TEST_CPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_72_TEST_CPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_72_TEST_CPP
 
 #include <catch_main.hpp>
 #include "leetcode_72.cpp"
@@ -77,4 +77,4 @@ TEST_CASE("8 [test_72]", "[test_72]") {
     CHECK(result == solution.minDistance(input1, input2));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_72_TEST_CPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_72_TEST_CPP

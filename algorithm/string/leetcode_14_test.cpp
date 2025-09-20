@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
@@ -8,8 +8,8 @@ Copyright (C) 2020-2023 nanoseeds
 //@Tag string
 //@Tag 字符串
 //@Tag 模拟
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_14_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_14_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_STRING_LEETCODE_14_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_STRING_LEETCODE_14_TEST_HPP
 
 #include <catch_main.hpp>
 #include "leetcode_14.cpp"
@@ -42,4 +42,4 @@ TEST_CASE("test case 3 [test_14]", "[test_14]") {
     CHECK(solution.longestCommonPrefix(strs).empty());
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_14_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_STRING_LEETCODE_14_TEST_HPP

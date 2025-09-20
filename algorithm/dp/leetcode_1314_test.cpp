@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanos
 
@@ -9,8 +9,8 @@ Copyright (C) 2020-2023 nanos
 //@Tag 动态规划
 //@Description 经典小学数学题,交叉部分算面积
 //@Plan 动态规划入门 Day14
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_1314_TEST_CPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_1314_TEST_CPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_1314_TEST_CPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_1314_TEST_CPP
 
 #include <catch_main.hpp>
 #include "leetcode_1314.cpp"
@@ -55,4 +55,4 @@ TEST_CASE("2 [test_1314]", "[test_1314]") {
 
 }
 
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DP_LEETCODE_1314_TEST_CPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_1314_TEST_CPP

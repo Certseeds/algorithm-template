@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2022-2023  nanoseeds
 
@@ -9,8 +9,8 @@ Copyright (C) 2022-2023  nanoseeds
 //@Tag 数组
 //@Tag 暴力解法
 //@Plan 剑指OfferII-I Day04
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_SO_03_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_SO_03_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_SO_03_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_SO_03_TEST_HPP
 
 #include "leetcode_so_03.cpp"
 #include <catch_main.hpp>
@@ -40,4 +40,4 @@ TEST_CASE("test case 2 [test_so_03]", "[test_so_03]") {
 }
 
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_SO_03_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_SO_03_TEST_HPP

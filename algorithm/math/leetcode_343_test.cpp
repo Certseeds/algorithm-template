@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
@@ -8,8 +8,8 @@ Copyright (C) 2020-2023 nanoseeds
 //@Tag Math
 //@Tag 数学
 //@Plan 动态规划入门 Day21
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_343_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_343_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_343_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_343_TEST_HPP
 
 #include <catch_main.hpp>
 #include <cassert>
@@ -46,5 +46,5 @@ TEST_CASE("4 [test_343]", "[test_343]") {
     CHECK(result == solution.integerBreak(input));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_LIST_LEETCODE_343_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_343_TEST_HPP
 

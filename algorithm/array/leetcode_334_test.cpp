@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2020-2023 nanoseeds
 
@@ -9,8 +9,8 @@ Copyright (C) 2020-2023 nanoseeds
 //@Tag 数组
 //@Tag DP
 //@Plan 数据结构基础 Day4
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_334_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_334_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_334_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_334_TEST_HPP
 
 #include <catch_main.hpp>
 #include "leetcode_334.cpp"
@@ -44,4 +44,4 @@ TEST_CASE("test case 4 [test_334]", "[test_334]") {
     CHECK_FALSE(solution.increasingTriplet(input));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_334_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_334_TEST_HPP

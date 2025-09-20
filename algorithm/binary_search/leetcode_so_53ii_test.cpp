@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 /*
-CS203_DSAA_template
+algorithm_template
 
 Copyright (C) 2022-2023  nanoseeds
 
@@ -8,8 +8,8 @@ Copyright (C) 2022-2023  nanoseeds
 //@Tag binary-search
 //@Tag 二分搜索
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_BINARY_SEARCH_LEETCODE_SO_53II_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_BINARY_SEARCH_LEETCODE_SO_53II_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_BINARY_SEARCH_LEETCODE_SO_53II_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_BINARY_SEARCH_LEETCODE_SO_53II_HPP
 
 #include "leetcode_so_53ii.cpp"
 #include <catch_main.hpp>
@@ -45,4 +45,4 @@ TEST_CASE("test case 4 [test_so_53ii]", "[test_so_53ii]") {
     CHECK(result == solution.missingNumber(input));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_BINARY_SEARCH_LEETCODE_SO_53II_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_BINARY_SEARCH_LEETCODE_SO_53II_HPP
