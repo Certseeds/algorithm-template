@@ -19,14 +19,14 @@
     An awesome Algorithm Template for IO-Driven Single-File Problem(like Online-Judge Problem) ! </br>
     分布式<sup title="由git保证">1</sup> 去中心化<sup title="推荐使用template生成仓库, 不设置主库;没有易受打击的web页">2</sup> 的IO驱动型单文件问题<sup title="包括但不限于OJ平台题目">4</sup>解题模板
     <br />
-    <a href="https://github.com/Certseeds/CS203_DSAA_template/blob/dev/README.md"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Certseeds/algorithm-template/blob/dev/README.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Certseeds/CS203_DSAA_template/tree/release">View Demo</a>
+    <a href="https://github.com/Certseeds/algorithm-template/tree/release">View Demo</a>
     ·
-    <a href="https://github.com/Certseeds/CS203_DSAA_template/issues/new?template=bug_report.md">Report Bug</a>
+    <a href="https://github.com/Certseeds/algorithm-template/issues/new?template=bug_report.md">Report Bug</a>
     ·
-    <a href="https://github.com/Certseeds/CS203_DSAA_template/issues/new?template=feature_request.md">Request Feature</a>
+    <a href="https://github.com/Certseeds/algorithm-template/issues/new?template=feature_request.md">Request Feature</a>
   </p>
 </div>
 
@@ -76,9 +76,9 @@ OJ系统存在着一些特殊要求-因此考虑到下面的因素, 设计了一
 2. 使用绿色按钮[Use This Template][Use_This_Template], 生成仓库, clone下来使用(推荐)
 3. fork repo, clone下来使用(不推荐, fork的仓库只有合入主仓库才被github计入提交图)
 
-[download_zip]: https://github.com/Certseeds/CS203_DSAA_template/releases/latest/download/script_no_need.zip
-[download_zip_refs]: https://github.com/Certseeds/CS203_DSAA_template/archive/refs/heads/release.zip
-[Use_This_Template]: https://github.com/Certseeds/CS203_DSAA_template/generate
+[download_zip]: https://github.com/Certseeds/algorithm-template/releases/latest/download/script_no_need.zip
+[download_zip_refs]: https://github.com/Certseeds/algorithm-template/archive/refs/heads/release.zip
+[Use_This_Template]: https://github.com/Certseeds/algorithm-template/generate
 
 ### Prerequisites
 
@@ -109,7 +109,7 @@ ccache --version
 
 ``` bash
 # 在use this template之后
-git clone https://github.com/${YOUE_GITHUB_USER_NAME}/CS203_DSAA_template.git
+git clone https://github.com/${YOUE_GITHUB_USER_NAME}/algorithm-template.git
 ```
 
 + 使用CLion打开仓库
@@ -154,7 +154,7 @@ git clone https://github.com/${YOUE_GITHUB_USER_NAME}/CS203_DSAA_template.git
 + 在本repo, 使用`Catch2`测试框架.
   + 比如, 我们有四组数据, 第一组, 第二组测试边界值, 第三组使用随机数测试对偶性与正确性, 第四组测试几个手动的随机值.
   + 参见[test_for_lab00_A](./lab_00/lab_00_A/lab_00_A_test.cpp).
-+ 这样一来, 我们只需要每次修改完主文件之后, run `CS203_DSAA_template_test`, 对其进行调用, 就能验证其在所有的测试用例上的正确性.
++ 这样一来, 我们只需要每次修改完主文件之后, run `algorithm-template_test`, 对其进行调用, 就能验证其在所有的测试用例上的正确性.
 
 ### 多个输出值的检查:`Catch::Matchers`
 
@@ -196,7 +196,7 @@ PS: 此处注意, 引用文件的相对路径, 不是直接的`test/lab_00/lab_0
 
 而是编译出的文件相对于测试数据的相对路径.
 
-在样例中, 编译出的文件在`CS203_DSAA_template/cmake-build-debug`下, 所以需要加`./../`
+在样例中, 编译出的文件在`algorithm-template/cmake-build-debug`下, 所以需要加`./../`
 
 ### 输入输出重定向-Stage 2: 从文件中读取输入, 将输出定向到文件中
 
@@ -357,7 +357,7 @@ some code is based on this license
 
 讨论内容相关的，请到 [Discussion][discussion_LINK]
 
-Project Link: [https://github.com/Certseeds/CS203_DSAA_template][Project_LINK]
+Project Link: [https://github.com/Certseeds/algorithm-template][Project_LINK]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -380,27 +380,27 @@ Use this space to list resources you find helpful and would like to give credit 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 [Best-Readme-Template]: https://github.com/othneildrew/Best-README-Template
-[Project_LINK]: https://github.com/Certseeds/CS203_DSAA_template
-[issue_LINK]: https://github.com/Certseeds/CS203_DSAA_template/issues
-[pr_LINK]: https://github.com/Certseeds/CS203_DSAA_template/pulls
-[discussion_LINK]: https://github.com/Certseeds/CS203_DSAA_template/discussions
+[Project_LINK]: https://github.com/Certseeds/algorithm-template
+[issue_LINK]: https://github.com/Certseeds/algorithm-template/issues
+[pr_LINK]: https://github.com/Certseeds/algorithm-template/pulls
+[discussion_LINK]: https://github.com/Certseeds/algorithm-template/discussions
 [catch2_image]: https://raw.githubusercontent.com/catchorg/Catch2/v2.x/artwork/catch2-logo-small.png
 [AGPL-shield]: https://img.shields.io/badge/License-AGPL-orange?style=for-the-badge
 [AGPL_Link]: http://opensource.org/licenses/AGPL
 [cc_by_nc_sa_4_0_shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-orange?style=for-the-badge
 [cc_by_nc_sa_4_0]: https://creativecommons.org/licenses/by-nc-sa/4.0/
 [cc_by_nc_sa_4_0_image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
-[contributors-shield]: https://img.shields.io/github/contributors/Certseeds/CS203_DSAA_template.svg?style=for-the-badge
-[contributors-url]: https://github.com/Certseeds/CS203_DSAA_template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Certseeds/CS203_DSAA_template.svg?style=for-the-badge
-[forks-url]: https://github.com/Certseeds/CS203_DSAA_template/network/members
-[stars-shield]: https://img.shields.io/github/stars/Certseeds/CS203_DSAA_template.svg?style=for-the-badge
-[stars-url]: https://github.com/Certseeds/CS203_DSAA_template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Certseeds/CS203_DSAA_template.svg?style=for-the-badge
-[issues-url]: https://github.com/Certseeds/CS203_DSAA_template/issues
-[license-shield]: https://img.shields.io/github/license/Certseeds/CS203_DSAA_template.svg?style=for-the-badge
-[license-url]: https://github.com/Certseeds/CS203_DSAA_template/blob/master/LICENSE.md
-[release-shield]: https://img.shields.io/github/release/Certseeds/CS203_DSAA_template.svg?style=for-the-badge
-[release-url]: https://github.com/Certseeds/CS203_DSAA_template/releases
+[contributors-shield]: https://img.shields.io/github/contributors/Certseeds/algorithm-template.svg?style=for-the-badge
+[contributors-url]: https://github.com/Certseeds/algorithm-template/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Certseeds/algorithm-template.svg?style=for-the-badge
+[forks-url]: https://github.com/Certseeds/algorithm-template/network/members
+[stars-shield]: https://img.shields.io/github/stars/Certseeds/algorithm-template.svg?style=for-the-badge
+[stars-url]: https://github.com/Certseeds/algorithm-template/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Certseeds/algorithm-template.svg?style=for-the-badge
+[issues-url]: https://github.com/Certseeds/algorithm-template/issues
+[license-shield]: https://img.shields.io/github/license/Certseeds/algorithm-template.svg?style=for-the-badge
+[license-url]: https://github.com/Certseeds/algorithm-template/blob/master/LICENSE.md
+[release-shield]: https://img.shields.io/github/release/Certseeds/algorithm-template.svg?style=for-the-badge
+[release-url]: https://github.com/Certseeds/algorithm-template/releases
 [GitHub-Whexy]: https://github.com/whexy
 [Two-Night-Online-Judge]: https://www.whexy.com/posts/wannaAC

@@ -6,9 +6,7 @@
  * @LastEditTime: 2021-04-16 13:24:40
  */
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*  CS205_C_CPP
-    Copyright (C) 2020-2023 nanoseeds
-*/
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 #include <iostream>
 #include <tuple>
 #include <unordered_map>

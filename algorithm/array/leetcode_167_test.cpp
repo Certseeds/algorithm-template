@@ -1,15 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 //@Tag array
 //@Tag 数组
 //@Tag 双指针
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_167_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_167_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_167_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_167_TEST_HPP
 
 #include <catch_main.hpp>
 #include <cstdint>
@@ -40,4 +35,4 @@ TEST_CASE("test case 2 [test_167]", "[test_167]") {
     CHECK_THAT(solution.twoSum2(input, target), Equals(result));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_167_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_167_TEST_HPP

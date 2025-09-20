@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 /*
  *@题目描述
  * 给一个序列 α, 一共有ν(希腊字母Nu)个元素,其中的第ι(希腊字幕iota)个元素为$α_ι$
@@ -40,7 +35,7 @@ Copyright (C) 2020-2023 nanoseeds
  * PS: 据说跳表也可以,没尝试故不分析
  * */
 //@Tag DONE
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 
 #else
 
@@ -51,7 +46,7 @@ Copyright (C) 2020-2023 nanoseeds
 #pragma GCC optimize("inline-small-functions")
 #pragma GCC optimize("-finline-small-functions")
 #pragma GCC target("sse,sse2,mmx")
-#endif //CS203_DSAA_TEST_MACRO
+#endif //ALGORITHM_TEST_MACRO
 
 #include <tuple>
 #include <vector>
@@ -60,7 +55,7 @@ Copyright (C) 2020-2023 nanoseeds
 #include <algorithm>
 #include <unordered_set>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace lab_04_D{
 #endif
 using std::cin;
@@ -357,6 +352,6 @@ static const auto faster_streams = [] {
     // 关闭c++风格输入输出 , 与C风格输入输出的同步,提高性能.
     return 0;
 }();
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

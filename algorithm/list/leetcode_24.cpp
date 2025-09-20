@@ -1,27 +1,32 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-Copyright (C) 2020-2023 nanoseeds
-
-*/
-#include "leetcode_24_test.hpp"
+#include <list/listnode.hpp>
 
 namespace leetcode_24 {
+using LISTNODE::ListNode;
 
-ListNode *leetcode_24::swapPairs(ListNode *head) {
-    if (head == nullptr) {
-        return nullptr;
-    } else if (head->next == nullptr) {
-        return head;
+#endif
+
+class Solution {
+public:
+    ListNode *swapPairs(ListNode *head) {
+        if (head == nullptr) {
+            return nullptr;
+        } else if (head->next == nullptr) {
+            return head;
+        }
+        ListNode *const fir = head;
+        ListNode *const sec = fir->next;
+        ListNode *const third = swapPairs(sec->next);
+        sec->next = fir;
+        fir->next = third;
+        return sec;
     }
-    ListNode *const fir = head;
-    ListNode *const sec = fir->next;
-    ListNode *const third = swapPairs(sec->next);
-    sec->next = fir;
-    fir->next = third;
-    return sec;
-}
+};
 
+#ifdef ALGORITHM_TEST_MACRO
 }
+#endif
 

@@ -5,9 +5,7 @@
  * @LastEditors  : nanoseeds
  */
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*  CS205_C_CPP
-    Copyright (C) 2020-2023 nanoseeds
-*/
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 #define UNIT_TESTING_LAB_02
 
 #include <catch_main.hpp>

@@ -1,29 +1,36 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 
-Copyright (C) 2022 nanoseeds
 
-*/
-#include "leetcode_814_test.hpp"
 
+#ifdef ALGORITHM_TEST_MACRO
+#include <cstddef>
+
+#include <tree/treenode.hpp>
 namespace leetcode_814 {
+using std::vector;
+using TreeNode = TREE_NODE::TreeNode<int32_t>;
+#endif
 
-TreeNode *pruneTree_rec(TreeNode *root) {
-    if (root == nullptr) {
-        return nullptr;
+class Solution {
+private:
+    TreeNode *pruneTree_rec(TreeNode *root) {
+        if (root == nullptr) {
+            return nullptr;
+        }
+        root->left = pruneTree_rec(root->left);
+        root->right = pruneTree_rec(root->right);
+        if (root->left == nullptr && root->right == nullptr && root->val == 0) {
+            return nullptr;
+        }
+        return root;
     }
-    root->left = pruneTree_rec(root->left);
-    root->right = pruneTree_rec(root->right);
-    if (root->left == nullptr && root->right == nullptr && root->val == 0) {
-        return nullptr;
+
+public:
+    TreeNode *pruneTree(TreeNode *root) {
+        return pruneTree_rec(root);
     }
-    return root;
+};
+#ifdef ALGORITHM_TEST_MACRO
 }
-
-TreeNode *leetcode_814::pruneTree(TreeNode *root) {
-    return pruneTree_rec(root);
-
-}
-
-}
+#endif

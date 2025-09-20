@@ -1,21 +1,29 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 
-Copyright (C) 2020-2023 nanoseeds
+#include <tree/treenode.hpp>
 
-*/
-#include "leetcode_100_test.hpp"
-
+#ifdef ALGORITHM_TEST_MACRO
+#include <vector>
 namespace leetcode_100 {
+using TreeNode = TREE_NODE::TreeNode<int32_t>;
 
-bool leetcode_100::isSameTree(TreeNode *p, TreeNode *q) {
-    if (p == q) {
-        return true;
-    } else if (p == nullptr || q == nullptr) {
-        return false;
+#endif
+
+
+class Solution {
+public:
+    bool isSameTree(TreeNode *p, TreeNode *q) {
+        if (p == q) {
+            return true;
+        } else if (p == nullptr || q == nullptr) {
+            return false;
+        }
+        return p->val == q->val &&
+               isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
     }
-    return p->val == q->val &&
-           isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+};
+
+#ifdef ALGORITHM_TEST_MACRO
 }
-}
+#endif

@@ -4,9 +4,7 @@
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 
-CS203_DSAA_template
-
-Copyright (C) 2020-2023 nanoseeds
+SPDX-FileCopyrightText: 2020-2025 nanoseeds
 """
 
 import os
@@ -19,11 +17,8 @@ file_header_template: str
 level1_cmake_template: str
 level2_cmake_template: str
 test_cmake_template: str
-GITHUB_USER: str = 'Certseeds'  # replace it with your github name # example: Certseeds
 USER: str = 'nanoseeds'  # replace it with your user name # example: nanoseeds
-REPO_NAME: str = 'CS203_DSAA_template'  # replace it with your github repo name # example: CS203_DSAA_template
 year: str = time.strftime('%Y', time.localtime())
-create_time: str = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
 main_cmake_path: str = './../CMakeLists.txt'
 
 
@@ -37,14 +32,12 @@ def read_file(file_name: str) -> str:
 def fill_file(lab_number: str, problem_order: str) -> None:
     with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/lab_{lab_number}_{problem_order}.cpp', mode='a+',
               encoding='UTF-8') as file:
-        file.write(file_header_template.format(
-            GITHUB_USER, REPO_NAME, USER, create_time, year))
+        file.write(file_header_template.format(year, USER))
         file.write(main_code_template.format(lab_number, problem_order))
     print('main finish')
     with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/lab_{lab_number}_{problem_order}_test.cpp',
               mode='a+', encoding='UTF-8') as file:
-        file.write(file_header_template.format(
-            GITHUB_USER, REPO_NAME, USER, create_time, year))
+        file.write(file_header_template.format(year, USER))
         file.write(test_code_template.format(lab_number, problem_order))
     print('test finish')
 

@@ -1,14 +1,34 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-Copyright (C) 2022-2023  nanoseeds
-
-*/
-#include "leetcode_146_test.hpp"
+#include <cstdint>
+#include <cstddef>
+#include <unordered_map>
+#include <memory>
+#include <limits>
 #include <class_helper/nonable.hpp>
 
+
 namespace leetcode_146 {
+using std::unordered_map;
+using std::unique_ptr;
+
+#endif
+
+class LRUCache {
+protected:
+    const size_t size;
+public:
+    explicit LRUCache(int32_t capacity) : size(capacity) {}
+
+    virtual int32_t get(int32_t key) = 0;
+
+    virtual void put(int32_t key, int32_t value) = 0;
+
+    virtual ~LRUCache() = default;
+};
+
 class LRU final : public LRUCache, protected nonCopyMoveAble {
 private:
     struct Node final : private nonCopyMoveAble {
@@ -79,14 +99,20 @@ public:
     }
 
     ~LRU() override {
-        for (const auto&[k, v]: umap) {
+        for (const auto &[k, v]: umap) {
             delete v;
         }
     }
 };
 
-std::unique_ptr<LRUCache> leetcode_146::get(int32_t cap) {
-    return std::make_unique<LRU>(cap);
+class Solution {
+public:
+    std::unique_ptr<LRUCache> get(int32_t cap) {
+        return std::make_unique<LRU>(cap);
+    }
+};
+
+#ifdef ALGORITHM_TEST_MACRO
 }
-}
+#endif
 

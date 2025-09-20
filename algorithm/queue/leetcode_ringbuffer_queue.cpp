@@ -1,49 +1,49 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2024-2025 nanoseeds
 
-Copyright (C) 2024 nanoseeds
-
-*/
-
-#include "leetcode_ringbuffer_queue.hpp"
 
 namespace rbqueue {
-
-ringbuffer_queue::ringbuffer_queue(size_t size) : vec(vector<int32_t>(size, 0)) {
-    csize = size;
-}
-
-bool ringbuffer_queue::isFull() const {
-    if (write - read == csize) {
-        return true;
-    } else if (read - write == csize) {
-        return true;
+class ringbuffer_queue {
+private:
+    std::vector<int32_t> vec;
+    size_t read{0}, write{0};
+    size_t csize{};
+public:
+    explicit ringbuffer_queue(size_t size) : vec(vector<int32_t>(size, 0)) {
+        csize = size;
     }
-    return false;
-}
 
-bool ringbuffer_queue::isEmpty() const {
-    return read == write; // if read == write, it must be empty
-}
-
-void ringbuffer_queue::push(int32_t value) {
-    if (isFull()) {
-        return;
+    bool isFull() const {
+        if (write - read == csize) {
+            return true;
+        } else if (read - write == csize) {
+            return true;
+        }
+        return false;
     }
-    vec[write % csize] = value;
-    write = (write + 1) % (csize << 1);
-}
 
-void ringbuffer_queue::pop() {
-    if (isEmpty()) {
-        return;
+    bool isEmpty() const {
+        return read == write; // if read == write, it must be empty
     }
-    read = (read + 1) % (csize << 1);
-}
 
-int32_t ringbuffer_queue::front() {
-    return vec[read % csize];
-}
+    void push(int32_t value) {
+        if (isFull()) {
+            return;
+        }
+        vec[write % csize] = value;
+        write = (write + 1) % (csize << 1);
+    }
+
+    void pop() {
+        if (isEmpty()) {
+            return;
+        }
+        read = (read + 1) % (csize << 1);
+    }
+
+    int32_t front() {
+        return vec[read % csize];
+    }
+};
 
 }

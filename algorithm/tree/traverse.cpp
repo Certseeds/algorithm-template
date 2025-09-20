@@ -1,17 +1,11 @@
 /*
- * @Github: https://github.com/Certseeds/CS203_DSAA_template
  * @Author: nanoseeds
  * @Date: 2020-07-30 10:30:53
  * @LastEditors: nanoseeds
  * @LastEditTime: 2020-07-30 18:18:53
  */
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 
 #include <catch_main.hpp>
 #include <functional>

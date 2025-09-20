@@ -1,16 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 
-Copyright (C) 2020-2023 nanos
-
-*/
-
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_DISJOINT_SET_DISJOINT_SET_LINKEDLIST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_DISJOINT_SET_DISJOINT_SET_LINKEDLIST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_DISJOINT_SET_DISJOINT_SET_LINKEDLIST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_DISJOINT_SET_DISJOINT_SET_LINKEDLIST_HPP
 
 #include <vector>
-#include <class_helper/nonable.hpp>
+#include <cstdint>
+#include <cstddef>
+#include "class_helper/nonable.hpp"
 
 namespace disjoint_set {
 namespace linkedlist {
@@ -34,4 +31,4 @@ public:
 };
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_DISJOINT_SET_DISJOINT_SET_LINKEDLIST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_DISJOINT_SET_DISJOINT_SET_LINKEDLIST_HPP

@@ -1,14 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2022-2023  nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 //@Tag array
 //@Tag 数组
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_852_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_852_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_852_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_852_TEST_HPP
 
 #include <catch_main.hpp>
 #include "leetcode_852.cpp"
@@ -50,4 +45,4 @@ TEST_CASE("test case 5 [test_852]", "[test_852]") {
     CHECK(result == solution.peakIndexInMountainArray(inputs));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_852_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_852_TEST_HPP

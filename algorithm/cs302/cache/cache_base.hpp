@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*  CS203_DSAA_template
-    Copyright (C) 2022-2024  nanoseeds
-*/
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_CACHE_CACHE_BASE_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_CACHE_CACHE_BASE_HPP
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_CACHE_CACHE_BASE_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_CACHE_CACHE_BASE_HPP
 
 #include <cstdint>
 #include <cstddef>
@@ -53,4 +51,4 @@ std::string getFilePath() noexcept {
 }
 
 const std::string CS203_redirect::file_paths = getFilePath();
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_CACHE_CACHE_BASE_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_CACHE_CACHE_BASE_HPP

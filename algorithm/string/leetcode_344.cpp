@@ -1,17 +1,23 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
+#include <vector>
+#include <algorithm>
+#include <cstddef>
 
-Copyright (C) 2020-2023 nanoseeds
-
-*/
-#include "leetcode_344_test.hpp"
-
+#ifdef ALGORITHM_TEST_MACRO
 namespace leetcode_344 {
+using std::vector;
+#endif
 
-void leetcode_344::reverseString(vector<char> &s) {
-    for (size_t left{0}, right{s.size() - 1}; left < right; left++, right--) {
-        std::swap(s[left], s[right]);
+class Solution {
+public:
+    void reverseString(vector<char> &s) {
+        for (size_t left{0}, right{s.size() - 1}; left < right; left++, right--) {
+            std::swap(s[left], s[right]);
+        }
     }
+};
+
+#ifdef ALGORITHM_TEST_MACRO
 }
-}
+#endif

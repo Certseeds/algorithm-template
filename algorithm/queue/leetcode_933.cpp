@@ -1,19 +1,26 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2022-2023  nanoseeds
-
-*/
-#include "leetcode_933_test.hpp"
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 #include <queue>
+
+#ifdef ALGORITHM_TEST_MACRO
 
 namespace leetcode_933 {
 using std::queue;
+#endif
+
+class RecentCounter {
+protected:
+    RecentCounter() = default;
+
+public:
+    virtual int ping(int t) = 0;
+
+    virtual ~RecentCounter() = default;
+};
 
 class RecentCounterNormal : public RecentCounter {
 private:
-    queue<int> que;
+    std::queue<int> que;
 public:
     RecentCounterNormal() = default;
 
@@ -26,7 +33,13 @@ public:
     }
 };
 
-RecentCounter *leetcode_933::pure() {
-    return new RecentCounterNormal();
+class Solution {
+public:
+    RecentCounter *pure() {
+        return new RecentCounterNormal();
+    }
+};
+
+#ifdef ALGORITHM_TEST_MACRO
 }
-}
+#endif

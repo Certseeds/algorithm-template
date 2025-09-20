@@ -1,22 +1,27 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-Copyright (C) 2020-2023 nanoseeds
-
-*/
-#include "leetcode_so_22_test.hpp"
+#include <list/listnode.hpp>
 
 namespace leetcode_so_22 {
+using LISTNODE::ListNode;
 
-ListNode *leetcode_so_22::getKthFromEnd(ListNode *head, int32_t k) {
-    const ListNode *slow{head}, *fast{head};
-    for (int32_t i{0}; fast != nullptr && i < k; (fast = fast->next) && ++i) {}
-    if (fast == nullptr) {
-        return const_cast<ListNode *>(slow);
+#endif
+
+class Solution {
+public:
+    ListNode *getKthFromEnd(ListNode *head, int32_t k) {
+        const ListNode *slow{head}, *fast{head};
+        for (int32_t i{0}; fast != nullptr && i < k; (fast = fast->next) && ++i) {}
+        if (fast == nullptr) {
+            return const_cast<ListNode *>(slow);
+        }
+        for (; fast != nullptr; (fast = fast->next) && (slow = slow->next)) {}
+        return slow->next;
     }
-    for (; fast != nullptr; (fast = fast->next) && (slow = slow->next)) {}
-    return slow->next;
-}
+};
 
+#ifdef ALGORITHM_TEST_MACRO
 }
+#endif

@@ -1,15 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2022-2023  nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 //@Tag array
 //@Tag 数组
 //@Tag 暴力解法
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_697_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_697_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_697_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_697_TEST_HPP
 
 #include <catch_main.hpp>
 
@@ -46,4 +41,4 @@ TEST_CASE("test case 4 [test_697]", "[test_697]") {
     CHECK(result == solution.findShortestSubArray(input));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_697_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_697_TEST_HPP

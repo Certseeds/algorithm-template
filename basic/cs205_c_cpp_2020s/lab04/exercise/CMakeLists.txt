@@ -11,7 +11,7 @@ add_executable(${PROJECT_NAME}_test test_lab04.cpp)
 
 target_link_libraries(${PROJECT_NAME}_01 PUBLIC ${PROJECT_NAME}_pizza)
 target_link_libraries(${PROJECT_NAME}_02 PUBLIC ${PROJECT_NAME}_CandyBar)
-target_link_libraries(${PROJECT_NAME}_test PUBLIC CS203_DSAA_template_INCLUDE
+target_link_libraries(${PROJECT_NAME}_test PUBLIC algorithm_template_INCLUDE
                       ${PROJECT_NAME}_pizza
                       ${PROJECT_NAME}_CandyBar)
 

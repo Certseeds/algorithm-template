@@ -1,89 +1,109 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-Copyright (C) 2022 nanoseeds
-
-*/
-#include "leetcode_so_30_test.hpp"
 #include <stack>
+#include <cstdint>
+#include <algorithm>
 
 namespace leetcode_so_30 {
 using std::stack;
+#endif
 
-struct MinStackPure : MinStack {
-private:
-    stack<int32_t> sta1, sta2;
+class MinStack {
 public:
-    MinStackPure() : MinStack() {};
+    MinStack() = default;
 
-    void push(int x) override final {
-        sta1.push(x);
-        if (sta2.empty()) {
-            sta2.push(x);
-        } else {
-            const auto minV = std::min(x, sta2.top());
-            sta2.push(minV);
-        }
-    }
+    virtual void push(int x) = 0;
 
-    void pop() override final {
-        sta1.pop();
-        sta2.pop();
-    }
+    virtual void pop() = 0;
 
-    int top() override final {
-        return sta1.top();
-    }
+    virtual int top() = 0;
 
-    int min() override final {
-        return sta2.top();
-    }
+    virtual int min() = 0;
+
+    virtual ~MinStack() = default;
 };
 
-struct MinStackEffective : MinStack {
+class Solution {
 private:
-    stack<int32_t> sta1, sta2;
-public:
-    MinStackEffective() : MinStack() {};
+    struct MinStackPure : MinStack {
+    private:
+        stack<int32_t> sta1, sta2;
+    public:
+        MinStackPure() : MinStack() {};
 
-    void push(int x) final {
-        if (sta2.empty()) {
-            sta2.push(x);
-        } else {
-            if (sta2.top() >= x) {
+        void push(int x) override final {
+            sta1.push(x);
+            if (sta2.empty()) {
                 sta2.push(x);
+            } else {
+                const auto minV = std::min(x, sta2.top());
+                sta2.push(minV);
             }
         }
-        sta1.push(x);
-    }
 
-    void pop() final {
-        if (sta1.empty()) {
-            return;
-        }
-        const auto top = this->top();
-        sta1.pop();
-        if (!sta2.empty() && top == this->min()) {
+        void pop() override final {
+            sta1.pop();
             sta2.pop();
         }
+
+        int top() override final {
+            return sta1.top();
+        }
+
+        int min() override final {
+            return sta2.top();
+        }
+    };
+
+    struct MinStackEffective : MinStack {
+    private:
+        stack<int32_t> sta1, sta2;
+    public:
+        MinStackEffective() : MinStack() {};
+
+        void push(int x) final {
+            if (sta2.empty()) {
+                sta2.push(x);
+            } else {
+                if (sta2.top() >= x) {
+                    sta2.push(x);
+                }
+            }
+            sta1.push(x);
+        }
+
+        void pop() final {
+            if (sta1.empty()) {
+                return;
+            }
+            const auto top = this->top();
+            sta1.pop();
+            if (!sta2.empty() && top == this->min()) {
+                sta2.pop();
+            }
+        }
+
+        int top() final {
+            return sta1.top();
+        }
+
+        int min() final {
+            return sta2.top();
+        }
+    };
+
+public:
+    MinStack *pure() {
+        return new MinStackPure();
     }
 
-    int top() final {
-        return sta1.top();
-    }
-
-    int min() final {
-        return sta2.top();
+    MinStack *effective() {
+        return new MinStackEffective();
     }
 };
 
-MinStack *leetcode_so_30::pure() {
-    return new MinStackPure();
+#ifdef ALGORITHM_TEST_MACRO
 }
-
-MinStack *leetcode_so_30::effective() {
-    return new MinStackEffective();
-}
-
-}
+#endif

@@ -1,48 +1,37 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
+#include <string>
+#include <vector>
+#include <cctype>
 
-Copyright (C) 2020-2023 nanoseeds
-
-*/
-#include "leetcode_784_test.hpp"
-
+#ifdef ALGORITHM_TEST_MACRO
 namespace leetcode_784 {
+using std::string;
+using std::vector;
+#endif
 
-static constexpr const char diff = 'A' - 'a';
-
-char low_to_up(const char &ch) {
-    if (ch >= 'A' && ch <= 'Z') {
-        return ch - diff;
+class Solution {
+public:
+    vector<string> letterCasePermutation(string S) {
+        vector<string> result;
+        dfs(S, 0, result);
+        return result;
     }
-    return ch;
-}
 
-char up_to_low(const char &ch) {
-    if (ch >= 'a' && ch <= 'z') {
-        return ch + diff;
-    }
-    return ch;
-}
-
-vector<string> leetcode_784::letterCasePermutation(const string &S) {
-    const auto s_size{S.size()};
-    vector<size_t> pos;
-    pos.reserve(s_size);
-    for (size_t i{0}; i < s_size; ++i) {
-        if (std::isalpha(S[i])) {
-            pos.push_back(i);
+private:
+    void dfs(string &s, int index, vector<string> &result) {
+        if (index == s.length()) {
+            result.push_back(s);
+            return;
+        }
+        dfs(s, index + 1, result);
+        if (isalpha(s[index])) {
+            s[index] ^= 32;
+            dfs(s, index + 1, result);
         }
     }
-    const size_t pos_size{pos.size()}, will_return_size = 1 << pos_size;
-    vector<string> will_return(will_return_size, S);
-    for (size_t i{0}; i < pos_size; ++i) {
-        const int divisor = (1 << (pos.size() - 1 - i));
-        for (size_t j{0}; j < will_return_size; ++j) {
-            will_return[j][pos[i]] = ((j / divisor) % 2 == 0) ? low_to_up(S[pos[i]]) : up_to_low(S[pos[i]]);
-        }
-    }
-    return will_return;
-}
+};
 
+#ifdef ALGORITHM_TEST_MACRO
 }
+#endif

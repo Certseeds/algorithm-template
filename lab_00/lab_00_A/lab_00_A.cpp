@@ -1,15 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 #include <tuple>
 #include <vector>
 #include <iostream>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace lab_00_A{
 #endif
 using std::tie;
@@ -65,6 +60,6 @@ static const auto faster_streams = [] {
     return 0;
 }();
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

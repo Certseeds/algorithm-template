@@ -1,12 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2021-2025 nanoseeds
 
-Copyright (C) 2021 nanoseeds
-
-*/
-#ifndef CS203_DSAA_TEMPLATE_INCLUDE_TREE_TREENODE_TEMPLATE_HPP
-#define CS203_DSAA_TEMPLATE_INCLUDE_TREE_TREENODE_TEMPLATE_HPP
+#ifndef ALGORITHM_TEMPLATE_INCLUDE_TREE_TREENODE_TEMPLATE_HPP
+#define ALGORITHM_TEMPLATE_INCLUDE_TREE_TREENODE_TEMPLATE_HPP
 #include <class_helper/nonable.hpp>
 namespace TREE_NODE_TEMP {
 template<typename T, template<typename> typename CLASS>
@@ -30,4 +26,4 @@ private:
     friend CLASS<T>;
 };
 }
-#endif //CS203_DSAA_TEMPLATE_INCLUDE_TREE_TREENODE_TEMPLATE_HPP
+#endif //ALGORITHM_TEMPLATE_INCLUDE_TREE_TREENODE_TEMPLATE_HPP

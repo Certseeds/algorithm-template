@@ -1,13 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2020-2023 nanos
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 
 #include "package.hpp"
-#include "package_test.hpp"
 
 namespace dp_package {
 

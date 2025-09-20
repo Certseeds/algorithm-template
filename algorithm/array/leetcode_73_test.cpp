@@ -1,16 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 //@Tag array
 //@Tag 数组
 //@Plan 数据结构入门 Day5
 
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_73_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_73_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_73_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_73_TEST_HPP
 
 #include <catch_main.hpp>
 #include <cstdint>
@@ -90,4 +85,4 @@ TEST_CASE("basic test 4[test_73]", "[test_73]") {
 
 
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_73_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_73_TEST_HPP

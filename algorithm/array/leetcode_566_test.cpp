@@ -1,15 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2022-2023  nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 //@Tag array
 //@Tag 数组
 //@Plan 数据结构入门 Day4
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_566_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_566_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_566_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_566_TEST_HPP
 
 #include <catch_main.hpp>
 #include <cstdint>
@@ -40,4 +35,4 @@ TEST_CASE("test case 2 [test_566]", "[test_566]") {
     CHECK_THAT(solution.matrixReshape(input, r, c), Equals(result));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_566_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_566_TEST_HPP
