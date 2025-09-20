@@ -25,7 +25,7 @@ jobs:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: hardwares - cpu
         run: nproc; cat /proc/cpuinfo
@@ -78,16 +78,19 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     name: publish release
+    env:
+      CC:   gcc-13
+      CXX:  g++-13
     if: github.repository == 'Certseeds/algorithm-template'
     needs: test
     # The type of runner that the job will run on
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Branch name
         id: branch_name
@@ -144,18 +147,19 @@ jobs:
 
   release-branch:
     name: publish release-branch
+    env:
+      CC:   gcc-13
+      CXX:  g++-13
     if: github.repository == 'Certseeds/algorithm-template'
     needs: [ test, build ]
     # The type of runner that the job will run on
-    runs-on: ubuntu-22.04
-    env:
-      GCC_V: 11
+    runs-on: ubuntu-24.04
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Branch name
         id: branch_name

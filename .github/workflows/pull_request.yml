@@ -24,7 +24,7 @@ jobs:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - uses: actions/cache@v4
         env:
           cache-name: cache-cmake-files
@@ -112,7 +112,7 @@ jobs:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # ensure the path and files of project
       - name: ensure the path and files of project
