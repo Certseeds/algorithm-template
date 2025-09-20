@@ -6,6 +6,8 @@
 #include <tuple>
 #include <string>
 #include <vector>
+#include <cstdint>
+#include <cstddef>
 #include <numeric>
 #include <iostream>
 #include <algorithm>
