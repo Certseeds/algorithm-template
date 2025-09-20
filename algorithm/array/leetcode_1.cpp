@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // SPDX-FileCopyrightText: 2020-2025 nanoseeds
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 
 #include <unordered_map>
 #include <cstdint>
@@ -31,6 +31,6 @@ public:
 if the number is not so big, it's better to use brute force,
 if number > 50,choose hashmap.
  */
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

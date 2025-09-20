@@ -1,6 +1,6 @@
 
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 #include <vector>
 #include <cstdint>
 #include <vector>
@@ -40,6 +40,6 @@ public:
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

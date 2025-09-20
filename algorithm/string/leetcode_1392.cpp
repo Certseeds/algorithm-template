@@ -7,7 +7,7 @@
 #include <cstdint>
 #include <cstddef>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace leetcode_1392 {
 #endif
 
@@ -51,6 +51,6 @@ public:
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

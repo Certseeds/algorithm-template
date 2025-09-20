@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // SPDX-FileCopyrightText: 2020-2025 nanoseeds
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 
 #include <algorithm>
 #include <cassert>
@@ -30,7 +30,7 @@ class Solution {
         for (int32_t i{0}; i < 10; i++) {
             fact[i] = facts(i);
         }
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
         assert(fact[n] >= k && k >= 0);
         assert(n >= 1 && n <= 9);
 #endif
@@ -51,7 +51,7 @@ class Solution {
         for (int32_t i{0}; i < 10; i++) {
             fact[i] = facts(i);
         }
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
         assert(fact[n] >= k && k >= 1);
         assert(1 <= n && n <= 9);
 #endif
@@ -77,7 +77,7 @@ class Solution {
         for (int32_t i{0}; i < 10; i++) {
             fact[i] = facts(i);
         }
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
         assert(fact[n] >= k && k >= 1);
         assert(n >= 1 && n <= 9);
 #endif
@@ -89,6 +89,6 @@ class Solution {
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

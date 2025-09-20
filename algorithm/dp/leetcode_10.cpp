@@ -5,7 +5,7 @@
 #include <string>
 #include <cstdint>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace leetcode_10 {
 using std::vector;
 using std::string;
@@ -39,6 +39,6 @@ public:
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

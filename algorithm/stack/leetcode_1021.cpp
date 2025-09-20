@@ -3,7 +3,7 @@
 //@Tag stack
 //@Tag 栈
 //@Tag 输入保证合法
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 
 #include <string>
 #include <cstddef>
@@ -34,6 +34,6 @@ public:
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

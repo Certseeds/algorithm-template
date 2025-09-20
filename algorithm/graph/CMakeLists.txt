@@ -19,7 +19,7 @@ foreach (elementName IN LISTS dependencies)
                    ${CMAKE_CURRENT_SOURCE_DIR}/${elementName}_test.cpp)
     target_link_libraries(${PROJECT_NAME}_${elementName}
                           ${PROJECT_NAME}_BUILD_GRAPH algorithm_template_INCLUDE)
-    target_compile_definitions(${PROJECT_NAME}_${elementName} PRIVATE CS203_DSAA_TEST_MACRO)
+    target_compile_definitions(${PROJECT_NAME}_${elementName} PRIVATE ALGORITHM_TEST_MACRO)
 
     MESSAGE(STATUS "${PROJECT_NAME}_${elementName} from ${CMAKE_CURRENT_SOURCE_DIR}/${elementName}_test.cpp")
     add_test(${PROJECT_NAME}_${elementName}_CTEST ${PROJECT_NAME}_${elementName})

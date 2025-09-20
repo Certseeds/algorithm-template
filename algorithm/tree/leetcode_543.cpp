@@ -1,6 +1,6 @@
 
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 #include <cstdint>
 #include <memory>
 #include <algorithm>
@@ -30,6 +30,6 @@ public:
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

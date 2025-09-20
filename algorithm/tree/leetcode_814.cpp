@@ -3,7 +3,7 @@
 
 
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 #include <cstddef>
 
 #include <tree/treenode.hpp>
@@ -31,6 +31,6 @@ public:
         return pruneTree_rec(root);
     }
 };
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

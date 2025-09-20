@@ -48,7 +48,7 @@ public:
     }
 };
 
-#ifndef CS203_DSAA_TEST_MACRO
+#ifndef ALGORITHM_TEST_MACRO
 
 /* if in this macro, it means it do not belong to ./test/lab_${number}/${x}_test.cpp
    so, it need define file_paths although it maybe do not need that
@@ -59,6 +59,6 @@ std::string getFilePath() noexcept {
 }
 
 const std::string CS203_redirect::file_paths = getFilePath();
-#endif //CS203_DSAA_TEST_MACRO
+#endif //ALGORITHM_TEST_MACRO
 
 #endif //ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_CS203_REDIRECT_HPP

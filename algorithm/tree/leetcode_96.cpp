@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // SPDX-FileCopyrightText: 2020-2025 nanoseeds
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 #include <unordered_map>
 #include <array>
 #include <cstdint>
@@ -50,6 +50,6 @@ int32_t numTreesConstexpr(int32_t n) {
     // constexpr,很神奇吧
     return arr[n];
 }
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

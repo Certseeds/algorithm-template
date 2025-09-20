@@ -9,7 +9,7 @@
 #include <cstdint>
 #include <cstddef>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace leetcode_3 {
 using std::string;
 using std::vector;
@@ -80,6 +80,6 @@ public:
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

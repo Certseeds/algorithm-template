@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // SPDX-FileCopyrightText: 2020-2025 nanoseeds
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 
 #include <catch_main.hpp>
 #include <catch2/catch_approx.hpp>
@@ -18,7 +18,7 @@ using std::vector;
 class Solution {
 private:
     double quick_pow(vector<double> &pows, double num, int32_t n) {
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
         CHECK((0 <= n && n < 32));
         CHECK((pows.size() == 32));
 #endif
@@ -32,7 +32,7 @@ private:
 
 public:
     double myPow(double x, int32_t n) {
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
         CHECK((-100 < x && x < 100));
         CHECK((std::numeric_limits<int32_t>::min() <= n && n <= std::numeric_limits<int32_t>::max()));
 #endif
@@ -67,6 +67,6 @@ public:
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

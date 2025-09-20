@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2022-2025 nanoseeds
 
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 #include <cstddef>
 #include <queue>
 #include <utility>
@@ -49,6 +49,6 @@ public:
         return false;
     }
 };
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

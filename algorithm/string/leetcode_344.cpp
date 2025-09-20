@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cstddef>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace leetcode_344 {
 using std::vector;
 #endif
@@ -18,6 +18,6 @@ public:
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

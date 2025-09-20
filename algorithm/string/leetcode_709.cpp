@@ -4,7 +4,7 @@
 #include <array>
 #include <limits>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace leetcode_709 {
 using std::string;
 using std::array;
@@ -22,6 +22,6 @@ public:
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

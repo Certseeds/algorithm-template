@@ -1,6 +1,6 @@
 
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 #include <vector>
 #include <algorithm>
 #include <tree/treenode_multi.hpp>
@@ -26,6 +26,6 @@ public:
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

@@ -3,7 +3,7 @@
 
 
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 #include <cstdint>
 #include <cstddef>
 #include <vector>
@@ -49,6 +49,6 @@ public:
         return nodes.at(n);
     }
 };
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

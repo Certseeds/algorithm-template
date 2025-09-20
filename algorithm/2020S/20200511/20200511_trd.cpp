@@ -5,7 +5,7 @@
 #include <vector>
 #include <iostream>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace trd_20200511{
 #endif
 
@@ -42,6 +42,6 @@ static const auto faster_streams = [] {
     // 关闭c++风格输入输出 , 与C风格输入输出的同步,提高性能.
     return 0;
 }();
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

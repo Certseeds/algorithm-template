@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2022-2025 nanoseeds
 #include <string>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace leetcode_so_05 {
 using std::string;
 #endif
@@ -34,6 +34,6 @@ public:
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

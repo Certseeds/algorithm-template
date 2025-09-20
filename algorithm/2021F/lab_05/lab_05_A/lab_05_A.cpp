@@ -37,7 +37,7 @@
  * */
 //@Tag DONE
 
-#ifndef CS203_DSAA_TEST_MACRO
+#ifndef ALGORITHM_TEST_MACRO
 #pragma GCC optimize(3, "Ofast", "inline", "no-stack-protector", "unroll-loops")
 #pragma GCC optimize("inline-small-functions")
 #pragma GCC optimize("-finline-small-functions")
@@ -51,7 +51,7 @@
 #include <iostream>
 #include <algorithm>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace lab_05_A{
 #endif
 
@@ -147,6 +147,6 @@ static const auto faster_streams = [] {
     // 关闭c++风格输入输出 , 与C风格输入输出的同步,提高性能.
     return 0;
 }();
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

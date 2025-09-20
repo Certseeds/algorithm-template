@@ -35,7 +35,7 @@
  * PS: 据说跳表也可以,没尝试故不分析
  * */
 //@Tag DONE
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 
 #else
 
@@ -46,7 +46,7 @@
 #pragma GCC optimize("inline-small-functions")
 #pragma GCC optimize("-finline-small-functions")
 #pragma GCC target("sse,sse2,mmx")
-#endif //CS203_DSAA_TEST_MACRO
+#endif //ALGORITHM_TEST_MACRO
 
 #include <tuple>
 #include <vector>
@@ -55,7 +55,7 @@
 #include <algorithm>
 #include <unordered_set>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace lab_04_D{
 #endif
 using std::cin;
@@ -352,6 +352,6 @@ static const auto faster_streams = [] {
     // 关闭c++风格输入输出 , 与C风格输入输出的同步,提高性能.
     return 0;
 }();
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

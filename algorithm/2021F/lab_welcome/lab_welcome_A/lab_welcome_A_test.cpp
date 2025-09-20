@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // SPDX-FileCopyrightText: 2020-2025 nanoseeds
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 
 #include <catch_main.hpp>
 #include <tuple>
@@ -52,4 +52,4 @@ TEST_CASE("test case with sequence", "[test welcome A]") {
     }
 }
 }
-#endif //CS203_DSAA_TEST_MACRO
+#endif //ALGORITHM_TEST_MACRO

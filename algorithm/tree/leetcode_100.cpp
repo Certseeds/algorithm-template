@@ -3,7 +3,7 @@
 
 #include <tree/treenode.hpp>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 #include <vector>
 namespace leetcode_100 {
 using TreeNode = TREE_NODE::TreeNode<int32_t>;
@@ -24,6 +24,6 @@ public:
     }
 };
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif
