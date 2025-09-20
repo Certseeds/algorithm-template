@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 /*
  *@题目描述
  * 给出两个各有ν(希腊字母Nu),μ(希腊字母Mu)长的多项式Ν(大写希腊字母Nu),Μ(大写希腊字母Mu),请计算两者之和

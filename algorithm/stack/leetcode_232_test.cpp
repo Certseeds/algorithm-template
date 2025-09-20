@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 //@Plan 数据结构入门 Day9
 #ifndef ALGORITHM_TEMPLATE_ALGORITHM_STACK_LEETCODE_232_TEST_HPP
 #define ALGORITHM_TEMPLATE_ALGORITHM_STACK_LEETCODE_232_TEST_HPP

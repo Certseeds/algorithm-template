@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 /*
  * @题目描述
  * 惧亡者排成一个队列,每个惧亡者都有一个生体转化偏好

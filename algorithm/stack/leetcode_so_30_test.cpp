@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2022 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 //@Tag stack
 //@Tag 栈
 //@Plan 剑指OfferII-I Day01

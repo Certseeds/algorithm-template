@@ -1,16 +1,5 @@
-/**
- * @Github: https://github.com/Certseeds/algorithm_template
- * @Author: nanos
- * @Date: 2021-05-13 20:29:37
- * @LastEditors: nanos
- */
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2021-2023  nanos
-
-*/
+// SPDX-FileCopyrightText: 2021-2025 nanoseeds
 #include "fft.hpp"
 
 namespace fft {

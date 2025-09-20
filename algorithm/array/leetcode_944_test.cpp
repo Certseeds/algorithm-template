@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2022-2023  nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 //@Tag array
 //@Tag
 #ifndef ALGORITHM_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_944_TEST_HPP

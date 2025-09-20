@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 /*
  * @题目描述
  * 在____内, 如果数组C中,有 i,j ∈N+, i < j, C[i]>C[j], 则 (C[i],C[j])为一个逆序对

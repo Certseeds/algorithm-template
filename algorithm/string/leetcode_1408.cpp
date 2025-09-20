@@ -1,11 +1,6 @@
 
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2023-2025 nanoseeds
 #include <vector>
 #include <string>
 #include <algorithm>

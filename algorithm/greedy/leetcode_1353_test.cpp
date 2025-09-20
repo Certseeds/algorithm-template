@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 //@Tag 贪心算法
 #ifndef ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_1353_TEST_HPP
 #define ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_1353_TEST_HPP

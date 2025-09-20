@@ -1,11 +1,5 @@
-/*
-AGPL-3.0-or-later License
-
-CS160_DSAA_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 //@Tag list
 //@Tag 链表
 //@Plan 剑指OfferII-I Day12

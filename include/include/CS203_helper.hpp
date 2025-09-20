@@ -1,11 +1,5 @@
-/*
-SPDX-License-Identifier: AGPL-3.0-or-later
-
-CS203_DSAA_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 #ifndef ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_CS203_HELPER_HPP
 #define ALGORITHM_TEMPLATE_INCLUDE_INCLUDE_CS203_HELPER_HPP
 static constexpr const double eps{0.00000001}, neps{-eps};

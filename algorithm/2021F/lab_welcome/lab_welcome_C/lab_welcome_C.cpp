@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 /*
  *题目描述
 Suppose in CS203, the number system only has three values 2,3,6. It holds 2<3<6. Given an integer n, please find the n-th smallest number in CS203 number system.

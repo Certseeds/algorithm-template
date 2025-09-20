@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 /*
  *@题目描述
  * 给一个序列 α, 一共有ν(希腊字母Nu)个元素,其中的第ι(希腊字幕iota)个元素为$α_ι$

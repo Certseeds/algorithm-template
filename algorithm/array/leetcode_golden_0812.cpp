@@ -1,11 +1,6 @@
 
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2022-2023  nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 #ifdef CS203_DSAA_TEST_MACRO
 
 #include <unordered_map>

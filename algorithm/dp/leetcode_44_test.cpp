@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2020-2023 nanos
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 //@Tag DP
 //@Tag 动态规划
 #ifndef ALGORITHM_TEMPLATE_ALGORITHM_DP_LEETCODE_44_TEST_CPP

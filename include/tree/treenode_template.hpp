@@ -1,10 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2021-2025 nanoseeds
 
-Copyright (C) 2021 nanoseeds
-
-*/
 #ifndef ALGORITHM_TEMPLATE_INCLUDE_TREE_TREENODE_TEMPLATE_HPP
 #define ALGORITHM_TEMPLATE_INCLUDE_TREE_TREENODE_TEMPLATE_HPP
 #include <class_helper/nonable.hpp>

@@ -1,16 +1,5 @@
-/**
- * @Github: https://github.com/Certseeds/algorithm_template
- * @Author: nanoseeds
- * @Date: 2020-08-01 17:33:49
- * @LastEditors: nanoseeds
- */
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 #include <catch_main.hpp>
 #include <algorithm>
 #include <numeric>

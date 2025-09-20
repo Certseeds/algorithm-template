@@ -6,9 +6,7 @@
  * @LastEditTime: 2021-04-16 13:24:31
  */
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*  CS205_C_CPP
-    Copyright (C) 2020-2023 nanoseeds
-*/
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 #ifndef CS205_C_CPP_MIDTERM_2021SPRING
 #define CS205_C_CPP_MIDTERM_2021SPRING
 

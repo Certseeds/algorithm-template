@@ -1,12 +1,5 @@
-
-
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2022 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 //@Tag 数学
 #ifndef ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_1402_TEST_HPP
 #define ALGORITHM_TEMPLATE_ALGORITHM_LIST_LEETCODE_1402_TEST_HPP

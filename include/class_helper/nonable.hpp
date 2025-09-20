@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2021-2022 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2021-2025 nanoseeds
 
 #ifndef ALGORITHM_TEMPLATE_INCLUDE_CLASS_HELPER_NONABLE_HPP
 #define ALGORITHM_TEMPLATE_INCLUDE_CLASS_HELPER_NONABLE_HPP

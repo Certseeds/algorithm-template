@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2022-2023  nanos
-
-*/
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 //@Tag DP
 //@Tag 动态规划
 //@Description 最小路径和

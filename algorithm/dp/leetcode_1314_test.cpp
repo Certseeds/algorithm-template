@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-algorithm_template
-
-Copyright (C) 2020-2023 nanos
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 //@Tag DP
 //@Tag 动态规划
 //@Description 经典小学数学题,交叉部分算面积
