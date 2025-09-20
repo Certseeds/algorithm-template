@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.16.6)
 
 set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_VERSION_MINOR 11)
-set(PROJECT_VERSION_PATCH 1) # delete endsWith strs when master merge dev
+set(PROJECT_VERSION_MINOR 12)
+set(PROJECT_VERSION_PATCH 0) # delete endsWith strs when master merge dev
 
 project(algorithm_template
         DESCRIPTION "Template for Algorithm Based on C++11 and Modern CMake"
