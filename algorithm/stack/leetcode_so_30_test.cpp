@@ -11,37 +11,19 @@ Copyright (C) 2022 nanoseeds
 #ifndef CS203_DSAA_TEMPLATE_ALGORITHM_QUEUE_LEETCODE_SO_30_TEST_HPP
 #define CS203_DSAA_TEMPLATE_ALGORITHM_QUEUE_LEETCODE_SO_30_TEST_HPP
 
+#include "leetcode_so_30.cpp"
 #include <catch_main.hpp>
 #include <memory>
 
 namespace leetcode_so_30 {
 
-struct MinStack {
-    MinStack() = default;;
-
-    virtual void push(int x) = 0;
-
-    virtual void pop() = 0;
-
-    virtual int top() = 0;
-
-    virtual int min() = 0;
-
-    virtual ~MinStack() = default;
-};
-
-struct leetcode_so_30 {
-    static MinStack *pure();
-
-    static MinStack *effective();
-};
-
 TEST_CASE("test case pure-1 [test_sw_30]", "[test_sw_30]") {
     std::function<MinStack *()> lambda;
+    Solution solution;
     SECTION("pure") {
-        lambda = leetcode_so_30::pure;
+        lambda = [&solution]() { return solution.pure(); };
     }SECTION("effective") {
-        lambda = leetcode_so_30::effective;
+        lambda = [&solution]() { return solution.effective(); };
     }
     const auto ptr = std::unique_ptr<MinStack>(lambda());
     ptr->push(0);
@@ -54,10 +36,11 @@ TEST_CASE("test case pure-1 [test_sw_30]", "[test_sw_30]") {
 
 TEST_CASE("test case pure-2 [test_sw_30]", "[test_sw_30]") {
     std::function<MinStack *()> lambda;
+    Solution solution;
     SECTION("pure") {
-        lambda = leetcode_so_30::pure;
+        lambda = [&solution]() { return solution.pure(); };
     }SECTION("effective") {
-        lambda = leetcode_so_30::effective;
+        lambda = [&solution]() { return solution.effective(); };
     }
     const auto ptr = std::unique_ptr<MinStack>(lambda());
     ptr->push(-2);
@@ -69,5 +52,6 @@ TEST_CASE("test case pure-2 [test_sw_30]", "[test_sw_30]") {
     CHECK(-2 == ptr->min());
     CHECK(0 == ptr->top());
 }
+
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_QUEUE_LEETCODE_SO_30_TEST_HPP

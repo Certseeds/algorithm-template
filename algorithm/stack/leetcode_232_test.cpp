@@ -9,34 +9,15 @@ Copyright (C) 2020-2023 nanoseeds
 #ifndef CS203_DSAA_TEMPLATE_ALGORITHM_STACK_LEETCODE_232_TEST_HPP
 #define CS203_DSAA_TEMPLATE_ALGORITHM_STACK_LEETCODE_232_TEST_HPP
 
+#include "leetcode_232.cpp"
 #include <catch_main.hpp>
-#include <cstdint>
-#include <cstddef>
 #include <memory>
 
 namespace leetcode_232 {
 
-struct leetcode_232 {
-    class MyQueue {
-    public:
-        MyQueue() = default;
-
-        virtual void push(int x) = 0;
-
-        virtual int pop() = 0;
-
-        virtual int peek() = 0;
-
-        virtual bool empty() const = 0;
-
-        virtual ~MyQueue() = default;
-    };
-
-    static MyQueue *pure();
-};
-
 TEST_CASE("1 [test_232]", "[test_232]") {
-    const auto pointer = std::unique_ptr<leetcode_232::MyQueue>(leetcode_232::pure());
+    Solution solution;
+    const auto pointer = std::unique_ptr<MyQueue>(solution.pure());
     CHECK(pointer->empty());
     pointer->push(1);
     pointer->push(2);
@@ -47,5 +28,6 @@ TEST_CASE("1 [test_232]", "[test_232]") {
     CHECK(2 == pointer->pop());
     CHECK(pointer->empty());
 }
+
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_STACK_LEETCODE_232_TEST_HPP

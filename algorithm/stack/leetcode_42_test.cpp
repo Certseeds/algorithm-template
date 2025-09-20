@@ -16,43 +16,37 @@ Copyright (C) 2020-2023 nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_STACK_LEETCODE_42_TEST_HPP
 
 #include <catch_main.hpp>
-#include <cstdint>
-#include <cstddef>
-#include <vector>
+#include "leetcode_42.cpp"
 
 namespace leetcode_42 {
+
 using std::vector;
-
-struct leetcode_42 {
-    static int32_t trap(const vector<int32_t> &height);
-
-    static int32_t trapDPLoca(const vector<int32_t> &height);
-
-    static int32_t trapDPHeight(const vector<int32_t> &height);
-};
 
 TEST_CASE("test case 2 [test _42]", "[test _42]") {
     const vector<int32_t> input{4, 2, 0, 3, 2, 5};
     static constexpr const auto result{9};
-    CHECK(result == leetcode_42::trap(input));
-    CHECK(result == leetcode_42::trapDPLoca(input));
-    CHECK(result == leetcode_42::trapDPHeight(input));
+    Solution solution;
+    CHECK(result == solution.trap(input));
+    CHECK(result == solution.trapDPLoca(input));
+    CHECK(result == solution.trapDPHeight(input));
 }
 
 TEST_CASE("test case 1 [test _42]", "[test _42]") {
     const vector<int32_t> input{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
     static constexpr const auto result{6};
-    CHECK(result == leetcode_42::trap(input));
-    CHECK(result == leetcode_42::trapDPLoca(input));
-    CHECK(result == leetcode_42::trapDPHeight(input));
+    Solution solution;
+    CHECK(result == solution.trap(input));
+    CHECK(result == solution.trapDPLoca(input));
+    CHECK(result == solution.trapDPHeight(input));
 }
 
 TEST_CASE("test case 3 [test _42]", "[test _42]") {
     const vector<int32_t> input{0, 1, 0, 3, 1, 0, 1, 3, 2, 1, 2, 1};
     static constexpr const auto result{9};
-    CHECK(result == leetcode_42::trap(input));
-    CHECK(result == leetcode_42::trapDPLoca(input));
-    CHECK(result == leetcode_42::trapDPHeight(input));
+    Solution solution;
+    CHECK(result == solution.trap(input));
+    CHECK(result == solution.trapDPLoca(input));
+    CHECK(result == solution.trapDPHeight(input));
 }
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_STACK_LEETCODE_42_TEST_HPP
