@@ -1,31 +1,40 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
 
-Copyright (C) 2020-2023 nanoseeds
 
-*/
-#include "leetcode_230_test.hpp"
+#ifdef CS203_DSAA_TEST_MACRO
+#include <cstdint>
 #include <stack>
 
+#include <tree/treenode.hpp>
 namespace leetcode_230 {
+using std::vector;
+using TreeNode = TREE_NODE::TreeNode<int32_t>;
+#endif
+
+#include <stack>
+
 using std::stack;
 
-int32_t leetcode_230::kthSmallest(TreeNode *root, int32_t k) {
-    if (root == nullptr) {
-        return -1;
-    }
-    for (stack<TreeNode *> sta; root != nullptr || !sta.empty(); root = root->right) {
-        for (; root != nullptr; root = root->left) {
-            sta.push(root);
+class Solution {
+public:
+    int32_t kthSmallest(TreeNode *root, int32_t k) {
+        if (root == nullptr) {
+            return -1;
         }
-        root = sta.top();
-        sta.pop();
-        --k;
-        if (k == 0) {
-            break;
+        for (stack<TreeNode *> sta; root != nullptr || !sta.empty(); root = root->right) {
+            for (; root != nullptr; root = root->left) {
+                sta.push(root);
+            }
+            root = sta.top();
+            sta.pop();
+            --k;
+            if (k == 0) {
+                break;
+            }
         }
+        return root->val;
     }
-    return root->val;
+};
+
+#ifdef CS203_DSAA_TEST_MACRO
 }
-}
+#endif

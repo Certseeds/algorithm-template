@@ -5,24 +5,36 @@ CS203_DSAA_template
 Copyright (C) 2022 nanoseeds
 
 */
-#include "leetcode_1325_test.hpp"
 
+
+#ifdef CS203_DSAA_TEST_MACRO
+#include <cstdint>
+#include <cstddef>
+
+#include <tree/treenode.hpp>
 namespace leetcode_1325 {
+using std::vector;
+using TreeNode = TREE_NODE::TreeNode<int32_t>;
+#endif
 
-TreeNode *leetcode_1325::removeLeafNodesRec(TreeNode *root, int target) {
-    if (root == nullptr) {
-        return nullptr;
-    }
-    TreeNode *const left = removeLeafNodesRec(root->left, target);
-    TreeNode *const right = removeLeafNodesRec(root->right, target);
-    if (left == nullptr && right == nullptr) {
-        if (root->val == target) {
+class Solution {
+public:
+    TreeNode *removeLeafNodesRec(TreeNode *root, int target) {
+        if (root == nullptr) {
             return nullptr;
         }
+        TreeNode *const left = removeLeafNodesRec(root->left, target);
+        TreeNode *const right = removeLeafNodesRec(root->right, target);
+        if (left == nullptr && right == nullptr) {
+            if (root->val == target) {
+                return nullptr;
+            }
+        }
+        root->left = left;
+        root->right = right;
+        return root;
     }
-    root->left = left;
-    root->right = right;
-    return root;
+};
+#ifdef CS203_DSAA_TEST_MACRO
 }
-
-}
+#endif

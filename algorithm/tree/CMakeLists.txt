@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 enable_testing()
-set(dependencies traverse_test huffman_test)
+set(dependencies traverse huffman)
 
 set(leetcode_order 94 95 96 98 100)
 LIST(APPEND leetcode_order 104 226 530 559 589)
@@ -25,10 +25,10 @@ unset(leetcode_order)
 
 foreach (elementName IN LISTS dependencies)
     add_executable(${PROJECT_NAME}_${elementName}
-                   ${CMAKE_CURRENT_SOURCE_DIR}/${elementName}.cpp)
+                   ${CMAKE_CURRENT_SOURCE_DIR}/${elementName}_test.cpp)
     target_link_libraries(${PROJECT_NAME}_${elementName}
                           CS203_DSAA_template_INCLUDE)
-    MESSAGE(STATUS "${PROJECT_NAME}_${elementName} from ${CMAKE_CURRENT_SOURCE_DIR}/${elementName}.cpp")
+    MESSAGE(STATUS "${PROJECT_NAME}_${elementName} from ${CMAKE_CURRENT_SOURCE_DIR}/${elementName}_test.cpp")
     add_test(${PROJECT_NAME}_${elementName}_CTEST ${PROJECT_NAME}_${elementName})
 endforeach ()
 unset(dependencies)

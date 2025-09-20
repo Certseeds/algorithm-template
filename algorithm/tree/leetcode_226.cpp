@@ -1,21 +1,27 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
 
-Copyright (C) 2020-2023 nanoseeds
 
-*/
-#include "leetcode_226_test.hpp"
+#ifdef CS203_DSAA_TEST_MACRO
+#include <cstdint>
 
+#include <tree/treenode.hpp>
 namespace leetcode_226 {
+using std::vector;
+using TreeNode = TREE_NODE::TreeNode<int32_t>;
+#endif
 
-TreeNode *leetcode_226::invertTree(TreeNode *const root) {
-    if (root == nullptr) {
-        return nullptr;
+class Solution {
+public:
+    TreeNode *invertTree(TreeNode *const root) {
+        if (root == nullptr) {
+            return nullptr;
+        }
+        TreeNode *const temp = root->left;
+        root->left = invertTree(root->right);
+        root->right = invertTree(temp);
+        return root;
     }
-    TreeNode *const temp = root->left;
-    root->left = invertTree(root->right);
-    root->right = invertTree(temp);
-    return root;
+};
+
+#ifdef CS203_DSAA_TEST_MACRO
 }
-}
+#endif

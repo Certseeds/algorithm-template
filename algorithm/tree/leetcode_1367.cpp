@@ -5,48 +5,60 @@ CS203_DSAA_template
 Copyright (C) 2022 nanoseeds
 
 */
-#include "leetcode_1367_test.hpp"
-#include <queue>
 
+#ifdef CS203_DSAA_TEST_MACRO
+#include <cstddef>
+#include <cstdint>
+#include <list/listnode.hpp>
+#include <queue>
+#include <tree/treenode.hpp>
 namespace leetcode_1367 {
 using std::queue;
+using std::vector;
+using TreeNode = TREE_NODE::TreeNode<int32_t>;
+using LISTNODE::ListNode;
+#endif
 
-bool isSubPathRec(ListNode *head, TreeNode *root) {
-    if (head == nullptr) {
-        return true;
-    }
-    if (root == nullptr) {
-        return false;
-    }
-    if (head->val != root->val) {
-        return false;
-    }
-    const auto left = isSubPathRec(head->next, root->left);
-    const auto right = isSubPathRec(head->next, root->right);
-    return left || right;
-}
-
-bool leetcode_1367::isSubPath(ListNode *head, TreeNode *root) {
-    if (head == nullptr) {
-        return true;
-    } else if (root == nullptr) {
-        return false;
-    }
-    for (queue<TreeNode *> que{{root}}; !que.empty();) {
-        const auto leader = que.front();
-        que.pop();
-        if (leader->left != nullptr) {
-            que.push(leader->left);
-        }
-        if (leader->right != nullptr) {
-            que.push(leader->right);
-        }
-        if (isSubPathRec(head, leader)) {
+class Solution {
+private:
+    bool isSubPathRec(ListNode *head, TreeNode *root) {
+        if (head == nullptr) {
             return true;
         }
+        if (root == nullptr) {
+            return false;
+        }
+        if (head->val != root->val) {
+            return false;
+        }
+        const auto left = isSubPathRec(head->next, root->left);
+        const auto right = isSubPathRec(head->next, root->right);
+        return left || right;
     }
-    return false;
-}
 
-
+public:
+    bool isSubPath(ListNode *head, TreeNode *root) {
+        if (head == nullptr) {
+            return true;
+        } else if (root == nullptr) {
+            return false;
+        }
+        for (queue<TreeNode *> que{{root}}; !que.empty();) {
+            const auto leader = que.front();
+            que.pop();
+            if (leader->left != nullptr) {
+                que.push(leader->left);
+            }
+            if (leader->right != nullptr) {
+                que.push(leader->right);
+            }
+            if (isSubPathRec(head, leader)) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+#ifdef CS203_DSAA_TEST_MACRO
 }
+#endif

@@ -7,7 +7,7 @@ Copyright (C) 2020-2023 nanoseeds
 */
 #include "leetcode_1334_test.hpp"
 #include <queue>
-#include <climits>
+#include <limits>
 #include <algorithm>
 
 namespace leetcode_1334 {
@@ -50,7 +50,7 @@ int32_t leetcode_1334::findTheCity(int32_t n, const vector<vector<int32_t>> &edg
             maps[edges[i][1]].emplace_back(edges[i][0], edges[i][2]);
         }
     }
-    int32_t count = INT16_MAX;
+    int32_t count = std::numeric_limits<int16_t>::max();
     int32_t willreturn = -1;
     for (int32_t i{0}; i < n; ++i) {
         const vector<int32_t> dis = minimum_path(maps, i);
