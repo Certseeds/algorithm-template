@@ -1,24 +1,29 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-Copyright (C) 2022-2023  nanoseeds
-
-*/
-#include "leetcode_1010_test.hpp"
+#include <vector>
 #include <array>
+#include <cstdint>
 
 namespace leetcode_1010 {
+using std::vector;
 using std::array;
+#endif
 
-int32_t leetcode_1010::numPairsDivisibleBy60(const vector<int32_t> &time) {
-    array<int32_t, 60> uses{0};
-    int32_t willreturn{0};
-    for (const int32_t i: time) {
-        uses[i % 60]++;
-        willreturn += uses[(60 - i % 60) % 60];
+class Solution {
+public:
+    int32_t numPairsDivisibleBy60(const vector<int32_t> &time) {
+        array<int32_t, 60> uses{0};
+        int32_t willreturn{0};
+        for (const int32_t i: time) {
+            uses[i % 60]++;
+            willreturn += uses[(60 - i % 60) % 60];
+        }
+        return willreturn - uses[30] - uses[0];
     }
-    return willreturn - uses[30] - uses[0];
-}
+};
 
+#ifdef ALGORITHM_TEST_MACRO
 }
+#endif

@@ -1,25 +1,32 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 
-Copyright (C) 2022-2023  nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-*/
-#include "leetcode_717_test.hpp"
+#include <cstdint>
+#include <vector>
 
 namespace leetcode_717 {
+using std::vector;
+#endif
 
-bool leetcode_717::isOneBitCharacter(const vector<int32_t> &bits) {
-    const size_t size{bits.size()};
-    if (size < 2 || bits[size - 2] == 0) {
-        return true;
+class Solution {
+public:
+    bool isOneBitCharacter(vector<int32_t> &bits) {
+        const size_t size{bits.size()};
+        if (size < 2 || bits[size - 2] == 0) {
+            return true;
+        }
+        // sizes == 2 is the same with sizes >2
+        // it means, test the string before the last one is over or not
+        size_t i{0};
+        for (; i + 1 < size; ++i) {
+            i += bits[i];
+        }
+        return i + 1 == size;
     }
-    // sizes == 2 is the same with sizes >2
-    // it means, test the string before the last one is over or not
-    size_t i{0};
-    for (; i + 1 < size; ++i) {
-        i += bits[i];
-    }
-    return i + 1 == size;
+};
+
+#ifdef ALGORITHM_TEST_MACRO
 }
-}
+#endif

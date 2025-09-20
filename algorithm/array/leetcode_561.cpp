@@ -1,23 +1,29 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 
-Copyright (C) 2022-2023  nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-*/
-#include "leetcode_561_test.hpp"
+#include <vector>
+#include <cstdint>
+#include <algorithm>
 
 namespace leetcode_561 {
+using std::vector;
+#endif
 
-int32_t leetcode_561::arrayPairSum(const vector<int32_t> &nums) {
-    const size_t nums_size{nums.size()};
-    vector<int32_t> input{nums};
-    std::sort(input.begin(), input.end());
-    int32_t temp{0};
-    for (size_t i{0}; i < nums_size; i += 2) {
-        temp += input[i];
+class Solution {
+public:
+    int32_t arrayPairSum(std::vector<int32_t> &nums) {
+        const size_t nums_size{nums.size()};
+        std::sort(nums.begin(), nums.end());
+        int32_t temp{0};
+        for (size_t i{0}; i < nums_size; i += 2) {
+            temp += nums[i];
+        }
+        return temp;
     }
-    return temp;
-}
+};
 
+#ifdef ALGORITHM_TEST_MACRO
 }
+#endif

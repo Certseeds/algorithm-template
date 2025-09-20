@@ -1,12 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
-#ifndef CS203_DSAA_TEMPLATE_INCLUDES_CATCH_MAIN_H
-#define CS203_DSAA_TEMPLATE_INCLUDES_CATCH_MAIN_H
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
+#ifndef ALGORITHM_TEMPLATE_INCLUDES_CATCH_MAIN_H
+#define ALGORITHM_TEMPLATE_INCLUDES_CATCH_MAIN_H
 
 // #include <catch_amalgamated.hpp>
 #include <catch2/catch_test_macros.hpp>
@@ -26,4 +21,4 @@ Copyright (C) 2020-2023 nanoseeds
 
 static const CS203_timer timer{};
 
-#endif //CS203_DSAA_TEMPLATE_INCLUDES_CATCH_MAIN_H
+#endif //ALGORITHM_TEMPLATE_INCLUDES_CATCH_MAIN_H

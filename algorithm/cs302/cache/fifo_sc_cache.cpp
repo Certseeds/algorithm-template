@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*  CS203_DSAA_template
-    Copyright (C) 2022-2023  nanoseeds
-*/
-#ifdef CS203_DSAA_TEST_MACRO
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
 #include <catch_main.hpp>
 #include "cache_base.hpp"
@@ -16,14 +14,14 @@ namespace cache::fifo_sc {
 using std::array;
 static constexpr const std::array<const std::pair<size_t, const char *const>, 8> pairs{
         {
-                {5, "4.data.in"},
                 {2, "sample.data.in"},
-                {1177, "1.data.in"},
-                {11848, "2.data.in"},
-                {82382, "3.data.in"},
+                {5, "4.data.in"},
                 {5, "5.data.in"},
                 {6, "6.data.in"},
                 {1, "7.data.in"},
+                {1177, "1.data.in"},
+                {11848, "2.data.in"},
+                {82382, "3.data.in"},
         }};
 
 namespace On {

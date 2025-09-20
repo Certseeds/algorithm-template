@@ -1,11 +1,2 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/**
- * @Github: https://github.com/{0}/{1}
- * @Author: {2}
- * @Date: {3}
- * @LastEditors: {2}
- */
-/*
-{1}
-Copyright (C) 2020-{4} {2}
-*/
+// SPDX-FileCopyrightText: 2020-{0} {1}

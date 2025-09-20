@@ -1,14 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*  CS203_DSAA_template
-    Copyright (C) 2020-2023  nanoseeds
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 
 #include <string>
 #include <vector>
 #include <iostream>
 #include <unordered_set>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace fourth_20200511{
 #endif
 
@@ -68,6 +66,6 @@ static const auto faster_streams = [] {
     // 关闭c++风格输入输出 , 与C风格输入输出的同步,提高性能.
     return 0;
 }();
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

@@ -1,12 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
-#ifndef CS203_DSAA_TEMPLATE_INCLUDES_LISTNODE_HPP
-#define CS203_DSAA_TEMPLATE_INCLUDES_LISTNODE_HPP
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
+// SPDX
+#ifndef ALGORITHM_TEMPLATE_INCLUDES_LISTNODE_HPP
+#define ALGORITHM_TEMPLATE_INCLUDES_LISTNODE_HPP
 
 #include <cstdint>
 #include <cstddef>
@@ -115,4 +111,4 @@ bool ListNode::equal(const std::initializer_list<int32_t> &nums, const ListNode 
     return ListNode::equal(vector<int32_t>(nums), node);
 }
 }
-#endif //CS203_DSAA_TEMPLATE_INCLUDES_LISTNODE_HPP
+#endif //ALGORITHM_TEMPLATE_INCLUDES_LISTNODE_HPP

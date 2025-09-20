@@ -1,10 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 /*
  *@题目描述
  * 假设有一些自行车链条的链粒,每一个链粒都有一个权重
@@ -42,7 +37,7 @@ Copyright (C) 2020-2023 nanoseeds
  *  输出`3 5`
  * */
 //@Tag DONE
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 
 #include <list/listnode.hpp>
 
@@ -65,15 +60,16 @@ struct ListNode {
 #pragma GCC optimize("inline-small-functions")
 #pragma GCC optimize("-finline-small-functions")
 #pragma GCC target("mmx")
-#endif //CS203_DSAA_TEST_MACRO
+#endif //ALGORITHM_TEST_MACRO
 
 #include <tuple>
 #include <vector>
+#include <cstdint>
 #include <iostream>
 #include <algorithm>
 #include <unordered_map>
 
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 namespace lab_04_C{
 #endif
 
@@ -191,6 +187,6 @@ static const auto faster_streams = [] {
     // 关闭c++风格输入输出 , 与C风格输入输出的同步,提高性能.
     return 0;
 }();
-#ifdef CS203_DSAA_TEST_MACRO
+#ifdef ALGORITHM_TEST_MACRO
 }
 #endif

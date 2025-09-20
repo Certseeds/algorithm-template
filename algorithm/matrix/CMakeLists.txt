@@ -24,7 +24,7 @@ if (COMPILER_SUPPORTS_CXX20)
     add_executable(${PROJECT_NAME}_test ${CMAKE_CURRENT_SOURCE_DIR}/matrix_test.cpp)
     target_link_libraries(${PROJECT_NAME}_test
                           PUBLIC
-                          CS203_DSAA_template_INCLUDE
+                          algorithm_template_INCLUDE
                           )
     IF (OpenCV_FOUND)
         target_link_libraries(${PROJECT_NAME}_test

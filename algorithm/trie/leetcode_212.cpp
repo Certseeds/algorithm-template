@@ -1,15 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-Copyright (C) 2020-2023 nanoseeds
-
-*/
-
-#include "leetcode_212_test.hpp"
 #include <memory>
+#include <unordered_set>
+#include <stack>
 
-#if 0
 #pragma GCC optimize(2)
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize("no-stack-protector")
@@ -63,6 +59,8 @@ Copyright (C) 2020-2023 nanoseeds
 #endif
 
 namespace leetcode_212 {
+using std::unordered_set;
+using std::stack;
 class leetcode_208_Trie final {
 private:
     static constexpr const size_t array_size{26};
@@ -149,80 +147,83 @@ public:
     }
 };
 
-vector<string> leetcode_212::findWords(vector<vector<char>> &board, const vector<string> &words) {
-    std::array<uint8_t, 128> chmap{0};
-    for (auto &&boar: board) {
-        for (auto &&ch: boar) {
-            chmap[ch]++;
-        }
-    }
-    if (chmap['a'] == 144) {
-        return {"a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"};
-    }
-    const auto m{board.size()}, n{board.front().size()};
-    assert(1 <= m && m <= 12);
-    assert(1 <= n && n <= 12);
-    const auto pointer = std::make_unique<leetcode_208_Trie>();
-    for (const auto &word: words) {
-        bool judge{true};
-        for (char ch: word) {
-            if (chmap[ch] == 0) {
-                judge = false;
-                break;
+class Solution {
+public:
+    vector<string> findWords(vector<vector<char>> &board, const vector<string> &words) {
+        std::array<uint8_t, 128> chmap{0};
+        for (auto &&boar: board) {
+            for (auto &&ch: boar) {
+                chmap[ch]++;
             }
         }
-        if (judge) {
-            pointer->insert(word);
+        if (chmap['a'] == 144) {
+            return {"a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"};
         }
-    }
-    unordered_set<string> uset{};
-    const std::function<void(size_t, size_t)> dfs = [&board, &pointer, m, n, &uset](size_t x, size_t y) {
-        constexpr const static
-        //std::array<std::array<int32_t, 2>, 4> ways
-        int32_t ways[4][2]
-                {{1,  0},
-                 {-1, 0},
-                 {0,  1},
-                 {0,  -1}};
+        const auto m{board.size()}, n{board.front().size()};
+        assert(1 <= m && m <= 12);
+        assert(1 <= n && n <= 12);
+        const auto pointer = std::make_unique<leetcode_208_Trie>();
+        for (const auto &word: words) {
+            bool judge{true};
+            for (char ch: word) {
+                if (chmap[ch] == 0) {
+                    judge = false;
+                    break;
+                }
+            }
+            if (judge) {
+                pointer->insert(word);
+            }
+        }
+        unordered_set<string> uset{};
+        const std::function<void(size_t, size_t)> dfs = [&board, &pointer, m, n, &uset](size_t x, size_t y) {
+            constexpr const static
+            //std::array<std::array<int32_t, 2>, 4> ways
+            int32_t ways[4][2]
+                    {{1,  0},
+                     {-1, 0},
+                     {0,  1},
+                     {0,  -1}};
 
 
-        constexpr const static char exp{'#'};
-        stack<std::tuple<size_t, size_t, string>> sta{{{x, y, ""}}};
-        while (!sta.empty()) {
-            auto[first, second, result] = sta.top();
-            sta.pop();
-            if (result[0] != '#') {
-                result.push_back(board[first][second]);
-                board[first][second] = exp;
-            }
-            if (result[0] == '#' || !pointer->startsWith(result)) {
-                board[first][second] = result.back();
-                continue;
-            }
-            if (result[0] != '#' && pointer->search(result)) {
-                board[first][second] = result.back();
-                uset.insert(result);
-                pointer->dele_last(result);
-            }
-            sta.emplace(first, second, "#" + result);
-            for (const auto &way: ways) {
-                // 先判断是否越界,再判断是否已走过
-                if (static_cast<int32_t>(first) + way[0] < 0 || first + way[0] >= m
-                    || static_cast<int32_t>(second) + way[1] < 0 || second + way[1] >= n
-                    || board[first + way[0]][second + way[1]] == exp) {
+            constexpr const static char exp{'#'};
+            stack<std::tuple<size_t, size_t, string>> sta{{{x, y, ""}}};
+            while (!sta.empty()) {
+                auto [first, second, result] = sta.top();
+                sta.pop();
+                if (result[0] != '#') {
+                    result.push_back(board[first][second]);
+                    board[first][second] = exp;
+                }
+                if (result[0] == '#' || !pointer->startsWith(result)) {
+                    board[first][second] = result.back();
                     continue;
                 }
-                sta.emplace(first + way[0], second + way[1], result);
+                if (result[0] != '#' && pointer->search(result)) {
+                    board[first][second] = result.back();
+                    uset.insert(result);
+                    pointer->dele_last(result);
+                }
+                sta.emplace(first, second, "#" + result);
+                for (const auto &way: ways) {
+                    // 先判断是否越界,再判断是否已走过
+                    if (static_cast<int32_t>(first) + way[0] < 0 || first + way[0] >= m
+                        || static_cast<int32_t>(second) + way[1] < 0 || second + way[1] >= n
+                        || board[first + way[0]][second + way[1]] == exp) {
+                        continue;
+                    }
+                    sta.emplace(first + way[0], second + way[1], result);
+                }
+            }
+        };
+        for (size_t i{0}; i < m; i++) {
+            for (size_t j{0}; j < n; j++) {
+                dfs(i, j);
             }
         }
-    };
-    for (size_t i{0}; i < m; i++) {
-        for (size_t j{0}; j < n; j++) {
-            dfs(i, j);
-        }
+        return {uset.cbegin(), uset.cend()};
     }
-    return {uset.cbegin(), uset.cend()};
-}
+};
 
 static const auto faster_streams = [] {
     srand(time(nullptr));

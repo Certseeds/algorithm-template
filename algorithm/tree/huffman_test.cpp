@@ -1,14 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2022-2023  nanoseeds
-
-*/
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 //@Tag tree
 //@Tag 树
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_TREE_HUFFMAN_TEST_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_TREE_HUFFMAN_TEST_HPP
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_TREE_HUFFMAN_TEST_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_TREE_HUFFMAN_TEST_HPP
 
 #include <catch_main.hpp>
 #include "huffman.cpp"
@@ -34,4 +29,4 @@ TEST_CASE("test_case 3 [test_tree_huffman]", "[test_tree_huffman]") {
     CHECK(str == hn.decal(hn.cal(str)));
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_TREE_HUFFMAN_TEST_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_TREE_HUFFMAN_TEST_HPP

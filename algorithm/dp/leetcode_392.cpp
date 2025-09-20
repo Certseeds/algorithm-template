@@ -1,25 +1,30 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
 
-Copyright (C) 2022-2023  nanos
+#include <string>
 
-*/
-#include "leetcode_392_test.hpp"
-
+#ifdef ALGORITHM_TEST_MACRO
 namespace leetcode_392 {
+using std::string;
+#endif
 
-bool leetcode_392::isSubsequence(const string &s, const string &t) {
-    const auto tSize{t.size()}, sSize{s.size()};
-    if (tSize < sSize) {
-        return false;
-    }
-    size_t sNum{0};
-    for (size_t i{0}; i < tSize && sNum != sSize; i++) {
-        if (t[i] == s[sNum]) {
-            sNum++;
+class Solution {
+public:
+    bool isSubsequence(const string &s, const string &t) {
+        const auto tSize{t.size()}, sSize{s.size()};
+        if (tSize < sSize) {
+            return false;
         }
+        size_t sNum{0};
+        for (size_t i{0}; i < tSize && sNum != sSize; i++) {
+            if (t[i] == s[sNum]) {
+                sNum++;
+            }
+        }
+        return sNum == sSize;
     }
-    return sNum == sSize;
+};
+
+#ifdef ALGORITHM_TEST_MACRO
 }
-}
+#endif

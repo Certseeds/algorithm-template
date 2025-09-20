@@ -1,15 +1,23 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
+#include <string>
+#include <cstdint>
 
-Copyright (C) 2020-2023 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-*/
-#include "leetcode_28_test.hpp"
 #include "kmp.hpp"
 
 namespace leetcode_28 {
-int32_t leetcode_28::strStr(const string &haystack, const string &needle) {
-    return string_search::strStr(haystack, needle);
+using std::string;
+#endif
+
+class Solution {
+public:
+    int32_t strStr(const string &haystack, const string &needle) {
+        return string_search::strStr(haystack, needle);
+    }
+};
+
+#ifdef ALGORITHM_TEST_MACRO
 }
-}
+#endif

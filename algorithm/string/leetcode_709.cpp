@@ -1,30 +1,27 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2020-2023 nanoseeds
-
-*/
-#include "leetcode_709_test.hpp"
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
+#include <string>
 #include <array>
+#include <limits>
 
+#ifdef ALGORITHM_TEST_MACRO
 namespace leetcode_709 {
+using std::string;
 using std::array;
+#endif
 
-constexpr std::array<char, std::numeric_limits<char>::max() + 1> prepare() {
-    std::array<char, std::numeric_limits<char>::max() + 1> bigs{0};
-    for (char ch{'A'}; ch <= 'Z'; ++ch) {
-        bigs[ch] = ('a' - 'A');
+class Solution {
+public:
+    string toLowerCase(string s) {
+        for (char &c : s) {
+            if (c >= 'A' && c <= 'Z') {
+                c = c - 'A' + 'a';
+            }
+        }
+        return s;
     }
-    return bigs;
-}
+};
 
-string leetcode_709::toLowerCase(const string &str) {
-    static constexpr const std::array<char, prepare().size()> arr{prepare()};
-    string will_return{str};
-    for (auto &ch: will_return) {
-        ch += arr[ch];
-    }
-    return will_return;
+#ifdef ALGORITHM_TEST_MACRO
 }
-}
+#endif

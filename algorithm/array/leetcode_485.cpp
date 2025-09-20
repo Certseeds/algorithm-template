@@ -1,25 +1,31 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-Copyright (C) 2020-2023 nanoseeds
-
-*/
-#include "leetcode_485_test.hpp"
+#include <vector>
+#include <algorithm>
+#include <cstdint>
 
 namespace leetcode_485 {
+using std::vector;
+#endif
 
-int32_t leetcode_485::findMaxConsecutiveOnes(const vector<int32_t> &nums) {
-    int32_t val{0}, willreturn{-1};
-    for (const auto i: nums) {
-        if (i != 0) {
-            val++;
-        } else {
-            willreturn = std::max(val, willreturn);
-            val = 0;
+class Solution {
+public:
+    int32_t findMaxConsecutiveOnes(const vector<int32_t> &nums) {
+        int32_t val{0}, willreturn{-1};
+        for (const auto i: nums) {
+            if (i != 0) {
+                val++;
+            } else {
+                willreturn = std::max(val, willreturn);
+                val = 0;
+            }
         }
+        return std::max(val, willreturn);;
     }
-    return std::max(val, willreturn);;
-}
+};
 
+#ifdef ALGORITHM_TEST_MACRO
 }
+#endif

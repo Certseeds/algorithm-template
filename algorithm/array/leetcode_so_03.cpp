@@ -1,50 +1,58 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-Copyright (C) 2022-2023  nanoseeds
-
-*/
-#include "leetcode_so_03_test.hpp"
 #include <unordered_map>
+#include <cstdint>
+#include <cstddef>
+#include <vector>
+#include <algorithm>
 
-namespace leetcode_so_03 {
+using std::vector;
 using std::unordered_map;
 
-int32_t leetcode_so_03::findRepeatNumber(const vector<int32_t> &nums_) {
-    vector<int32_t> nums{nums_};
-    std::sort(nums.begin(), nums.end());
-    for (size_t i{0}, size{nums.size()}; i + 1 < size; ++i) {
-        if (nums[i] == nums[i + 1]) {
-            return nums[i];
-        }
-    }
-    return 0;
-}
+namespace leetcode_so_03 {
+#endif
 
-int32_t leetcode_so_03::findRepeatNumber2(const vector<int32_t> &nums) {
-    unordered_map<int32_t, size_t> umap;
-    for (size_t i{0}, size{nums.size()}; i < size; ++i) {
-        ++umap[nums[i]];
-        if (umap[nums[i]] == 2) {
-            return nums[i];
+class Solution {
+public:
+    int32_t findRepeatNumber(const vector<int32_t> &nums_) {
+        vector<int32_t> nums{nums_};
+        std::sort(nums.begin(), nums.end());
+        for (size_t i{0}, size{nums.size()}; i + 1 < size; ++i) {
+            if (nums[i] == nums[i + 1]) {
+                return nums[i];
+            }
         }
+        return 0;
     }
-    return -1;
-}
 
-int32_t leetcode_so_03::findRepeatNumber3(const vector<int32_t> &nums_) {
-    vector<int32_t> nums{nums_};
-    for (size_t i{0}, size{nums.size()}; i < size; ++i) {
-        const auto num = [](const auto i) {
-            return i >= 0 ? i : -i - 1;
-        }(nums[i]);
-        if (nums[num] < 0) {
-            return num;
+    int32_t findRepeatNumber2(const vector<int32_t> &nums) {
+        unordered_map<int32_t, size_t> umap;
+        for (size_t i{0}, size{nums.size()}; i < size; ++i) {
+            ++umap[nums[i]];
+            if (umap[nums[i]] == 2) {
+                return nums[i];
+            }
         }
-        nums[num] = -nums[num] - 1;
+        return -1;
     }
-    return -1;
-}
 
+    int32_t findRepeatNumber3(const vector<int32_t> &nums_) {
+        vector<int32_t> nums{nums_};
+        for (size_t i{0}, size{nums.size()}; i < size; ++i) {
+            const auto num = [](const auto i) {
+                return i >= 0 ? i : -i - 1;
+            }(nums[i]);
+            if (nums[num] < 0) {
+                return num;
+            }
+            nums[num] = -nums[num] - 1;
+        }
+        return -1;
+    }
+};
+
+#ifdef ALGORITHM_TEST_MACRO
 }
+#endif

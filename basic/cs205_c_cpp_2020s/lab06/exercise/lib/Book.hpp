@@ -1,14 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/* CS205_C_CPP
-    Copyright (C) 2020-2023 nanoseeds
-*/
-/*
- * @Github: https://github.com/Certseeds
- * @Author: nanoseeds
- * @Date: 2021-01-05 18:49:03
- * @LastEditors: nanoseeds
- * @LastEditTime: 2021-02-09 09:44:50
- */
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
 #ifndef CS205_C_CPP_LAB06_EXERCISE_INCLUDE_BOOK_H
 #define CS205_C_CPP_LAB06_EXERCISE_INCLUDE_BOOK_H
 

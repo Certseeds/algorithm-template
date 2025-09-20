@@ -1,16 +1,6 @@
-/**
- * @Github: https://github.com/Certseeds/CS203_DSAA_template
- * @Author: nanos
- * @Date: 2021-04-02 10:12:44
- * @LastEditors: nanos
- */
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2021-2025 nanoseeds
 
-Copyright (C) 2021-2023  nanos
-
-*/
 
 #include <catch_main.hpp>
 #include "kmp.hpp"

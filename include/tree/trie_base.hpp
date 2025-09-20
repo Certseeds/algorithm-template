@@ -2,8 +2,8 @@
 // Created by nanos on 2021/12/8.
 //
 
-#ifndef CS203_DSAA_TEMPLATE_INCLUDE_TREE_TRIE_BASE_HPP
-#define CS203_DSAA_TEMPLATE_INCLUDE_TREE_TRIE_BASE_HPP
+#ifndef ALGORITHM_TEMPLATE_INCLUDE_TREE_TRIE_BASE_HPP
+#define ALGORITHM_TEMPLATE_INCLUDE_TREE_TRIE_BASE_HPP
 
 #include <string>
 #include <unordered_set>
@@ -37,4 +37,4 @@ public:
     virtual bool startsWith(string::const_iterator cb, string::const_iterator ce) const = 0;
 };
 }
-#endif //CS203_DSAA_TEMPLATE_INCLUDE_TREE_TRIE_BASE_HPP
+#endif //ALGORITHM_TEMPLATE_INCLUDE_TREE_TRIE_BASE_HPP

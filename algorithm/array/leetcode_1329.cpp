@@ -1,13 +1,18 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-Copyright (C) 2022-2023  nanoseeds
+#include <cstdint>
+#include <cstddef>
+#include <vector>
+#include <tuple>
+#include <algorithm>
 
-*/
-#include "leetcode_1329_test.hpp"
+using std::vector;
 
 namespace leetcode_1329 {
+#endif
+
 namespace unstable {
 
 size_t matrixToLines(const vector<vector<int32_t>> &mat) {
@@ -70,11 +75,15 @@ vector<vector<int32_t>> diagonalSort(vector<vector<int32_t>> &mat) {
 }
 }
 
-vector<vector<int32_t>> leetcode_1329::diagonalSort(const vector<vector<int32_t>> &mat) {
-    vector<vector<int32_t>> will_return{mat};
-    unstable::diagonalSort(will_return);
-    return will_return;
-}
+class Solution {
+public:
+    vector<vector<int32_t>> diagonalSort(const vector<vector<int32_t>> &mat) {
+        vector<vector<int32_t>> will_return{mat};
+        unstable::diagonalSort(will_return);
+        return will_return;
+    }
+};
 
-
+#ifdef ALGORITHM_TEST_MACRO
 }
+#endif

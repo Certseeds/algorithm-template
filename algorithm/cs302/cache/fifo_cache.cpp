@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*  CS203_DSAA_template
-    Copyright (C) 2022-2023  nanoseeds
-*/
-#ifdef CS203_DSAA_TEST_MACRO
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
 #include <catch_main.hpp>
 #include "cache_base.hpp"
@@ -17,13 +15,13 @@ using std::array;
 static constexpr const std::array<const std::pair<size_t, const char *const>, 8> pairs{
         {
                 {1, "sample.data.in"},
-                {1198, "1.data.in"},
-                {11854, "2.data.in"},
-                {82363, "3.data.in"},
                 {2, "4.data.in"},
                 {5, "5.data.in"},
                 {4, "6.data.in"},
                 {2, "7.data.in"},
+                {1198, "1.data.in"},
+                {11854, "2.data.in"},
+                {82363, "3.data.in"},
         }};
 
 namespace On {

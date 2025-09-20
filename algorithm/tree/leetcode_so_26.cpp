@@ -1,27 +1,33 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
+#include <cstdint>
+#include <cstddef>
 
-Copyright (C) 2022 nanoseeds
-
-*/
-#include "leetcode_so_26_test.hpp"
-
+#include <tree/treenode.hpp>
 namespace leetcode_so_26 {
-bool in(TreeNode *A, TreeNode *B) {
-    if (B == nullptr) {
-        return true;
-    } else if (A == nullptr) {
-        return false;
-    }
-    return A->val == B->val && in(A->left, B->left) && in(A->right, B->right);
-}
+using std::vector;
+using TreeNode = TREE_NODE::TreeNode<int32_t>;
+#endif
 
-bool leetcode_so_26::isSubStructure(TREE_NODE::TreeNode<int32_t> *A, TREE_NODE::TreeNode<int32_t> *B) {
-    if (B == nullptr || A == nullptr) {
-        return false;
+class Solution {
+private:
+    bool in(TreeNode *A, TreeNode *B) {
+        if (B == nullptr) {
+            return true;
+        } else if (A == nullptr) {
+            return false;
+        }
+        return A->val == B->val && in(A->left, B->left) && in(A->right, B->right);
     }
-    return in(A, B) || isSubStructure(A->left, B) || isSubStructure(A->right, B);
+public:
+    bool isSubStructure(TreeNode *A, TreeNode *B) {
+        if (B == nullptr || A == nullptr) {
+            return false;
+        }
+        return in(A, B) || isSubStructure(A->left, B) || isSubStructure(A->right, B);
+    }
+};
+#ifdef ALGORITHM_TEST_MACRO
 }
-
-}
+#endif

@@ -1,20 +1,6 @@
-/*
- * @Github: https://github.com/Certseeds
- * @Author: nanoseeds
- * @Date: 2021-01-05 18:49:03
- * @LastEditors: nanoseeds
- * @LastEditTime: 2021-06-22 13:33:24
- */
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/* CS205_C_CPP
-    Copyright (C) 2020-2023 nanoseeds
-*/
-/**
- * @Github: https://github.com/Certseeds
- * @Author: nanoseeds
- * @Date: 2020-03-26 23:05:19
- * @LastEditors  : nanoseeds
- */
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
+
 #include <iostream>
 
 using std::cin;

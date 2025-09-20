@@ -1,18 +1,7 @@
-/**
- * @Github: https://github.com/Certseeds/CS203_DSAA_template
- * @Author: nanos
- * @Date: 2021-05-13 20:29:20
- * @LastEditors: nanos
- */
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2021-2023  nanos
-
-*/
-#ifndef CS203_DSAA_TEMPLATE_ALGORITHM_FFT_FFT_HPP
-#define CS203_DSAA_TEMPLATE_ALGORITHM_FFT_FFT_HPP
+// SPDX-FileCopyrightText: 2021-2025 nanoseeds
+#ifndef ALGORITHM_TEMPLATE_ALGORITHM_FFT_FFT_HPP
+#define ALGORITHM_TEMPLATE_ALGORITHM_FFT_FFT_HPP
 
 
 #include <cstdint>
@@ -60,4 +49,4 @@ inline vector<int32_t> num_to_vec(uint64_t uint64) {
     return will_return;
 }
 }
-#endif //CS203_DSAA_TEMPLATE_ALGORITHM_FFT_FFT_HPP
+#endif //ALGORITHM_TEMPLATE_ALGORITHM_FFT_FFT_HPP

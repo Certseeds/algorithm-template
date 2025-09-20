@@ -1,34 +1,43 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
-
-Copyright (C) 2022-2023  nanoseeds
-
-*/
-#include "leetcode_535_test.hpp"
+// SPDX-FileCopyrightText: 2022-2025 nanoseeds
+#include <string>
 #include <unordered_map>
 
+#ifdef ALGORITHM_TEST_MACRO
 namespace leetcode_535 {
+using std::string;
 using std::unordered_map;
+#endif
 
-class c1 : public base {
+class Solution {
+    unordered_map<string, string> long_to_short;
+    unordered_map<string, string> short_to_long;
+    static constexpr const char *const chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    static constexpr const size_t url_len = 6;
 public:
-    [[nodiscard]] string encode(const string longUrl) override {
-        return longUrl;
-    }
-
-    [[nodiscard]] string decode(const string shortUrl) override {
+    // Encodes a URL to a shortened URL.
+    string encode(string longUrl) {
+        if (long_to_short.count(longUrl)) {
+            return long_to_short[longUrl];
+        }
+        string shortUrl;
+        do {
+            shortUrl = "http://tinyurl.com/";
+            for (size_t i = 0; i < url_len; ++i) {
+                shortUrl += chars[rand() % 62];
+            }
+        } while (short_to_long.count(shortUrl));
+        long_to_short[longUrl] = shortUrl;
+        short_to_long[shortUrl] = longUrl;
         return shortUrl;
     }
 
-    static base *getPointer() {
-        static base *const pointer = new c1{};
-        return pointer;
+    // Decodes a shortened URL to its original URL.
+    string decode(string shortUrl) {
+        return short_to_long[shortUrl];
     }
 };
 
-
-base *leetcode_535::getObject1() {
-    return c1::getPointer();
+#ifdef ALGORITHM_TEST_MACRO
 }
-}
+#endif

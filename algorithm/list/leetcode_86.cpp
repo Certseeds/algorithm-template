@@ -1,30 +1,35 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
-CS203_DSAA_template
+// SPDX-FileCopyrightText: 2020-2025 nanoseeds
+#ifdef ALGORITHM_TEST_MACRO
 
-Copyright (C) 2020-2023 nanoseeds
-
-*/
-#include "leetcode_86_test.hpp"
+#include <list/listnode.hpp>
 
 namespace leetcode_86 {
+using LISTNODE::ListNode;
 
-ListNode *leetcode_86::partition(ListNode *head, int32_t x) {
-    ListNode node1{-1}, node2{-1};
-    ListNode *p_node1{&node1}, *p_node2{&node2};
-    while (head != nullptr) {
-        if (head->val >= x) {
-            p_node2->next = new ListNode(head->val);
-            p_node2 = p_node2->next;
-        } else {
-            p_node1->next = new ListNode(head->val);
-            p_node1 = p_node1->next;
+#endif
+
+class Solution {
+public:
+    ListNode *partition(ListNode *head, int32_t x) {
+        ListNode node1{-1}, node2{-1};
+        ListNode *p_node1{&node1}, *p_node2{&node2};
+        while (head != nullptr) {
+            if (head->val >= x) {
+                p_node2->next = new ListNode(head->val);
+                p_node2 = p_node2->next;
+            } else {
+                p_node1->next = new ListNode(head->val);
+                p_node1 = p_node1->next;
+            }
+            head = head->next;
         }
-        head = head->next;
+        p_node1->next = node2.next;
+        return node1.next;
     }
-    p_node1->next = node2.next;
-    return node1.next;
-}
+};
 
+#ifdef ALGORITHM_TEST_MACRO
 }
+#endif
 
