@@ -5,44 +5,43 @@ CS203_DSAA_template
 Copyright (C) 2022-2023  nanoseeds
 
 */
-#include "leetcode_so_58_test.hpp"
+#include <string>
+#include <vector>
+#include <algorithm>
 
+#ifdef CS203_DSAA_TEST_MACRO
 namespace leetcode_so_58 {
+using std::string;
+using std::vector;
+#endif
 
-string leetcode_so_58::reverseLeftWords(const string &s, int32_t n) {
-    const auto s_size{s.size()};
-    const auto mid{s_size - n};
-    string will_reutrn(s_size, ' ');
-    for (size_t i = n; i < s_size; ++i) {
-        will_reutrn[i - n] = s[i];
+class Solution {
+public:
+    string reverseLeftWords(string s, int n) {
+        std::reverse(s.begin(), s.begin() + n);
+        std::reverse(s.begin() + n, s.end());
+        std::reverse(s.begin(), s.end());
+        return s;
     }
-    for (int32_t i{0}; i < n; ++i) {
-        will_reutrn[mid + i] = s[i];
-    }
-    return will_reutrn;
-}
 
-string leetcode_so_58::reverseWords(const string &s) {
-    const auto s_size{s.size()};
-    vector<string> strs;
-    string str{};
-    str.reserve(s_size);
-    for (size_t left{0}; left < s_size; ++left, str.clear()) {
-        for (; left < s_size && s[left] == ' '; ++left) {}
-        for (; left < s_size && s[left] != ' '; ++left) { str += s[left]; }
-        if (!str.empty()) {
-            strs.push_back(str);
+    string reverseWords(string s) {
+        std::reverse(s.begin(), s.end());
+        int n = s.length();
+        int idx = 0;
+        for (int start = 0; start < n; ++start) {
+            if (s[start] != ' ') {
+                if (idx != 0) s[idx++] = ' ';
+                int end = start;
+                while (end < n && s[end] != ' ') s[idx++] = s[end++];
+                std::reverse(s.begin() + idx - (end - start), s.begin() + idx);
+                start = end;
+            }
         }
+        s.erase(s.begin() + idx, s.end());
+        return s;
     }
-    if (strs.empty()) {
-        return {};
-    }
-    string will_return{};
-    will_return = strs.back();
-    for (auto iter = strs.rbegin() + 1; iter != strs.rend(); ++iter) {
-        //will_return =  will_return + *iter;
-        will_return += ' ' + *iter;
-    }
-    return will_return;
+};
+
+#ifdef CS203_DSAA_TEST_MACRO
 }
-}
+#endif

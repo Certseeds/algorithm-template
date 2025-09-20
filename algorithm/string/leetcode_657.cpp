@@ -5,32 +5,38 @@ CS203_DSAA_template
 Copyright (C) 2020-2023 nanoseeds
 
 */
-#include "leetcode_657_test.hpp"
+#include <string>
+#include <cstdint>
 
+#ifdef CS203_DSAA_TEST_MACRO
 namespace leetcode_657 {
+using std::string;
+#endif
 
-bool leetcode_657::judgeCircle(const string &moves) {
-    int32_t x{0}, y{0};
-    for (size_t i{0}, moves_size{moves.size()}; i < moves_size; ++i) {
-        switch (moves[i]) {
-            case ('L'): {
-                x++;
-                break;
-            }
-            case ('R'): {
-                x--;
-                break;
-            }
-            case ('U'): {
-                y++;
-                break;
-            }
-            case ('D'): {
-                y--;
-                break;
+class Solution {
+public:
+    bool judgeCircle(const string &moves) {
+        int32_t x{0}, y{0};
+        for (const auto move : moves) {
+            switch (move) {
+                case 'L':
+                    x++;
+                    break;
+                case 'R':
+                    x--;
+                    break;
+                case 'U':
+                    y++;
+                    break;
+                case 'D':
+                    y--;
+                    break;
             }
         }
+        return (x == 0 && y == 0);
     }
-    return (x == 0 && y == 0);
+};
+
+#ifdef CS203_DSAA_TEST_MACRO
 }
-}
+#endif

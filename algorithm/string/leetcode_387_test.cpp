@@ -14,39 +14,35 @@ Copyright (C) 2022-2023  nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_387_TEST_HPP
 
 #include <catch_main.hpp>
+#include "leetcode_387.cpp"
 #include <cstdint>
 #include <cstddef>
 #include <string>
 
 namespace leetcode_387 {
 
-using std::string;
-
-struct leetcode_387 {
-    static int32_t firstUniqChar(const string &s); // better for short str
-
-    static int32_t firstUniqChar2(const string &s); // better for long str
-};
-
 TEST_CASE("1 [test_387]", "[test_387]") {
+    Solution solution;
     static constexpr const char *const input{"UD"};
     static constexpr const auto result{0};
-    CHECK(result == leetcode_387::firstUniqChar(input));
-    CHECK(result == leetcode_387::firstUniqChar2(input));
+    CHECK(result == solution.firstUniqChar(input));
+    CHECK(result == solution.firstUniqChar2(input));
 }
 
 TEST_CASE("2 [test_387]", "[test_387]") {
+    Solution solution;
     static constexpr const char *const input{"leetcode"};
     static constexpr const auto result{0};
-    CHECK(result == leetcode_387::firstUniqChar(input));
-    CHECK(result == leetcode_387::firstUniqChar2(input));
+    CHECK(result == solution.firstUniqChar(input));
+    CHECK(result == solution.firstUniqChar2(input));
 }
 
 TEST_CASE("3 [test_387]", "[test_387]") {
+    Solution solution;
     static constexpr const char *const input{"loveleetcode"};
     static constexpr const auto result{2};
-    CHECK(result == leetcode_387::firstUniqChar(input));
-    CHECK(result == leetcode_387::firstUniqChar2(input));
+    CHECK(result == solution.firstUniqChar(input));
+    CHECK(result == solution.firstUniqChar2(input));
 }
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_387_TEST_HPP

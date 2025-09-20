@@ -16,26 +16,19 @@ Copyright (C) 2020-2023 nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_3_TEST_HPP
 
 #include <catch_main.hpp>
+#include "leetcode_3.cpp"
 #include <cassert>
 #include <cstdint>
 #include <string>
+#include <iostream>
 
 namespace leetcode_3 {
-using std::endl;
-using std::string;
-
-struct leetcode_3 final {
-    static int32_t lengthOfLongestSubstring(const string &s);
-
-    static int32_t lengthOfLongestSubstring2(const string &s);
-
-    static int32_t lengthOfLongestSubstring3(const string &s);
-};
 
 void warpper(const string &s, int32_t length) {
-    CHECK(length == leetcode_3::lengthOfLongestSubstring(s));
-    CHECK(length == leetcode_3::lengthOfLongestSubstring2(s));
-    CHECK(length == leetcode_3::lengthOfLongestSubstring3(s));
+    Solution solution;
+    CHECK(length == solution.lengthOfLongestSubstring(s));
+    CHECK(length == solution.lengthOfLongestSubstring2(s));
+    CHECK(length == solution.lengthOfLongestSubstring3(s));
 }
 
 TEST_CASE("1 [test_3]", "[test_3]") {
@@ -54,8 +47,9 @@ TEST_CASE("3 [test_3]", "[test_3]") {
 }
 
 TEST_CASE("4 [test_3]", "[test_3]") {
+    Solution solution;
     string str{"abba"};
-    cout << leetcode_3::lengthOfLongestSubstring(str) << endl;
+    std::cout << solution.lengthOfLongestSubstring(str) << std::endl;
     warpper(str, 2);
 }
 

@@ -11,25 +11,21 @@ Copyright (C) 2020-2023 nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_657_TEST_HPP
 
 #include <catch_main.hpp>
-#include <cstdint>
-#include <cstddef>
+#include "leetcode_657.cpp"
 #include <string>
 
 namespace leetcode_657 {
-using std::string;
-
-struct leetcode_657 {
-    static bool judgeCircle(const string &moves);
-};
 
 TEST_CASE("1 [test_657]", "[test_657]") {
+    Solution solution;
     static constexpr const char *const input{"UD"};
-    CHECK(leetcode_657::judgeCircle(input));
+    CHECK(solution.judgeCircle(input));
 }
 
 TEST_CASE("2 [test_657]", "[test_657]") {
+    Solution solution;
     static constexpr const char *const input{"LL"};
-    CHECK_FALSE(leetcode_657::judgeCircle(input));
+    CHECK_FALSE(solution.judgeCircle(input));
 }
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_657_TEST_HPP

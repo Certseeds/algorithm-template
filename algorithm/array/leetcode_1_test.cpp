@@ -11,8 +11,8 @@ Copyright (C) 2020-2023 nanoseeds
 #ifndef CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_1_TEST_HPP
 #define CS203_DSAA_TEMPLATE_ALGORITHM_ARRAY_LEETCODE_1_TEST_HPP
 
-#include "leetcode_1.cpp"
 #include <catch_main.hpp>
+#include "leetcode_1.cpp"
 
 namespace leetcode_1 {
 using std::vector;

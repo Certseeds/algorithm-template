@@ -13,26 +13,23 @@ Copyright (C) 2022-2023  nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_383_TEST_HPP
 
 #include <catch_main.hpp>
+#include "leetcode_383.cpp"
 #include <cstdint>
 #include <cstddef>
 #include <string>
 
 namespace leetcode_383 {
 
-using std::string;
-
-struct leetcode_383 {
-    static bool canConstruct(const string &ransomNote, const string &magazine);
-};
-
 TEST_CASE("1 [test_383]", "[test_383]") {
+    Solution solution;
     static constexpr const char *const inputR{"UD"}, *const inputM{"AUOKD"};
-    CHECK(leetcode_383::canConstruct(inputR, inputM));
+    CHECK(solution.canConstruct(inputR, inputM));
 }
 
 TEST_CASE("2 [test_383]", "[test_383]") {
+    Solution solution;
     static constexpr const char *const inputR{"a"}, *const inputM{"b"};
-    CHECK_FALSE(leetcode_383::canConstruct(inputR, inputM));
+    CHECK_FALSE(solution.canConstruct(inputR, inputM));
 }
 
 }

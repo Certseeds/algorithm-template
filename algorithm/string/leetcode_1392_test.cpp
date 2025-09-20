@@ -12,40 +12,40 @@ Copyright (C) 2023 nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_1392_TEST_HPP
 
 #include <catch_main.hpp>
+#include "leetcode_1392.cpp"
 #include <cstdint>
 #include <cstddef>
 #include <string>
 
 namespace leetcode_1392 {
-using std::string;
-
-namespace leetcode_1392 {
-string longestPrefix(const string &s);
-}
 
 TEST_CASE("1 [test_1392]", "[test_1392]") {
+    Solution solution;
     constexpr const char *const input{"abababab"};
     constexpr const char *const result{"ababab"};
-    CHECK(result == leetcode_1392::longestPrefix(input));
+    CHECK(result == solution.longestPrefix(input));
 }
 
 TEST_CASE("2 [test_1392]", "[test_1392]") {
+    Solution solution;
     constexpr const char *const input{"longestPrefix"};
     constexpr const char *const result{""};
-    CHECK(result == leetcode_1392::longestPrefix(input));
+    CHECK(result == solution.longestPrefix(input));
 }
 
 TEST_CASE("3 [test_1392]", "[test_1392]") {
+    Solution solution;
     const string input(98001, 'a');
     const string result(98000, 'a');
-    CHECK(result == leetcode_1392::longestPrefix(input));
+    CHECK(result == solution.longestPrefix(input));
 }
+
 TEST_CASE("4 [test_1392]", "[test_1392]") {
-    constexpr const char *const input{"vwantmbocxcwrqtvgzuvgrmdltfiglltaxkjfajxthcppcatddcunpkqsgpnjjgqanrwabgrtwuqbrfl"};
+    Solution solution;
+    constexpr const char *const input{
+            "vwantmbocxcwrqtvgzuvgrmdltfiglltaxkjfajxthcppcatddcunpkqsgpnjjgqanrwabgrtwuqbrfl"};
     constexpr const char *const result{""};
-    CHECK(result == leetcode_1392::longestPrefix(input));
+    CHECK(result == solution.longestPrefix(input));
 }
-
-
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_1392_TEST_HPP

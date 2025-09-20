@@ -13,42 +13,37 @@ Copyright (C) 2022-2023  nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_SO_58_TEST_HPP
 
 #include <catch_main.hpp>
-#include <cstdint>
-#include <cstddef>
+#include "leetcode_so_58.cpp"
 #include <string>
 
 namespace leetcode_so_58 {
 
-using std::string;
-
-struct leetcode_so_58 {
-    static string reverseLeftWords(const string &s, int32_t n);
-
-    static string reverseWords(const string &s);
-};
-
 using Catch::Matchers::Equals;
 
 TEST_CASE("2 [test_so_58 i]", "[test_so_58]") {
+    Solution solution;
     static constexpr const char *const input{"  hello world!  "}, *const result{"world! hello"};
-    CHECK_THAT(result, Equals(leetcode_so_58::reverseWords(input)));
+    CHECK_THAT(solution.reverseWords(input), Equals(result));
 }
 
 TEST_CASE("1 [test_so_58 i]", "[test_so_58]") {
+    Solution solution;
     static constexpr const char *const input{"I am a aritist."}, *const result{"aritist. a am I"};
-    CHECK_THAT(result, Equals(leetcode_so_58::reverseWords(input)));
+    CHECK_THAT(solution.reverseWords(input), Equals(result));
 }
 
 TEST_CASE("1 [test_so_58 ii]", "[test_so_58]") {
-    static constexpr const char *const input{"We are happy."}, *const result{"are happy.We "};
-    static constexpr const auto n{3};
-    CHECK_THAT(result, Equals(leetcode_so_58::reverseLeftWords(input, n)));
+    Solution solution;
+    static constexpr const char *const input{"abcdefg"}, *const result{"cdefgab"};
+    static constexpr const auto n{2};
+    CHECK_THAT(solution.reverseLeftWords(input, n), Equals(result));
 }
 
 TEST_CASE("2 [test_so_58 ii]", "[test_so_58]") {
-    static constexpr const char *const input{"We%20are%20happy."}, *const result{"20are%20happy.We%"};
-    static constexpr const auto n{3};
-    CHECK_THAT(result, Equals(leetcode_so_58::reverseLeftWords(input, n)));
+    Solution solution;
+    static constexpr const char *const input{"lrloseumgh"}, *const result{"umghlrlose"};
+    static constexpr const auto n{6};
+    CHECK_THAT(solution.reverseLeftWords(input, n), Equals(result));
 }
 }
 #endif //CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_SO_58_TEST_HPP

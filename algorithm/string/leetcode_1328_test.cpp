@@ -12,42 +12,42 @@ Copyright (C) 2020-2023 nanoseeds
 #define CS203_DSAA_TEMPLATE_ALGORITHM_STRING_LEETCODE_1328_TEST_HPP
 
 #include <catch_main.hpp>
+#include "leetcode_1328.cpp"
 #include <cstdint>
 #include <cstddef>
 #include <string>
 
 namespace leetcode_1328 {
-using std::string;
-
-namespace leetcode_1328 {
-string breakPalindrome(const string &palindrome);
-}
 
 TEST_CASE("1 [test_1328]", "[test_1328]") {
+    Solution solution;
     constexpr const char *const input{"abccba"};
     constexpr const char *const result{"aaccba"};
-    const auto output = leetcode_1328::breakPalindrome(input);
+    const auto output = solution.breakPalindrome(input);
     CHECK(result == output);
 }
 
 TEST_CASE("2 [test_1328]", "[test_1328]") {
+    Solution solution;
     constexpr const char *const input{"aa"};
     constexpr const char *const result{"ab"};
-    const auto output = leetcode_1328::breakPalindrome(input);
+    const auto output = solution.breakPalindrome(input);
     CHECK(result == output);
 }
 
 TEST_CASE("3 [test_1328]", "[test_1328]") {
+    Solution solution;
     constexpr const char *const input{"aba"};
     constexpr const char *const result{"abb"};
-    const auto output = leetcode_1328::breakPalindrome(input);
+    const auto output = solution.breakPalindrome(input);
     CHECK(result == output);
 }
 
 TEST_CASE("4 [test_1328]", "[test_1328]") {
+    Solution solution;
     constexpr const char *const input{"aabaa"};
     constexpr const char *const result{"aabab"};
-    const auto output = leetcode_1328::breakPalindrome(input);
+    const auto output = solution.breakPalindrome(input);
     CHECK(result == output);
 }
 
