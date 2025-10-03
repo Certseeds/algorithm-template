@@ -14,6 +14,8 @@
 *.template text diff=text
 *.in text eol=lf
 *.out text eol=lf
+*.data.in text eol=lf
+*.data.out text eol=lf
 
 # scripts
 *.sh text eol=lf

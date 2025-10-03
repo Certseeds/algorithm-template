@@ -1,18 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // SPDX-FileCopyrightText: 2020-2025 nanoseeds
-/*
- * 题目描述
-Given two arrays A with length n and B with length T. We want to know whether each element in array B is in array A or not.
-给两个数组,数组A的长度为n ,数组B长度为T, 我们想要知道B中的每一个元素是否在A内
-输入
-The 1st line is a positive integer n ∈[1,10^5]
 
-The 2nd line contains n integers: $a_1$,$a_2$,...,$a_n$.For each $a_i$, ∈[1,10^5]
-
-The 3rd line contains a positive integer T [1,10^5]
-
-The 4th line contains T integers b1,b2,...,bT.For each bi∈[1,10^5]
- * */
 #include <tuple>
 #include <string>
 #include <vector>
@@ -22,7 +10,7 @@ The 4th line contains T integers b1,b2,...,bT.For each bi∈[1,10^5]
 #include <unordered_set>
 
 #ifdef ALGORITHM_TEST_MACRO
-namespace lab_welcome_B{
+namespace lab_welcome_A{
 #endif
 
 using std::cin;
@@ -50,7 +38,7 @@ void output(const output_type &data);
 
 int main() {
     auto input_data = read();
-    auto output_data = cal(input_data);
+    const auto output_data = cal(input_data);
     output(output_data);
     return 0;
 }
@@ -59,7 +47,7 @@ inline input_type read() {
     num_t n{0}, T{0}, temp{0};
     std::cin >> n;
     std::unordered_set<num_t> A{};
-    for (int i = 0; i < n; ++i) {
+    for (int i{0}; i < n; ++i) {
         std::cin >> temp;
         A.insert(temp);
     }

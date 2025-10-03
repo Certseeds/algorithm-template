@@ -8,13 +8,13 @@
 #include <tuple>
 #include <string>
 #include <vector>
-#include <vector>
 #include <cstdint>
 #include <numeric>
 #include <iostream>
 #include <algorithm>
 #include <unordered_map>
 #include <unordered_set>
+#include <cctype>
 
 #ifdef ALGORITHM_TEST_MACRO
 namespace lab_welcome_F{
@@ -38,9 +38,8 @@ using std::priority_queue;
 static constexpr const char end{'\n'};
 //TODO
 
-using num_t = int32_t;
-using input_type = tuple<num_t, num_t>;
-using output_type = num_t;
+using input_type = std::vector<std::string>;
+using output_type = std::vector<std::string>;
 
 inline input_type read();
 
@@ -56,20 +55,46 @@ int main() {
 }
 
 inline input_type read() {
-    num_t a{0}, b{0};
-    std::cin >> a >> b;
-    return std::make_tuple(a, b);
+    int t = 0;
+    if (!(std::cin >> t)) return {};
+    input_type v;
+    v.reserve(t);
+    for (int i = 0; i < t; ++i) {
+        std::string s;
+        std::cin >> s;
+        v.push_back(std::move(s));
+    }
+    return v;
 }
 
 output_type cal(input_type data) {
-    num_t a{0}, b{0};
-    tie(a, b) = data;
-    num_t c = a + b;
-    return c;
+    output_type res;
+    res.reserve(data.size());
+    for (const auto &s : data) {
+        if (s == "0") { res.push_back("yes"); continue; }
+        bool converges = true;
+        size_t pos = 0;
+        while (pos < s.size()) {
+            size_t nxt = s.find('+', pos);
+            std::string token = (nxt == std::string::npos) ? s.substr(pos) : s.substr(pos, nxt - pos);
+            pos = (nxt == std::string::npos) ? s.size() : nxt + 1;
+
+            // parse leading coefficient digits
+            size_t p = 0;
+            while (p < token.size() && std::isdigit((unsigned char)token[p])) ++p;
+            if (p == 0) { converges = false; break; }
+            std::string coef_str = token.substr(0, p);
+            unsigned long long C = 0ULL;
+            try { C = std::stoull(coef_str); } catch (...) { C = 1ULL; }
+            if (C != 0ULL) { converges = false; break; }
+        }
+        res.push_back(converges ? "yes" : "no");
+    }
+    return res;
 }
 
 void output(const output_type &data) {
-    cout << data << end;
+    for (const auto &line : data) std::cout << line << end;
 }
 
 static const auto faster_streams = [] {

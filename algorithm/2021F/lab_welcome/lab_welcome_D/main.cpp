@@ -36,23 +36,7 @@ using std::unordered_map;
 using std::unordered_set;
 using std::priority_queue;
 static constexpr const char end{'\n'};
-/*
- * 题目描述
-Given two arrays A and B with the same length n−1. We want to insert two integers into An and Bn (1≤An≤h,1≤Bn≤h)
-such that (i) the sum of array A without its largest value and smallest value is larger than the sum of array B without its largest value and smallest value;
-and (ii) An−Bn is minimized.
 
-输入
-The 1st line contains two integers: n,h (2≤n≤105,1≤h≤109)
-
-The 2nd line contains n−1 integers: A1,A2,...,An−1,all element in A is between [1,h]
-
-The 3rd line contains n−1 integers, B1,B2,...,Bn−1,all element in B is between [1,h]
-
-输出
-Print the minimum value of An−Bn if you can find a proper (An,Bn) pair, otherwise print “IMPOSSIBLE”.
- * */
-//TODO
 using num_t = int32_t;
 using input_type = tuple<vector<num_t>, vector<num_t>, num_t>;
 
@@ -108,29 +92,31 @@ static output_type cal(const input_type &data) {
     tie(A, B, h) = data;
     const auto aInfo = analysis(A);
     const auto bInfo = analysis(B);
-    if (aInfo.sum - aInfo.minV < bInfo.sum - bInfo.maxV) {
-        //cout << "case 1" << end;
-        // A中补充了一个最大值,B中补充了一个最小值还是不行
-        return output_type{false};
-    } else if (aInfo.sum - aInfo.maxV > bInfo.sum - bInfo.minV) {
-        //cout << "case 2" << end;
-        // A中补充一个最小值,B中补充一个最大值,仍然可以
-        // 则An为0,Bn为h
-        return output_type{true, -h};
-    }
-    // 此处A
-    // 二分logn * On check
-    num_t left{aInfo.minV - bInfo.maxV}, right{aInfo.maxV - bInfo.minV + 1}, middle{0};
-    while (left < right) {
-        middle = (right - left) / 2 + left;
-        bool OK = check(aInfo, bInfo, middle, h);
-        if (OK) {
-            right = middle;
+
+    // search d = aX - bX in range [1-h, h-1]
+    int64_t low = static_cast<int64_t>(1) - static_cast<int64_t>(h);
+    int64_t high = static_cast<int64_t>(h) - static_cast<int64_t>(1);
+    auto exists_for_d = [&](int64_t d) {
+        return check(aInfo, bInfo, static_cast<num_t>(d), h);
+    };
+
+    // If no possible d yields true, return impossible
+    // We can use binary search because existence is monotone in d (if exists for d then exists for larger d)
+    int64_t left = low, right = high;
+    int64_t answer = std::numeric_limits<int64_t>::max();
+    while (left <= right) {
+        int64_t mid = left + (right - left) / 2;
+        if (exists_for_d(mid)) {
+            answer = mid;
+            right = mid - 1;
         } else {
-            left = middle + 1;
+            left = mid + 1;
         }
     }
-    return output_type{true, left};
+    if (answer == std::numeric_limits<int64_t>::max()) {
+        return output_type{false};
+    }
+    return output_type{true, static_cast<num_t>(answer)};
 }
 
 
@@ -154,28 +140,67 @@ void output(const output_type &data) {
 }
 
 bool check(const arrayInfo &aInfo, const arrayInfo &bInfo, num_t distance, num_t maxValue) {
-    const int64_t constdiff = aInfo.sum - aInfo.minV - aInfo.maxV - bInfo.sum + bInfo.maxV + bInfo.minV;
-    for (int i = std::max(0, distance); i < std::min(maxValue + distance, maxValue); ++i) {
-        int64_t diff = constdiff;
-        if (i < aInfo.minV) {
-            diff += aInfo.minV;
-        } else if (aInfo.minV <= i && i < aInfo.maxV) {
-            diff += i;
-        } else {
-            diff += aInfo.maxV;
-        }
-        const auto bI = i - distance;
-        if (bI < bInfo.minV) {
-            diff -= bInfo.minV;
-        } else if (bInfo.minV <= bI && bI < bInfo.maxV) {
-            diff -= bI;
-        } else {
-            diff -= bInfo.maxV;
-        }
-        if (diff > 0) {
-            return true;
+    // distance may be negative; convert to int64 for calculations
+    int64_t d = static_cast<int64_t>(distance);
+    int64_t h = static_cast<int64_t>(maxValue);
+
+    // valid bX range so that aX = bX + d is within [1,h]
+    int64_t b_low = std::max<int64_t>(1, 1 - d);
+    int64_t b_high = std::min<int64_t>(h, h - d);
+    if (b_low > b_high) return false;
+
+    // helper to compute fA and fB
+    auto fA = [&](int64_t aX) -> int64_t {
+        if (aX <= aInfo.minV) return aInfo.sum - aInfo.maxV;
+        if (aX >= aInfo.maxV) return aInfo.sum - aInfo.minV;
+        return aInfo.sum - aInfo.minV - aInfo.maxV + aX;
+    };
+    auto fB = [&](int64_t bX) -> int64_t {
+        if (bX <= bInfo.minV) return bInfo.sum - bInfo.maxV;
+        if (bX >= bInfo.maxV) return bInfo.sum - bInfo.minV;
+        return bInfo.sum - bInfo.minV - bInfo.maxV + bX;
+    };
+
+    // candidate breakpoints where piecewise definition changes
+    // for bX these are: b_min, b_max
+    // for aX = bX + d these are: a_min - d, a_max - d
+    vector<int64_t> cand;
+    cand.push_back(b_low);
+    cand.push_back(b_high);
+    cand.push_back(bInfo.minV);
+    cand.push_back(bInfo.maxV);
+    cand.push_back(static_cast<int64_t>(aInfo.minV) - d);
+    cand.push_back(static_cast<int64_t>(aInfo.maxV) - d);
+
+    // also include nearby integers to cover boundaries
+    for (auto x : cand) {
+        for (int delta = -1; delta <= 1; ++delta) {
+            int64_t v = x + delta;
+            if (v >= b_low && v <= b_high) {
+                int64_t aX = v + d;
+                if (aX < 1 || aX > h) continue;
+                if (fA(aX) > fB(v)) return true;
+            }
         }
     }
+
+    // As a fallback, check a few evenly spaced points (shouldn't be needed but safe)
+    int checks = 50;
+    if (b_high - b_low + 1 <= checks) {
+        for (int64_t vx = b_low; vx <= b_high; ++vx) {
+            int64_t aX = vx + d;
+            if (aX < 1 || aX > h) continue;
+            if (fA(aX) > fB(vx)) return true;
+        }
+    } else {
+        for (int i = 0; i <= checks; ++i) {
+            int64_t vx = b_low + (b_high - b_low) * i / checks;
+            int64_t aX = vx + d;
+            if (aX < 1 || aX > h) continue;
+            if (fA(aX) > fB(vx)) return true;
+        }
+    }
+
     return false;
 }
 

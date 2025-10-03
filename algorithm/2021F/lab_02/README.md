@@ -2,7 +2,21 @@
 SPDX-License-Identifier: CC-BY-NC-SA-4.0
 ---
 
-# algorithm_2021F_lab02
+# Contest1093 - CS203 2021 Fall Lab 02 Complexity + Binary Search
 
-1. 为了方便为单独的题目撰写README, 将每个题目的resource,source,test文件放在单独的一个文件夹内.
+> cid: 1094
 
+Welcome to  CS203 2021 Fall Lab 02! Enjoy this Lab!
+
+There are six problems for you to solve.
+
+Score: 
++ A-10
++ B-15/10
++ C-15/10
++ D-20/15
++ E-20/15
++ F-20/20
++ G-undefined/20
+
+Reading the samples and hints carefully can help you understand the problem. 

@@ -8,7 +8,7 @@
 #include <cstdint>
 #include <iostream>
 
-#include "lab_welcome_C.cpp"
+#include "main.cpp"
 
 std::string getFilePath() noexcept { return "./../../../../../algorithm/2021F/lab_welcome/lab_welcome_C/resource/"; }
 

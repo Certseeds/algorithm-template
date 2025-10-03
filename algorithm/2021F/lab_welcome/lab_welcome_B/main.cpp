@@ -1,50 +1,38 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // SPDX-FileCopyrightText: 2020-2025 nanoseeds
-#include <list>
-#include <array>
-#include <deque>
-#include <queue>
-#include <stack>
+
 #include <tuple>
 #include <string>
 #include <vector>
-#include <vector>
 #include <cstdint>
-#include <numeric>
 #include <iostream>
 #include <algorithm>
-#include <unordered_map>
 #include <unordered_set>
 
 #ifdef ALGORITHM_TEST_MACRO
-namespace lab_welcome_E{
+namespace lab_welcome_B{
 #endif
 
 using std::cin;
 using std::tie;
 using std::cout;
-using std::list;
-using std::sort;
 using std::array;
-using std::deque;
-using std::queue;
-using std::stack;
 using std::tuple;
 using std::string;
 using std::vector;
-using std::unordered_map;
 using std::unordered_set;
-using std::priority_queue;
 static constexpr const char end{'\n'};
-//TODO
-
+enum class TRUE_FALSE : bool {
+    NO = false,
+    YES = true,
+};
 using num_t = int32_t;
-using input_type = tuple<num_t, num_t>;
-using output_type = num_t;
+using input_type = tuple<std::unordered_set<num_t>, vector<num_t>>;
+using output_type = vector<TRUE_FALSE>;
 
 inline input_type read();
 
-output_type cal(input_type data);
+output_type cal(const input_type &data);
 
 void output(const output_type &data);
 
@@ -56,20 +44,44 @@ int main() {
 }
 
 inline input_type read() {
-    num_t a{0}, b{0};
-    std::cin >> a >> b;
-    return std::make_tuple(a, b);
+    num_t n{0}, T{0}, temp{0};
+    std::cin >> n;
+    std::unordered_set<num_t> A{};
+    for (int i = 0; i < n; ++i) {
+        std::cin >> temp;
+        A.insert(temp);
+    }
+    std::cin >> T;
+    vector<num_t> B(T);
+    for (auto &num: B) {
+        std::cin >> num;
+    }
+    return std::make_tuple(A, B);
 }
 
-output_type cal(input_type data) {
-    num_t a{0}, b{0};
-    tie(a, b) = data;
-    num_t c = a + b;
-    return c;
+output_type cal(const input_type &data) {
+    std::unordered_set<num_t> A{};
+    vector<num_t> B{};
+    tie(A, B) = data;
+    vector<TRUE_FALSE> result{};
+    for (auto &&i: B) {
+        if (A.find(i) == A.end()) {
+            result.push_back(TRUE_FALSE::NO);
+        } else {
+            result.push_back(TRUE_FALSE::YES);
+        }
+    }
+    return result;
 }
 
 void output(const output_type &data) {
-    cout << data << end;
+    for (auto &&result: data) {
+        if (result == output_type::value_type::NO) {
+            cout << "no" << std::endl;
+        } else {
+            cout << "yes" << std::endl;
+        }
+    }
 }
 
 static const auto faster_streams = [] {
