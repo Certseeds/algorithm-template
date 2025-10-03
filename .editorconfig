@@ -9,3 +9,9 @@ insert_final_newline = true
 end_of_line = lf
 indent_size = 4
 trim_trailing_whitespace = true
+
+[*.data.in]
+end_of_line = lf
+
+[*.data.out]
+end_of_line = lf

@@ -17,3 +17,11 @@
 ## Output
 
 对 B 中的每个元素输出一行：若该元素存在于 A 中, 输出 "yes"；否则输出 "no"。
+
+## 复用信息
+
++ Contest 1091:CS203 2021 Fall Welcome Lab
++ Contest 1092:CS217 2021 Fall Welcome Lab
++ Contest 1133:CS203 2023 Fall Lab 0 Welcome Lab
++ Contest 1160:CS203 2024 Fall Lab 0 Welcome Lab
++ Contest 1185:CS203 2025 Fall Lab 0 Welcome Lab

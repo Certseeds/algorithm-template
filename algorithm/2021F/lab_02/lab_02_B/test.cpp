@@ -8,13 +8,13 @@
 #include <cstdint>
 #include <iostream>
 
-#include "lab_02_C.cpp"
+#include "main.cpp"
 
-std::string getFilePath() noexcept { return "./../../../../../algorithm/2021F/lab_02/lab_02_C/resource/"; }
+std::string getFilePath() noexcept { return "./../../../../../algorithm/2021F/lab_02/lab_02_B/resource/"; }
 
 const std::string CS203_redirect::file_paths = getFilePath();
 
-namespace lab_02_C {
+namespace lab_02_B {
 
 using std::tie;
 using std::cin;
@@ -22,21 +22,8 @@ using std::cout;
 using std::tuple;
 using std::vector;
 
-using Catch::Matchers::Equals;
-using Catch::Matchers::UnorderedEquals;
-using Catch::Matchers::Contains;
-
-TEST_CASE("test case 1", "[test 02 C]") {
-    const Catch::Approx target = Catch::Approx(0.9534862518).epsilon(0.01);
-    CHECK(cal_detail(1) == target);
-    const Catch::Approx target2 = Catch::Approx(
-            257.40091767269424137944971165126822636856843117329338741172807922).epsilon(0.01);
-    CHECK(cal_detail(std::pow(10, 8)) == target2);
-}
-// 因为[.],所以下面这个被隐藏了,确保需要重定向输入输出时,请删除`[.]`
-// 此处因为输出为 "一个范围",不适合进行直接比对输出
-TEST_CASE("test case with sequence", "[test 02 C][.]") {
-    CS203_sequence sequence{1, 0, 0}; // // 基础设定,[1,1]
+TEST_CASE("test case with sequence", "[test 02 B]") {
+    CS203_sequence sequence{1, 3, 0}; // // 基础设定,[1,1]
     sequence.set_postfix_of_datain("data.in"); // 输入数据后缀,默认为 data.in
     sequence.set_postfix_of_dataout("data.out"); // except输出数据后缀,默认为 data.out
     sequence.set_postfix_of_testout("test.out"); // 测试输出数据后缀,默认为 test.out

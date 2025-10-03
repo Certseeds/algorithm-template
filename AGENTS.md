@@ -47,6 +47,7 @@ copilot 实现: 按照 README.md 结合 main.cpp 的实现, 写出分析到 READ
 8. 使用输入-处理-输出三段式风格
 9. 禁止使用 `#include <bits/stdc++.h>`
 10. 保留原有main.cpp结构
+11. 尽量使用 `int32`, `int64`等定长类型, 不使用`long` `long long`等类型
 
 ### 文件命名规则
 

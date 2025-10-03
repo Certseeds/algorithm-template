@@ -90,7 +90,8 @@ void output(const output_type &data) {
 static const auto faster_streams = [] {
     srand(time(nullptr));
     // use time to init the random seed
-    std::ios::sync_with_stdio(false);
+
+        std::ios::sync_with_stdio(false);
     std::istream::sync_with_stdio(false);
     std::ostream::sync_with_stdio(false);
     std::cin.tie(nullptr);

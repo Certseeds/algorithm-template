@@ -10,7 +10,8 @@ Welcome to  CS203 2021 Fall Lab 02! Enjoy this Lab!
 
 There are six problems for you to solve.
 
-Score: 
+Score:
+
 + A-10
 + B-15/10
 + C-15/10
@@ -19,4 +20,18 @@ Score:
 + F-20/20
 + G-undefined/20
 
-Reading the samples and hints carefully can help you understand the problem. 
+Reading the samples and hints carefully can help you understand the problem.
+
+## Problems
+
+| Problem |problem id|
+|---:|---:|
+| A | 1421 |
+| B | 1422 |
+| C | 1423 |
+| D | 1424 |
+| E | 1425 |
+| F | 1426 |
+| G | 1427 |
+
+A, B, E被复用, 无法获取题面
