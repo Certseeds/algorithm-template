@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16.6)
-set(PROBLEM_ORDER A)
+set(PROBLEM_ORDER F)
 project(${PROJECT_NAME}_${PROBLEM_ORDER})
 
 set(CMAKE_CXX_STANDARD 11)

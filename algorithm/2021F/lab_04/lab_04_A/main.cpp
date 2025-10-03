@@ -1,31 +1,17 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // SPDX-FileCopyrightText: 2020-2025 nanoseeds
-/*
- *@题目描述
- * 给出两个各有ν(希腊字母Nu),μ(希腊字母Mu)长的多项式Ν(大写希腊字母Nu),Μ(大写希腊字母Mu),请计算两者之和
- *@输入
- * 第一行输入两个int32_t,(0,10^6)
- * 之后ν行输入,分别是Ν的 ${系数},${指数}
- * 之后μ行输入,分别是Μ的 ${系数},${指数}
- * 所有系数指数都在(-10^9,10^9)
- * PS: 输入全为int32_t
- *@输出
- * 第一行int32_t, 输出项数
- * 之后分行输出 ${系数},${指数}
- * */
 // DONE
-#ifndef ALGORITHM_TEST_MACRO
-#pragma GCC optimize(3, "Ofast", "inline", "no-stack-protector", "unroll-loops")
-#pragma GCC optimize("inline-small-functions")
-#pragma GCC optimize("-finline-small-functions")
-#pragma GCC target("mmx")
-#endif
 
 #include <map>
 #include <iostream>
 #include <unordered_map>
 
-#ifdef ALGORITHM_TEST_MACRO
+#ifndef ALGORITHM_TEST_MACRO
+#pragma GCC optimize(3, "Ofast", "inline", "no-stack-protector", "unroll-loops")
+#pragma GCC optimize("inline-small-functions")
+#pragma GCC optimize("-finline-small-functions")
+#pragma GCC target("mmx")
+#else
 namespace lab_04_A{
 #endif
 

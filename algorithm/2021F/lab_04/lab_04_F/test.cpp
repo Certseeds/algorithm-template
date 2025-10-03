@@ -8,13 +8,13 @@
 #include <cstdint>
 #include <iostream>
 
-#include "lab_04_D.cpp"
+#include "main.cpp"
 
-std::string getFilePath() noexcept { return "./../../../../../algorithm/2021F/lab_04/lab_04_D/resource/"; }
+std::string getFilePath() noexcept { return "./../../../../../algorithm/2021F/lab_04/lab_04_F/resource/"; }
 
 const std::string CS203_redirect::file_paths = getFilePath();
 
-namespace lab_04_D {
+namespace lab_04_F {
 
 using std::tie;
 using std::cin;
@@ -27,7 +27,7 @@ using Catch::Matchers::UnorderedEquals;
 using Catch::Matchers::Contains;
 
 // 因为[.],所以下面这个被隐藏了,确保需要重定向输入输出时,请删除`[.]`
-TEST_CASE("test case with sequence [test 04_D]", "[test 04_D]") {
+TEST_CASE("test case with sequence [test 04_F]", "[test 04_F]") {
     CS203_sequence sequence{1, 1, 0}; // // 基础设定,[1,1]
     sequence.set_postfix_of_datain("data.in"); // 输入数据后缀,默认为 data.in
     sequence.set_postfix_of_dataout("data.out"); // except输出数据后缀,默认为 data.out
