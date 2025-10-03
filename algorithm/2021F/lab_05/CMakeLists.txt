@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 enable_testing()
-set(dependencies A B C D)
+set(dependencies A B C D E F G)
 foreach (elementName IN LISTS dependencies)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_ORDER}_${elementName})
 endforeach ()

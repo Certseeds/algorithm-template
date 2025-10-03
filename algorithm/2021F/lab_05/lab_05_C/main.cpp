@@ -6,12 +6,6 @@
  * */
 //@Tag DONE
 
-#ifndef ALGORITHM_TEST_MACRO
-#pragma GCC optimize(3, "Ofast", "inline", "no-stack-protector", "unroll-loops")
-#pragma GCC optimize("inline-small-functions")
-#pragma GCC optimize("-finline-small-functions")
-#pragma GCC target("mmx")
-#endif
 
 #include <array>
 #include <tuple>
@@ -22,7 +16,12 @@
 #include <cstdint>
 #include <iostream>
 
-#ifdef ALGORITHM_TEST_MACRO
+#ifndef ALGORITHM_TEST_MACRO
+#pragma GCC optimize(3, "Ofast", "inline", "no-stack-protector", "unroll-loops")
+#pragma GCC optimize("inline-small-functions")
+#pragma GCC optimize("-finline-small-functions")
+#pragma GCC target("mmx")
+#else
 namespace lab_05_C{
 #endif
 

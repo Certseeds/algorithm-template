@@ -34,4 +34,6 @@ Reading the samples and hints carefully can help you understand the problem.
 | F | 1433 |
 | G | 1434 |
 
-B, E, F被复用, 只有题干, 无法在contest外提交
+1. B, E, F被复用, 只有题干, 无法在contest外提交
+2. B已有实现
+3. E, F无法测试, 故不实现
