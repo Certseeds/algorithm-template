@@ -26,7 +26,7 @@ using Catch::Matchers::UnorderedEquals;
 using Catch::Matchers::Contains;
 
 TEST_CASE("test case with sequence [test 05_E]", "[test 05_E]") {
-    CS203_sequence sequence{1, 0, 0}; // // 基础设定,[1,1]
+    CS203_sequence sequence{1, 5, 0}; // // 基础设定,[1,1]
     sequence.set_postfix_of_datain("data.in"); // 输入数据后缀,默认为 data.in
     sequence.set_postfix_of_dataout("data.out"); // except输出数据后缀,默认为 data.out
     sequence.set_postfix_of_testout("test.out"); // 测试输出数据后缀,默认为 test.out

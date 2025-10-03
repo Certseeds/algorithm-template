@@ -16,7 +16,7 @@ Type-3: `3 u v w`. Connect the deque numbered by `v` to the rear of the deque nu
 
 The deque numbered by `v` will be cleared after the connection.
 
-## Input
+### Input
 
 Multiple test cases .
 
@@ -30,13 +30,13 @@ The following `q` lines will be the three types of operations that have been exp
 
 It is guaranteed that the total number of operations will not exceed `3*10^5`.
 
-## Output
+### Output
 
 Print one line an integer denoting the answer for each type-2 operation.
 
 If the deque is empty, then print `-1` instead.
 
-## Sample Input
+### Sample Input
 
 ```log
 2 10
@@ -63,7 +63,7 @@ If the deque is empty, then print `-1` instead.
 2 1 1
 ```
 
-## Sample Output
+### Sample Output
 
 ```log
 23
@@ -90,3 +90,13 @@ You are encouraged to self-study the implementation of deque
 + Contest 1168:CS203 2024 Fall Lab 4
 + Contest 1099:CS203 2021 Fall Lab 05 Stack + Queue
 + Contest 1100:CS217 2021 Fall Lab 05 Stack + Queue
+
+## Algorithm Analysis (实现说明)
+
++ 思路: 使用 n 个容器（deque）模拟每个编号的双端队列。对三种操作分别处理：
+  1) 插入: 根据当前逻辑反转标志 rev[u] 决定 push_front/push_back 的物理方向。
+  2) 弹出并查询: 根据 rev[u] 与 w 决定从物理头或尾取出。
+  3) 连接: 为节省数据移动，选择把元素少的桶合并到元素多的桶，或把两个桶的物理关系调整后重绑 bucket id。通过维护 bid[]（每个编号指向现有桶 id）和 rev[]（逻辑反转标志）实现 O(min(|A|,|B|)) 的合并。
++ 实现要点: 使用 `vector<deque<int>>` 存储物理容器，`bid[u]` 跟踪 u 当前指向的物理容器索引；`rev[u]` 标记逻辑是否反转。合并时按大小选择移动方向以降低总移动次数。
++ 复杂度: 每个元素在合并过程中被移动 O(log n) 次均摊（更常见的分析是每个元素移动次数等于被合并进更大的桶的次数），总体在操作数限制下可接受。单次插入/弹出 O(1)。
++ 边界: 当 u==v 或被合并桶为空时要跳过操作；输入可能包含多组测试用例，程序需要读取到 EOF。

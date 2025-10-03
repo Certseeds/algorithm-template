@@ -31,7 +31,7 @@ TEST_CASE("test case 1", "[test 02 E]") {
     const vector<std::pair<int32_t, int32_t>> pairs{{5, 5},
                                                     {1, 5}};
     const auto output_data = cal(std::make_tuple(A, B, pairs));
-    CHECK_THAT(output_data, Equals<int>({6, 4}));
+    CHECK_THAT(output_data, Equals<int>({9, 5}));
 }
 
 TEST_CASE("test case with sequence", "[test 02 E]") {

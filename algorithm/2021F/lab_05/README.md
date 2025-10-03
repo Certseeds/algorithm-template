@@ -30,5 +30,4 @@ Reading the samples and hints carefully can help you understand the problem.
 |       F |       1376 |
 |       G |       1369 |
 
-1. E, F, G 均被复用, 无法测试, 故不实现
-2. 其余A, B, C, D均已有实现
+E, F, G 均被复用

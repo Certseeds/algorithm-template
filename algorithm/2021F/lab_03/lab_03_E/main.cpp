@@ -15,7 +15,12 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#ifdef ALGORITHM_TEST_MACRO
+#ifndef ALGORITHM_TEST_MACRO
+#pragma GCC optimize(3, "Ofast", "inline", "no-stack-protector", "unroll-loops")
+#pragma GCC optimize("inline-small-functions")
+#pragma GCC optimize("-finline-small-functions")
+#pragma GCC target("mmx")
+#else
 namespace lab_03_E{
 #endif
 
@@ -36,34 +41,69 @@ using std::unordered_set;
 using std::priority_queue;
 static constexpr const char end{'\n'};
 
-using num_t = int32_t;
-using input_type = tuple<num_t, num_t>;
-using output_type = num_t;
+using i32 = int32_t;
+using i64 = int64_t;
 
-inline input_type read();
+using input_type = std::pair<i32, vector<i64>>;
+using output_type = i64;
 
-output_type cal(input_type data);
+inline input_type read_input();
+
+output_type cal(const input_type &data);
 
 void output(const output_type &data);
 
 int main() {
-    auto input_data = read();
-    auto output_data = cal(input_data);
+    const auto input_data = read_input();
+    const auto output_data = cal(input_data);
     output(output_data);
     return 0;
 }
 
-inline input_type read() {
-    num_t a{0}, b{0};
-    std::cin >> a >> b;
-    return std::make_tuple(a, b);
+inline input_type read_input() {
+    i32 n{0};
+    std::cin >> n;
+    vector<i64> a;
+    a.resize(n);
+    for (i32 i = 0; i < n; ++i) std::cin >> a[i];
+    return {n, a};
 }
 
-output_type cal(input_type data) {
-    num_t a{0}, b{0};
-    tie(a, b) = data;
-    num_t c = a + b;
-    return c;
+// Fenwick tree for counts
+struct Fenwick {
+    int n;
+    vector<i32> bit;
+    Fenwick(int _n = 0) { init(_n); }
+    void init(int _n) { n = _n; bit.assign(n+1, 0); }
+    void add(int idx, i32 val) {
+        for (; idx <= n; idx += idx & -idx) bit[idx] += val;
+    }
+    i32 sumPrefix(int idx) const {
+        i32 r = 0;
+        for (; idx > 0; idx -= idx & -idx) r += bit[idx];
+        return r;
+    }
+};
+
+output_type cal(const input_type &data) {
+    const i32 n = data.first;
+    const auto &a = data.second;
+    if (n <= 1) return 0;
+    // coordinate compression
+    vector<i64> vals = a;
+    std::sort(vals.begin(), vals.end());
+    vals.erase(std::unique(vals.begin(), vals.end()), vals.end());
+    Fenwick fw(static_cast<int>(vals.size()));
+    i64 ans = 0;
+    for (i32 i = 0; i < n; ++i) {
+        int rk = static_cast<int>(std::lower_bound(vals.begin(), vals.end(), a[i]) - vals.begin()) + 1; // 1-based
+        i32 leq = fw.sumPrefix(rk); // number of previous <= a[i]
+        i32 prev = i; // number of previous elements
+        i32 greater = prev - leq; // previous elements > a[i]
+        ans += a[i] * static_cast<i64>(greater);
+        fw.add(rk, 1);
+    }
+    return ans;
 }
 
 void output(const output_type &data) {

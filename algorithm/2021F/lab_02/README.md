@@ -34,6 +34,4 @@ Reading the samples and hints carefully can help you understand the problem.
 | F | 1426 |
 | G | 1427 |
 
-1. A, B, E被复用
-2. A, B早有实现
-3. E无法测试, 故不实现
+A, B, E被复用

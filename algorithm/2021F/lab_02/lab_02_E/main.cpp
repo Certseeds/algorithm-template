@@ -16,7 +16,12 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#ifdef ALGORITHM_TEST_MACRO
+#ifndef ALGORITHM_TEST_MACRO
+#pragma GCC optimize(3, "Ofast", "inline", "no-stack-protector", "unroll-loops")
+#pragma GCC optimize("inline-small-functions")
+#pragma GCC optimize("-finline-small-functions")
+#pragma GCC target("mmx")
+#else
 namespace lab_02_E{
 #endif
 
@@ -77,8 +82,40 @@ output_type cal(const input_type &data) {
     vector<num_t> A, B;
     vector<std::pair<num_t, num_t>> pairs;
     tie(A, B, pairs) = data;
-    // TODO
-    return {6, 4};
+    const int q = static_cast<int>(pairs.size());
+    vector<num_t> ans;
+    ans.reserve(q);
+
+    auto kth_equal_len = [&](int aL, int bL, int k) -> num_t {
+        // find k-th smallest (1-indexed) among A[aL..aL+k-1] and B[bL..bL+k-1]
+        int l = 0, r = k;
+        while (l <= r) {
+            int i = (l + r) >> 1; // take i from A
+            int j = k - i;        // take j from B
+            // check boundaries before accessing
+            if (i > 0 && j < k && A[aL + i - 1] > B[bL + j]) {
+                r = i - 1;
+            } else if (j > 0 && i < k && B[bL + j - 1] > A[aL + i]) {
+                l = i + 1;
+            } else {
+                if (i == 0) return B[bL + j - 1];
+                if (j == 0) return A[aL + i - 1];
+                return std::max(A[aL + i - 1], B[bL + j - 1]);
+            }
+        }
+        return -1; // should not reach here
+    };
+
+    for (const auto &pr: pairs) {
+        int lq = static_cast<int>(pr.first);
+        int rq = static_cast<int>(pr.second);
+        // convert to 0-based
+        int aL = lq - 1;
+        int bL = lq - 1;
+        int k = rq - lq + 1;
+        ans.push_back(kth_equal_len(aL, bL, k));
+    }
+    return ans;
 }
 
 void output(const output_type &data) {
