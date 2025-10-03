@@ -5,7 +5,7 @@
 #include <catch_main.hpp>
 #include <vector>
 #include <iostream>
-#include "lab_00_C.cpp"
+#include "main.cpp"
 
 std::string getFilePath() noexcept { return "./../../../lab_00/lab_00_C/resource/"; }
 

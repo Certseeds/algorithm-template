@@ -5,7 +5,7 @@
 #include <catch_main.hpp>
 #include <iostream>
 #include <tuple>
-#include "lab_00_D.cpp"
+#include "main.cpp"
 
 std::string getFilePath() noexcept { return "./../../../lab_00/lab_00_D/resource/"; }
 

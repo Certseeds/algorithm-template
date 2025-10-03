@@ -7,7 +7,7 @@
 #include <tuple>
 #include <vector>
 #include <iostream>
-#include "lab_00_B.cpp"
+#include "main.cpp"
 
 std::string getFilePath() noexcept { return "./../../../lab_00/lab_00_B/resource/"; }
 

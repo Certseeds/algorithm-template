@@ -8,7 +8,7 @@
 #include <vector>
 #include <random>
 
-#include "lab_00_A.cpp"
+#include "main.cpp"
 
 std::string getFilePath() noexcept { return "./../../../lab_00/lab_00_A/resource/"; }
 

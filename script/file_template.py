@@ -30,12 +30,12 @@ def read_file(file_name: str) -> str:
 
 
 def fill_file(lab_number: str, problem_order: str) -> None:
-    with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/lab_{lab_number}_{problem_order}.cpp', mode='a+',
+    with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/main.cpp', mode='a+',
               encoding='UTF-8') as file:
         file.write(file_header_template.format(year, USER))
         file.write(main_code_template.format(lab_number, problem_order))
     print('main finish')
-    with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/lab_{lab_number}_{problem_order}_test.cpp',
+    with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/test.cpp',
               mode='a+', encoding='UTF-8') as file:
         file.write(file_header_template.format(year, USER))
         file.write(test_code_template.format(lab_number, problem_order))
