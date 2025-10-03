@@ -36,13 +36,13 @@ using std::unordered_set;
 using std::priority_queue;
 static constexpr const char end{'\n'};
 
-using num_t = int32_t;
-using input_type = tuple<num_t, num_t>;
-using output_type = num_t;
+using num_t = int64_t;
+using input_type = std::vector<num_t>;
+using output_type = std::vector<num_t>;
 
 inline input_type read();
 
-output_type cal(input_type data);
+output_type cal(const input_type &data);
 
 void output(const output_type &data);
 
@@ -54,20 +54,41 @@ int main() {
 }
 
 inline input_type read() {
-    num_t a{0}, b{0};
-    std::cin >> a >> b;
-    return std::make_tuple(a, b);
+    int32_t n;
+    if (!(std::cin >> n)) return {};
+    input_type a;
+    a.reserve(n);
+    for (int32_t i = 0; i < n; ++i) {
+        num_t v;
+        std::cin >> v;
+        a.push_back(v);
+    }
+    return a;
 }
 
-output_type cal(input_type data) {
-    num_t a{0}, b{0};
-    tie(a, b) = data;
-    num_t c = a + b;
-    return c;
+output_type cal(const input_type &data) {
+    const int n = static_cast<int>(data.size());
+    if (n == 0) return {};
+    // copy and sort
+    auto s = data;
+    std::sort(s.begin(), s.end());
+    output_type b(n);
+    const int half = n / 2;
+    // Interleave: small, large, small2, large2, ...
+    for (int i = 0; i < half; ++i) {
+        b[2 * i] = s[i];
+        b[2 * i + 1] = s[i + half];
+    }
+    return b;
 }
 
 void output(const output_type &data) {
-    cout << data << end;
+    const int n = static_cast<int>(data.size());
+    for (int i = 0; i < n; ++i) {
+        if (i) std::cout << ' ';
+        std::cout << data[i];
+    }
+    std::cout << end;
 }
 
 static const auto faster_streams = [] {

@@ -1,24 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // SPDX-FileCopyrightText: 2020-2025 nanoseeds
-/*
- *@题目描述
- * 输入为一个无序序列, 请分别插入排序和选择排序,并比较哪一个更好
- * 只有"交换两个数字"和"比较两个数字"是一个操作.
- * 更好的排序算法,意味着操作数更少. 输入中不会有 操作数相同 的情况.
- *@输入
- * 第一行输入一个int32_t Τ(希腊字母 tau),代表测试用例数量
- * 之后每个测试用例
- *   第一行有size_t ν(希腊字母 Nu),代表数组长度
- *   接下来是ν个int32_t
- *@输出
- * 对每个测试用例来讲
- *     第一行输出排序好的数组(注:最后一个数字后没有空格)
- *     第二行 match (winner) {
- *         "insertion" => {"Insertion Sort wins!"}
- *         "selection" => {"Selection Sort wins!"}
- *     }
- *@注: 不给样例解析的屑题目
- * */
+
 
 #include <list>
 #include <array>
@@ -39,7 +21,7 @@
 #ifdef ALGORITHM_TEST_MACRO
 namespace lab_03_C{
 #endif
-// TODO
+
 using std::cin;
 using std::tie;
 using std::cout;
@@ -93,43 +75,43 @@ inline input_type read() {
 }
 
 int32_t selection_sort(vector<int32_t> nums) {
-    int32_t will_return{0};
-    const auto nums_size = static_cast<int32_t>(nums.size());
-    for (int i = 0; i < nums_size - 1; ++i) {
-        //will_return++;
+    int32_t ops = 0;
+    const int n = static_cast<int>(nums.size());
+    for (int i = 0; i + 1 < n; ++i) {
         int k = i;
-        for (int j = i + 1; j < nums_size; ++j) {
-            //will_return++;
-            will_return++;
-            if (nums[k] > nums[j]) {
-                k = j;
-            }
+        for (int j = i + 1; j < n; ++j) {
+            // compare nums[k] and nums[j]
+            ++ops;
+            if (nums[j] < nums[k]) k = j;
         }
-        will_return++;
-        will_return++;
-        std::swap(nums[i], nums[k]);
+        if (k != i) {
+            // one swap operation
+            ++ops;
+            std::swap(nums[i], nums[k]);
+        }
     }
-    will_return++;
-    return will_return;
+    return ops;
 }
 
 int32_t insert_sort(vector<num_t> nums) {
-    int32_t will_return{0};
-    const auto nums_size = static_cast<int32_t>(nums.size());
-    for (int i = 0; i < nums_size; i++) {
-        //will_return++;
-        for (int j = i; j >= 1; j--) {
-            //will_return++;
-            will_return++;
+    int32_t ops = 0;
+    const int n = static_cast<int>(nums.size());
+    for (int i = 1; i < n; ++i) {
+        int j = i;
+        while (j > 0) {
+            // compare nums[j-1] and nums[j]
+            ++ops;
             if (nums[j - 1] > nums[j]) {
-                will_return++;
+                // swap
+                ++ops;
                 std::swap(nums[j - 1], nums[j]);
+                --j;
+            } else {
+                break;
             }
         }
-        will_return++;
     }
-    will_return++;
-    return will_return;
+    return ops;
 }
 
 output_type cal(const input_type &data) {

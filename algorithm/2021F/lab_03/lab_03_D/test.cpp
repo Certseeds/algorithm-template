@@ -1,9 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // SPDX-FileCopyrightText: 2020-2025 nanoseeds
-//@Tag 归并排序
-//@Tag Merge Sort
-//@Tag 逆序对
-
 #ifdef ALGORITHM_TEST_MACRO
 
 #include <catch_main.hpp>
@@ -12,13 +8,14 @@
 #include <cstdint>
 #include <iostream>
 
-#include "lab_03_A.cpp"
+#include "main.cpp"
 
-std::string getFilePath() noexcept { return "./../../../../../algorithm/2021F/lab_03/lab_03_A/resource/"; }
+std::string getFilePath() noexcept { return "./../../../../../algorithm/2021F/lab_03/lab_03_D/resource/"; }
+
 
 const std::string CS203_redirect::file_paths = getFilePath();
 
-namespace lab_03_A {
+namespace lab_03_D {
 
 using std::tie;
 using std::cin;
@@ -31,8 +28,8 @@ using Catch::Matchers::UnorderedEquals;
 using Catch::Matchers::Contains;
 
 // 因为[.],所以下面这个被隐藏了,确保需要重定向输入输出时,请删除`[.]`
-TEST_CASE("test case with sequence", "[test 03 A]") {
-    CS203_sequence sequence{1, 2, 0}; // // 基础设定,[1,1]
+TEST_CASE("test case with sequence", "[test 03 D]") {
+    CS203_sequence sequence{1, 1, 2}; // // 基础设定,[1,1]
     sequence.set_postfix_of_datain("data.in"); // 输入数据后缀,默认为 data.in
     sequence.set_postfix_of_dataout("data.out"); // except输出数据后缀,默认为 data.out
     sequence.set_postfix_of_testout("test.out"); // 测试输出数据后缀,默认为 test.out

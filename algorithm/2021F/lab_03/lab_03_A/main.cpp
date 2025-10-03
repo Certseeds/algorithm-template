@@ -1,24 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // SPDX-FileCopyrightText: 2020-2025 nanoseeds
-/*
- * @题目描述
- * 在____内, 如果数组C中,有 i,j ∈N+, i < j, C[i]>C[j], 则 (C[i],C[j])为一个逆序对
- * 给出两个非递减数组,长度为ν的数组D与长度为μ的数组E
- * 首先,请给出, C{D.begin(),D.end(),E.begin(),E.end()}所组成的逆序对
- * 其次, 给出非递减数组C本身
- * 如果没有IDEA的话,可以参考lecture3的口口页
- * @输入
- * 第一行给出一个int32_t τ ∈ [1,10],代表测试样例数
- * 接下来对每个测试用例
- * 第一行有两个int32_t ν,μ 代表D,E两个非递减数组的长度
- * 第二行有 ν 个int32_t, {D.begin(),D.end()}
- * 第三行有 μ 个int32_t, {E.begin(),E.end()}
- * ν ∈ [1,10^5], μ ∈ [1,10^5] ,D,E中的每个元素都 ∈ [1,10^9]
- * @输出
- * 对每个测试用例来说
- * 第一行输出逆序对数量
- * 第二行输出排好序的C
- * */
 //@Tag Done
 #include <tuple>
 #include <vector>
