@@ -19,7 +19,7 @@
 
 copilot-拉取: 按照cid, 拉取题目信息
 
-copilot-获取题面: 按照题目信息, 写入子目录中, 各个题目的README中
+copilot-获取题面: 使用cid, pid(按题目序号从0递增)按照题目信息(problem_id置为0), 写入子目录中, 各个题目的README中
 
 copilot-优化README: 在README中, 根据句点`.`, 每一句话一个段落, 在不改变原始文字的情况下, 将长段落分为短段落
 
@@ -27,13 +27,13 @@ copilot-公式优化: 将题目格式化, 将 `\\`等符号替换为 标准Latex
 
 ## 题目实现流程
 
-copilot-生成: 读取目录中的 README.md 题面实现到 main.cpp 中(显然目标语言是C++)
-
 copilot-检查样例: 读取 README.md 中的样例输入输出, 检测与目录内 resource 目录下的 `01.data.in`, `01.data.out`是否相同, 不相同则覆盖写
 
-copilot-上传: 生成代码后, 不需要编译, 直接调用 hustoj-mcp, 将其上传到 hustoj 中.
+copilot-生成: 读取目录中的 README.md 题面实现到 main.cpp 中(显然目标语言是C++), 严格遵守 `代码撰写原则`中的所有规则
 
-copilot-解释算法: 按照 README.md 结合 main.cpp 的实现, 写出算法分析到 README.md 的最后
+copilot-上传: 使用problem_id(不传入cid, pid) 生成代码后, 不需要编译, 直接调用 hustoj-mcp, 将其上传到 hustoj 中.
+
+copilot-解释算法: 按照 README.md 结合 main.cpp 的实现, 写出算法分析到 README.md 的最后(用zh-CN)
 
 ## 代码撰写原则
 
@@ -46,6 +46,7 @@ copilot-解释算法: 按照 README.md 结合 main.cpp 的实现, 写出算法�
 7. 使用统一的代码风格: main.cpp 的 输入-处理-输出三段式风格
 8. 禁止使用 `#include <bits/stdc++.h>`
 9. 尽量使用 `int32`, `int64`等定长类型
+10. 智能指针只使用 `shared_ptr`
 
 ### README format
 
