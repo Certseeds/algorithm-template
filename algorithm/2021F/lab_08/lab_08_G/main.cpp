@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2020-2025 nanoseeds
 #include <algorithm>
 #include <cstdint>
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <memory>
 #include <tuple>
@@ -84,6 +86,7 @@ struct ProblemInput {
     i32 n;
     i32 m;
     std::shared_ptr<tree::Graph> graph;
+    i64 total_weight;
 };
 
 using ProblemOutput = i64;
@@ -91,6 +94,7 @@ using ProblemOutput = i64;
 ProblemInput read_input();
 ProblemOutput solve(const ProblemInput &in);
 void write_output(const ProblemOutput &out);
+static bool can_form_paths(const ProblemInput &in, const i64 limit);
 
 int main() {
     const auto in = read_input();
@@ -106,19 +110,108 @@ ProblemInput read_input() {
     int32_t v;
     int64_t w;
     in.graph = std::make_shared<tree::Graph>(in.n, static_cast<int32_t>((in.n - 1) * 2));
+    in.total_weight = 0;
     for (i32 i = 0; i < in.n - 1; ++i) {
         std::cin >> u >> v >> w;
-        in.graph->add_undirected_edge(u,v,w);
+        in.graph->add_undirected_edge(u, v, w);
+        in.total_weight += w;
     }
     return in;
 }
 
 
 ProblemOutput solve(const ProblemInput &in) {
+    i64 left = 0;
+    i64 right = in.total_weight;
+    i64 answer = 0;
+    while (left <= right) {
+        const auto mid = (left + right) >> 1;
+        if (can_form_paths(in, mid)) {
+            answer = mid;
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return answer;
 }
 
 void write_output(const ProblemOutput &out) {
     std::cout << out << end;
+}
+
+static bool can_form_paths(const ProblemInput &in, const i64 limit) {
+    if (limit <= 0) return true;
+    const auto &graph = *in.graph;
+    const auto n = in.n;
+    std::vector<int32_t> parent(static_cast<size_t>(n + 1), 0);
+    std::vector<int32_t> order;
+    order.reserve(static_cast<size_t>(n));
+    std::vector<int32_t> stack;
+    stack.reserve(static_cast<size_t>(n));
+    stack.push_back(1);
+    parent[1] = 0;
+    while (!stack.empty()) {
+        const auto u = stack.back();
+        stack.pop_back();
+        order.push_back(u);
+        for (auto ei = graph.head[static_cast<size_t>(u)]; ei != -1; ei = graph.edges[static_cast<size_t>(ei)].next) {
+            const auto &edge = graph.edges[static_cast<size_t>(ei)];
+            if (edge.to == parent[static_cast<size_t>(u)]) continue;
+            parent[static_cast<size_t>(edge.to)] = u;
+            stack.push_back(edge.to);
+        }
+    }
+    std::vector<i64> dp(static_cast<size_t>(n + 1), 0);
+    int32_t formed = 0;
+    std::vector<i64> lengths;
+    std::vector<bool> used;
+
+    for (auto it = order.rbegin(); it != order.rend(); ++it) {
+        const auto u = *it;
+        lengths.clear();
+        for (auto ei = graph.head[static_cast<size_t>(u)]; ei != -1; ei = graph.edges[static_cast<size_t>(ei)].next) {
+            const auto &edge = graph.edges[static_cast<size_t>(ei)];
+            if (parent[static_cast<size_t>(u)] == edge.to) continue;
+            lengths.push_back(dp[static_cast<size_t>(edge.to)] + edge.weight);
+        }
+
+        std::sort(lengths.rbegin(), lengths.rend());
+
+        used.assign(lengths.size(), false);
+        int32_t l = 0;
+        int32_t r = static_cast<int32_t>(lengths.size()) - 1;
+
+        while (l < r) {
+            if (used[l]) {
+                l++;
+                continue;
+            }
+            while (l < r && (used[r] || lengths[l] + lengths[r] < limit)) {
+                r--;
+            }
+            if (l < r) {
+                formed++;
+                used[l] = used[r] = true;
+                l++;
+                r--;
+            }
+        }
+
+        i64 carry = 0;
+        for(size_t i = 0; i < lengths.size(); ++i) {
+            if (!used[i]) {
+                if (lengths[i] >= limit) {
+                    formed++;
+                    used[i] = true;
+                } else {
+                    carry = std::max(carry, lengths[i]);
+                }
+            }
+        }
+        dp[static_cast<size_t>(u)] = carry;
+    }
+    return formed >= in.m;
 }
 
 static const auto faster_streams = [] {

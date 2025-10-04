@@ -28,7 +28,7 @@ TEST_CASE("just a test case [test 08_G]", "[test 08_G]") {
     CHECK(true);
 }
 TEST_CASE("test case with sequence [test 08_G]", "[test 08_G][.]") {
-    CS203_sequence sequence{1, 0, 2}; // // 基础设定,[1,1]
+    CS203_sequence sequence{1, 21, 2}; // // 基础设定,[1,1]
     sequence.set_postfix_of_datain("data.in"); // 输入数据后缀,默认为 data.in
     sequence.set_postfix_of_dataout("data.out"); // except输出数据后缀,默认为 data.out
     sequence.set_postfix_of_testout("test.out"); // 测试输出数据后缀,默认为 test.out
