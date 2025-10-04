@@ -7,6 +7,8 @@
 #include <cstdint>
 #include <limits>
 #include <utility>
+#include <queue>
+
 #ifndef ALGORITHM_TEST_MACRO
 #pragma GCC optimize(3, "Ofast", "inline", "no-stack-protector", "unroll-loops")
 #pragma GCC optimize("inline-small-functions")
@@ -55,55 +57,9 @@ ProblemInput read_input() {
     return in;
 }
 
-// Lightweight min-heap for i64 values (avoid STL priority_queue per HINT)
-struct MinHeap {
-    std::vector<i64> data;
-
-    inline bool empty() const { return data.empty(); }
-    inline size_t size() const { return data.size(); }
-
-    inline void push(i64 v) {
-        data.push_back(v);
-        sift_up(data.size() - 1);
-    }
-
-    inline i64 top() const { return data.front(); }
-
-    inline void pop() {
-        if (data.size() <= 1) {
-            data.pop_back();
-            return;
-        }
-        data[0] = data.back();
-        data.pop_back();
-        sift_down(0);
-    }
-
-private:
-    static inline bool less_than(i64 l, i64 r) { return l < r; }
-
-    void sift_up(size_t idx) {
-        while (idx > 0) {
-            size_t parent = (idx - 1) >> 1;
-            if (!less_than(data[idx], data[parent])) break;
-            std::swap(data[idx], data[parent]);
-            idx = parent;
-        }
-    }
-
-    void sift_down(size_t idx) {
-        const size_t n = data.size();
-        while (true) {
-            size_t l = idx * 2 + 1;
-            size_t r = l + 1;
-            size_t smallest = idx;
-            if (l < n && less_than(data[l], data[smallest])) smallest = l;
-            if (r < n && less_than(data[r], data[smallest])) smallest = r;
-            if (smallest == idx) break;
-            std::swap(data[idx], data[smallest]);
-            idx = smallest;
-        }
-    }
+// Use STL priority_queue as min-heap (via greater comparator)
+struct MinComp {
+    bool operator()(i64 l, i64 r) const { return l > r; }
 };
 
 // Solve: Huffman-style merging minimal total cost
@@ -111,8 +67,7 @@ ProblemOutput solve(const ProblemInput &in) {
     const i32 n = in.n;
     if (n <= 1) return 0;
 
-    MinHeap heap;
-    heap.data.reserve(static_cast<size_t>(n));
+    std::priority_queue<i64, std::vector<i64>, MinComp> heap;
     for (i32 i = 0; i < n; ++i) heap.push(in.a[static_cast<size_t>(i)]);
 
     i64 total = 0;
@@ -134,14 +89,9 @@ void write_output(const ProblemOutput &out) {
 }
 
 static const auto faster_streams = [] {
-    srand(time(nullptr));
-    // use time to init the random seed
     std::ios::sync_with_stdio(false);
-    std::istream::sync_with_stdio(false);
-    std::ostream::sync_with_stdio(false);
     std::cin.tie(nullptr);
     std::cout.tie(nullptr);
-    // 关闭c++风格输入输出 , 与C风格输入输出的同步,提高性能.
     return 0;
 }();
 

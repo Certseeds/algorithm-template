@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <limits>
 #include <utility>
+#include <queue>
 
 #ifndef ALGORITHM_TEST_MACRO
 #pragma GCC optimize(3, "Ofast", "inline", "no-stack-protector", "unroll-loops")
@@ -61,64 +62,18 @@ ProblemInput read_input() {
     return in;
 }
 
-// Custom lightweight min-heap for nodes (avoid using STL priority_queue per HINT)
+// Use STL priority_queue (min-heap) for clarity and performance
 struct HeapNode {
     i32 i; // index in A
     i32 j; // index in B
     i64 val; // product a[i]*b[j]
 };
 
-struct MinHeap {
-    std::vector<HeapNode> data;
-
-    inline bool empty() const { return data.empty(); }
-    inline size_t size() const { return data.size(); }
-
-    inline void push(const HeapNode &node) {
-        data.push_back(node);
-        sift_up(data.size() - 1);
-    }
-
-    inline HeapNode top() const { return data.front(); }
-
-    inline void pop() {
-        if (data.size() <= 1) {
-            data.pop_back();
-            return;
-        }
-        data[0] = data.back();
-        data.pop_back();
-        sift_down(0);
-    }
-
-private:
-    static inline bool less_than(const HeapNode &l, const HeapNode &r) {
-        if (l.val != r.val) return l.val < r.val;
-        if (l.i != r.i) return l.i < r.i;
-        return l.j < r.j;
-    }
-
-    void sift_up(size_t idx) {
-        while (idx > 0) {
-            size_t parent = (idx - 1) >> 1;
-            if (!less_than(data[idx], data[parent])) break;
-            std::swap(data[idx], data[parent]);
-            idx = parent;
-        }
-    }
-
-    void sift_down(size_t idx) {
-        const size_t n = data.size();
-        while (true) {
-            size_t l = idx * 2 + 1;
-            size_t r = l + 1;
-            size_t smallest = idx;
-            if (l < n && less_than(data[l], data[smallest])) smallest = l;
-            if (r < n && less_than(data[r], data[smallest])) smallest = r;
-            if (smallest == idx) break;
-            std::swap(data[idx], data[smallest]);
-            idx = smallest;
-        }
+struct HeapNodeComp {
+    bool operator()(const HeapNode &l, const HeapNode &r) const {
+        if (l.val != r.val) return l.val > r.val; // min-heap
+        if (l.i != r.i) return l.i > r.i;
+        return l.j > r.j;
     }
 };
 
@@ -135,8 +90,8 @@ ProblemOutput solve(const ProblemInput &in) {
     std::sort(b.begin(), b.end());
 
     const i32 initial = std::min<i32>(n, k);
-    MinHeap heap;
-    heap.data.reserve(static_cast<size_t>(initial));
+    std::priority_queue<HeapNode, std::vector<HeapNode>, HeapNodeComp> heap;
+    heap = std::priority_queue<HeapNode, std::vector<HeapNode>, HeapNodeComp>(HeapNodeComp());
 
     // Push (i,0) for i in [0, initial)
     for (i32 i = 0; i < initial; ++i) {
