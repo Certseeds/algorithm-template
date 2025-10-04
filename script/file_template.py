@@ -67,6 +67,7 @@ def main() -> None:
     problem_order: List[str] = ['A', 'B', 'C', 'D', 'E', 'F']
     # problem_order: List[str] = ['A', 'B', 'C',
     #                                 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+    labs: List[str] = ['01']
     for i in labs:
         try_mkdir(i, problem_order)
         copy_cmakeLists(i, problem_order)  # prepare CMakeLists
