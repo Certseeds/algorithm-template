@@ -17,7 +17,7 @@ file_header_template: str
 level1_cmake_template: str
 level2_cmake_template: str
 test_cmake_template: str
-USER: str = 'nanoseeds'  # replace it with your user name # example: nanoseeds
+USER: str = 'USER'  # replace it with your user name # example: nanoseeds
 year: str = time.strftime('%Y', time.localtime())
 main_cmake_path: str = './../CMakeLists.txt'
 
@@ -30,12 +30,12 @@ def read_file(file_name: str) -> str:
 
 
 def fill_file(lab_number: str, problem_order: str) -> None:
-    with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/lab_{lab_number}_{problem_order}.cpp', mode='a+',
+    with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/main.cpp', mode='a+',
               encoding='UTF-8') as file:
         file.write(file_header_template.format(year, USER))
         file.write(main_code_template.format(lab_number, problem_order))
     print('main finish')
-    with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/lab_{lab_number}_{problem_order}_test.cpp',
+    with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/test.cpp',
               mode='a+', encoding='UTF-8') as file:
         file.write(file_header_template.format(year, USER))
         file.write(test_code_template.format(lab_number, problem_order))
@@ -65,9 +65,9 @@ def main() -> None:
     labs: List[str] = ['welcome', '02', '03', '04', '05', '06',
                        '07', '08', '09', '10', 'bonus']
     problem_order: List[str] = ['A', 'B', 'C', 'D', 'E', 'F']
-    labs: List[str] = ['01']
     # problem_order: List[str] = ['A', 'B', 'C',
     #                                 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+    labs: List[str] = ['01']
     for i in labs:
         try_mkdir(i, problem_order)
         copy_cmakeLists(i, problem_order)  # prepare CMakeLists

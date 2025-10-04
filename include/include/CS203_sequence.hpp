@@ -31,7 +31,7 @@ private:
 public:
 
     // default path1 is input and path2 is output
-    explicit CS203_sequence(int32_t begin, int32_t end, int32_t max_length = -1) : begin(begin), end(end),
+    explicit CS203_sequence(const int32_t begin, const int32_t end, const int32_t max_length = 2) : begin(begin), end(end),
                                                                                    max_length(max_length) {}
 
     void set_prefix_of_filename(const string &prefixOfFileName) {
@@ -93,7 +93,7 @@ public:
             const string datain = prefix_of_file_name + item + "." + postfix_of_datain;
             const string dataout = prefix_of_file_name + item + "." + postfix_of_dataout;
             const string testout = prefix_of_file_name + item + "." + postfix_of_testout;
-            will_return.push_back(std::make_tuple(datain, dataout, testout));
+            will_return.emplace_back(datain, dataout, testout);
         }
         return will_return;
     }

@@ -116,7 +116,7 @@ git clone https://github.com/${YOUE_GITHUB_USER_NAME}/algorithm-template.git
 
 + 可选项:
   + 使用脚本产生自定义的文件(适合source.zip或者有bonuslab):
-    使用命令行, 进入`./script`下, 编辑`file_template`的`labs` & `problem_orders`, 
+    使用命令行, 进入`./script`下, 编辑`file_template`的`labs` & `problem_orders`,
     `python3 ./file_template.py`, 出现`produce files finish`提示, 即为创建成功.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -129,9 +129,9 @@ git clone https://github.com/${YOUE_GITHUB_USER_NAME}/algorithm-template.git
 
 `lab${order}_${ques_Order}`为对应题号, 比如`lab07_01`对应lab_07的C1题.
 
-+ `CS203_lab07_01`将调用`lab_07\lab_07_C1\lab07_C1.cpp`, 为将要提交的源文件.
-+ `CS203_lab07_01_test`将调用`lab_07\lab_07_C1\lab07_C1_test.cpp`, 对其进行测试.
-+ `lab_*\lab_*_*\lab_*_*_test.cpp`目的为方便测试, 同时便于分享测试用例.
++ `CS203_lab07_01`将调用`lab_07\lab_07_C1\main.cpp`, 为将要提交的源文件.
++ `CS203_lab07_01_test`将调用`lab_07\lab_07_C1\test.cpp`, 对其进行测试.
++ `lab_*\lab_*_*\test.cpp`目的为方便测试, 同时便于分享测试用例.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -153,7 +153,7 @@ git clone https://github.com/${YOUE_GITHUB_USER_NAME}/algorithm-template.git
 
 + 在本repo, 使用`Catch2`测试框架.
   + 比如, 我们有四组数据, 第一组, 第二组测试边界值, 第三组使用随机数测试对偶性与正确性, 第四组测试几个手动的随机值.
-  + 参见[test_for_lab00_A](./lab_00/lab_00_A/lab_00_A_test.cpp).
+  + 参见[test_for_lab00_A](./lab_00/lab_00_A/test.cpp).
 + 这样一来, 我们只需要每次修改完主文件之后, run `algorithm-template_test`, 对其进行调用, 就能验证其在所有的测试用例上的正确性.
 
 ### 多个输出值的检查:`Catch::Matchers`
@@ -162,7 +162,7 @@ git clone https://github.com/${YOUE_GITHUB_USER_NAME}/algorithm-template.git
 
 举例:[Crzay Plan](https://acm.sustech.edu.cn/onlinejudge/problem.php?id=1250), 输入可能有1.1*10^6个.
 
-这种情况下对这么多值进行直接的观察就很难, 所以我们预先将期望的值直接写在测试文件里, 用Catch2内置的Matcher比较(见[test_for_lab00_B](./lab_00/lab_00_B/lab_00_B_test.cpp)的`CHECK_THAT()`部分.)
+这种情况下对这么多值进行直接的观察就很难, 所以我们预先将期望的值直接写在测试文件里, 用Catch2内置的Matcher比较(见[test_for_lab00_B](./lab_00/lab_00_B/test.cpp)的`CHECK_THAT()`部分.)
 
 PS: 当然, 这种情况也只适用于规模比较小的情况, 规模再大的话, 直接由人手动写在测试文件里也太占空间了.
 
@@ -192,7 +192,7 @@ TEST_CASE("test case 1", "[test 00 C]") {
 + test case with tuple 则最优雅, 修改起来的难度最小.
 + test case with sequence 比tuple更优雅, 输入, 输出全为自动产生.
 
-PS: 此处注意, 引用文件的相对路径, 不是直接的`test/lab_00/lab_00_C/resource/01.data.in`, 
+PS: 此处注意, 引用文件的相对路径, 不是直接的`test/lab_00/lab_00_C/resource/01.data.in`,
 
 而是编译出的文件相对于测试数据的相对路径.
 
@@ -219,7 +219,7 @@ PS: 此处注意, 引用文件的相对路径, 不是直接的`test/lab_00/lab_0
 
 PS: 至于比较文件之间的差异, 可以使用内置的`compareFiles(string path1, string path2)`函数进行比较.
 
-参考[文本比对_test_case_2](./lab_00/lab_00_D/lab_00_D_test.cpp)
+参考[文本比对_test_case_2](./lab_00/lab_00_D/test.cpp)
 
 ## Details
 
@@ -252,11 +252,11 @@ DSAA既然内含Data structure, 就势必涉及到类似Node, Tree, Graph等等�
 ### 如何手动开优化
 
 1. 将[magic_optimize](./include/magic_macro/magic_macro.hpp)内的内容粘贴到代码最上方.
-2. 关闭同步, 
+2. 关闭同步,
 
 ``` cpp
 static const auto faster_streams = [] {
-    srand(time(nullptr)); 
+    srand(time(nullptr));
     // use time to init the random seed
     std::ios::sync_with_stdio(false);
     std::istream::sync_with_stdio(false);
@@ -329,9 +329,13 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
+### MIT LICENSE
+
+根目录下, 使用脚本生成的代码均采用`Apache 2.0`协议, 严谨而宽松.
+
 ### AGPLv3.0+ LICENSE
 
-绝大多数代码(`*.cpp`, `*.hpp`, etc)基于 AGPLv3.0+协议: 限制最强的主流开源协议
+非模板部分代码(`*.cpp`, `*.hpp`, etc)基于 AGPLv3.0+协议: 限制最强的主流开源协议
 
 + 由于本仓库设计只包括"上交"源码这一种场景, 因此实际上不存在二进制分发以及被云服务使用这种场景.
 + 具体内容请看[`LICENSE_AGPL_V3_0.md`](./LICENSE_AGPL_V3_0.md)
