@@ -29,7 +29,7 @@ copilot-公式优化: 将题目格式化, 将 `\\`等符号替换为 标准Latex
 
 copilot-检查样例: 读取 README.md 中的样例输入输出, 检测与目录内 resource 目录下的 `01.data.in`, `01.data.out`是否相同, 不相同则覆盖写
 
-copilot-生成: 读取目录中的 README.md 题面实现到 main.cpp 中(显然目标语言是C++), 严格遵守 `代码撰写原则`中的所有规则
+copilot-生成: 读取目录中的 README.md 题面实现到 main.cpp 中(显然目标语言是C++), 严格遵守 `代码撰写原则`中的所有规则, 并尽量复用main.cpp中的已有实现
 
 copilot-上传: 使用problem_id(不传入cid, pid) 生成代码后, 不需要编译, 直接调用 hustoj-mcp, 将其上传到 hustoj 中.
 
