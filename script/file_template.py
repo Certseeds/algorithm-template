@@ -17,7 +17,7 @@ file_header_template: str
 level1_cmake_template: str
 level2_cmake_template: str
 test_cmake_template: str
-USER: str = 'nanoseeds'  # replace it with your user name # example: nanoseeds
+USER: str = 'USER'  # replace it with your user name # example: nanoseeds
 year: str = time.strftime('%Y', time.localtime())
 main_cmake_path: str = './../CMakeLists.txt'
 
@@ -65,7 +65,6 @@ def main() -> None:
     labs: List[str] = ['welcome', '02', '03', '04', '05', '06',
                        '07', '08', '09', '10', 'bonus']
     problem_order: List[str] = ['A', 'B', 'C', 'D', 'E', 'F']
-    labs: List[str] = ['01']
     # problem_order: List[str] = ['A', 'B', 'C',
     #                                 'D', 'E', 'F', 'G', 'H', 'I', 'J']
     for i in labs:

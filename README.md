@@ -329,9 +329,13 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
+### MIT LICENSE
+
+根目录下, 使用脚本生成的代码均采用`Apache 2.0`协议, 严谨而宽松.
+
 ### AGPLv3.0+ LICENSE
 
-绝大多数代码(`*.cpp`, `*.hpp`, etc)基于 AGPLv3.0+协议: 限制最强的主流开源协议
+非模板部分代码(`*.cpp`, `*.hpp`, etc)基于 AGPLv3.0+协议: 限制最强的主流开源协议
 
 + 由于本仓库设计只包括"上交"源码这一种场景, 因此实际上不存在二进制分发以及被云服务使用这种场景.
 + 具体内容请看[`LICENSE_AGPL_V3_0.md`](./LICENSE_AGPL_V3_0.md)
