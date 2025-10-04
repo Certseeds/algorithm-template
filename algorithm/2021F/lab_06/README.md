@@ -30,4 +30,4 @@ Reading the samples and hints carefully can help you understand the problem.
 |       F |       1452 |
 |       G |       1451 |
 
-B, F被复用, 无法测试, 故不实现
+B, F被复用

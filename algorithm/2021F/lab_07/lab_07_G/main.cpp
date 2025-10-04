@@ -47,7 +47,7 @@ public:
 #pragma GCC optimize(3, "Ofast", "inline", "no-stack-protector", "unroll-loops")
 #pragma GCC optimize("inline-small-functions")
 #pragma GCC optimize("-finline-small-functions")
-#pragma GCC target("native")
+#pragma GCC target("tune=native")
 #else
 namespace lab_07_G {
 #endif

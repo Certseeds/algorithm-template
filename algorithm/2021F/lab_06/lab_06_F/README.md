@@ -38,3 +38,10 @@ bcdeabc
 ```
 
 ## HINT
+
+## 复用信息
+
++ Contest 1101:CS203 2021 Fall Lab 06 String
++ Contest 1102:CS217 2021 Fall Lab 06 String
++ Contest 1144:CS203 2023 Fall Lab 5 String
++ Contest 1170:CS203 2024 Fall Lab 5
