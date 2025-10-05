@@ -25,3 +25,19 @@
 + Contest 1133:CS203 2023 Fall Lab 0 Welcome Lab
 + Contest 1160:CS203 2024 Fall Lab 0 Welcome Lab
 + Contest 1185:CS203 2025 Fall Lab 0 Welcome Lab
+
+## Data Structure Restrictions
+
+**Lab Level**: Welcome
+
+**Allowed Structures Used**:
+- ✅ `std::unordered_set<int32_t>`: For O(1) lookup of elements in set A
+- ✅ `std::vector<int32_t>`: For storing query elements from array B
+- ✅ Basic loops and conditionals
+
+**Compliance**: This solution uses only data structures allowed in Lab Welcome level. It demonstrates:
+- Efficient use of hash set for membership checking
+- Simple input/output pattern
+- Intuitive approach without complex algorithms
+
+See [Lab Welcome Restrictions](../RESTRICTIONS.md) for full details on allowed data structures at this level.

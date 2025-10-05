@@ -53,6 +53,28 @@ YES
 + Contest 1135:CS203 2023 Fall Lab 1 Complexity + Binary Search
 + Contest 1186:CS203 2025 Fall Lab 1 Complexity + Binary Search
 
+## Data Structure Restrictions
+
+**Lab Level**: Lab 02 (Complexity + Binary Search)
+
+**Allowed Structures Used**:
+- ✅ `std::unordered_set<int32_t>`: O(1) average-time lookup
+- ✅ `std::vector<int32_t>`: For storing queries
+
+**Complexity Analysis**:
+- Build set: O(n) amortized
+- Each query: O(1) amortized  
+- Total: O(n + T)
+
+**Compliance**: This solution demonstrates Lab 02 level understanding by:
+- Using appropriate data structure (hash set) for O(1) lookup
+- Analyzing time complexity
+- Choosing efficient algorithm based on input constraints
+
+This is more efficient than sorting + binary search (O((n + T) log n)), showcasing understanding of different algorithmic approaches.
+
+See [Lab 02 Restrictions](../RESTRICTIONS.md) for full details on allowed data structures at this level.
+
 # Solution / 思路解析
 
 - 思路概述：把给定集合中的元素放入一个哈希集合（`unordered_set`），对每个查询直接判断是否存在，从而以接近 O(1) 的均摊时间回答。

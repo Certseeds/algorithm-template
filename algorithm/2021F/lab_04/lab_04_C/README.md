@@ -82,3 +82,41 @@ For each node from 1 to n, if the node is the head of a chain and that chain has
 ### 结论
 
 该实现通过引入一个辅助数组 `to_tail` 来记录每个链条的尾节点, 将链条连接操作的时间复杂度从 O(L) (L为链条长度) 优化到了 O(1). 最终的查询阶段是对每个作为头节点的链条进行一次遍历, 最多遍历 `q` 步. 整体算法高效, 能够处理大规模数据.
+
+## Data Structure Restrictions
+
+**Lab Level**: Lab 04 (Linked Lists)
+
+**Allowed Structures Used**:
+- ✅ **Custom ListNode**: Singly-linked list node structure
+  ```cpp
+  struct ListNode {
+      int32_t val;
+      ListNode *next;
+      ListNode(int32_t v, ListNode *n) : val(v), next(n) {}
+  };
+  ```
+- ✅ **std::vector**: Auxiliary arrays for `nodes` and `to_tail`
+- ✅ **Pointer manipulation**: Direct node linking via pointers
+
+**Techniques Demonstrated**:
+1. **Custom linked list implementation**: Using `ListNode` structure
+2. **Efficient tail tracking**: O(1) access to chain tails via auxiliary array
+3. **In-place operations**: Connecting chains by pointer manipulation
+4. **Memory management**: Proper allocation (`new`) and deallocation (`delete`)
+
+**Complexity Analysis**:
+- Initialization: O(n)
+- Each connection: O(1) (thanks to `to_tail` optimization)
+- Query phase: O(n × q) worst case
+- Total: O(n + p + n×q)
+
+**Compliance**: This solution perfectly demonstrates Lab 04 level capabilities:
+- Uses custom linked list nodes (key skill for this lab)
+- Performs pointer-based operations
+- Optimizes with auxiliary data structures (allowed since Lab Welcome)
+- Manages memory properly
+
+Without the `to_tail` optimization, connection operations would be O(L) per operation, making the algorithm much slower. This showcases understanding of both linked lists and algorithm optimization.
+
+See [Lab 04 Restrictions](../RESTRICTIONS.md) for full details on allowed data structures at this level.
