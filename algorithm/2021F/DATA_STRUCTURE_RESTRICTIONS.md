@@ -141,5 +141,18 @@ When evaluating AI solutions:
 
 ## Related Files
 
-- Each lab directory may contain a `RESTRICTIONS.md` file with lab-specific details
+- **[README.md](./README.md)**: Overview of 2021F problems and framework
+- **[APPLYING_TO_2022F.md](./APPLYING_TO_2022F.md)**: Guide for applying this framework to new problems
+- **[ADVANCED_LABS_RESTRICTIONS.md](./ADVANCED_LABS_RESTRICTIONS.md)**: Overview of labs 06-10
+- **lab_welcome/RESTRICTIONS.md**: Lab Welcome restrictions
+- **lab_02/RESTRICTIONS.md**: Lab 02 restrictions
+- **lab_03/RESTRICTIONS.md**: Lab 03 restrictions
+- **lab_04/RESTRICTIONS.md**: Lab 04 restrictions
+- **lab_05/RESTRICTIONS.md**: Lab 05 restrictions
 - Individual problem READMEs may note which structures are expected/recommended
+
+## Quick Links
+
+- [How to Apply to 2022F Problems](./APPLYING_TO_2022F.md)
+- [2021F Problem Index](./README.md#problem-index)
+- [Advanced Labs Overview](./ADVANCED_LABS_RESTRICTIONS.md)

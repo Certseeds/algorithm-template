@@ -221,6 +221,35 @@ PS: 至于比较文件之间的差异, 可以使用内置的`compareFiles(string
 
 参考[文本比对_test_case_2](./lab_00/lab_00_D/test.cpp)
 
+## Data Structure Restrictions Framework
+
+This repository includes a **Data Structure Restrictions Framework** that defines which data structures and algorithms are appropriate for each lab level. This helps:
+
+- **Problem setters**: Design problems appropriate for each lab's learning objectives
+- **Students**: Understand what tools are available at each level
+- **Educators**: Evaluate solutions based on appropriate constraints
+- **AI/LLM evaluation**: Test problem-solving capabilities with limited resources
+
+### Quick Overview
+
+| Lab Level | New Additions | Key Focus |
+|-----------|---------------|-----------|
+| Lab Welcome | vector, set, map, unordered_set/map | Basic containers, intuitive solutions |
+| Lab 02 | Binary search, complexity analysis | Algorithm selection by input size |
+| Lab 03 | std::sort, comparators | Sorting as preprocessing |
+| Lab 04 | Linked lists, two-pointers | Pointer manipulation, ListNode |
+| Lab 05 | Stack, Queue, Deque | LIFO/FIFO patterns, BFS/DFS |
+| Lab 06+ | Trees, heaps, graphs | Advanced algorithms |
+
+### Documentation
+
+- **[Framework Overview](./algorithm/2021F/DATA_STRUCTURE_RESTRICTIONS.md)**: Complete framework specification
+- **[2021F Problems](./algorithm/2021F/README.md)**: Example problems with restriction annotations
+- **[Applying to 2022F](./algorithm/2021F/APPLYING_TO_2022F.md)**: Guide for applying framework to new problems
+- **Individual Lab Restrictions**: See `algorithm/2021F/lab_XX/RESTRICTIONS.md` for each lab
+
+Each lab directory contains detailed documentation of allowed structures, common patterns, and example problems.
+
 ## Details
 
 ### 为什么要选择C++做题?
