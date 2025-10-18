@@ -64,10 +64,6 @@ jobs:
         working-directory: ./CMAKE_DEBUG_PATH/algorithm/
         run: cmake --build .
 
-      - name: cmake compile basic
-        working-directory: ./CMAKE_DEBUG_PATH/basic
-        run: cmake --build . --config DEBUG --parallel
-
       - name: cmake compile
         working-directory: ./CMAKE_DEBUG_PATH
         run: cmake --build . --config DEBUG --parallel
