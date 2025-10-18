@@ -1,2 +1,0 @@
-hello: main.cpp factorial.cpp hello.cpp
-	g++ -o hello main.cpp factorial.cpp hello.cpp

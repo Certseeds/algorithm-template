@@ -30,12 +30,12 @@ def read_file(file_name: str) -> str:
 
 
 def fill_file(lab_number: str, problem_order: str) -> None:
-    with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/main.cpp', mode='a+',
+    with open(f'./../lab_{lab_number}/{problem_order}/main.cpp', mode='a+',
               encoding='UTF-8') as file:
         file.write(file_header_template.format(year, USER))
         file.write(main_code_template.format(lab_number, problem_order))
     print('main finish')
-    with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/test.cpp',
+    with open(f'./../lab_{lab_number}/{problem_order}/test.cpp',
               mode='a+', encoding='UTF-8') as file:
         file.write(file_header_template.format(year, USER))
         file.write(test_code_template.format(lab_number, problem_order))
@@ -46,9 +46,9 @@ def try_mkdir(lab_number: str, problem_orders: List[str]) -> None:
     if not os.path.exists(f'./../lab_{lab_number}'):
         os.mkdir(f'./../lab_{lab_number}')
     for problem_order in problem_orders:
-        if not os.path.exists(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/'):
-            os.mkdir(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/')
-            os.mkdir(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/resource/')
+        if not os.path.exists(f'./../lab_{lab_number}/{problem_order}/'):
+            os.mkdir(f'./../lab_{lab_number}/{problem_order}/')
+            os.mkdir(f'./../lab_{lab_number}/{problem_order}/resource/')
 
 
 def copy_cmakeLists(lab_number: str, problem_list: List[str]) -> None:
@@ -56,18 +56,15 @@ def copy_cmakeLists(lab_number: str, problem_list: List[str]) -> None:
     with open(f'./../lab_{lab_number}/CMakeLists.txt', mode='a+', encoding='UTF-8') as file:
         file.write(level1_cmake_template.format(lab_number, problem_order_list_str))
     for problem_order in problem_list:
-        with open(f'./../lab_{lab_number}/lab_{lab_number}_{problem_order}/CMakeLists.txt',
+        with open(f'./../lab_{lab_number}/{problem_order}/CMakeLists.txt',
                   mode='a+', encoding='UTF-8') as file:
             file.write(level2_cmake_template.format(problem_order))
 
 
 def main() -> None:
-    labs: List[str] = ['welcome', '02', '03', '04', '05', '06',
+    labs: List[str] = ['welcome', '01', '02', '03', '04', '05', '06',
                        '07', '08', '09', '10', 'bonus']
-    problem_order: List[str] = ['A', 'B', 'C', 'D', 'E', 'F']
-    # problem_order: List[str] = ['A', 'B', 'C',
-    #                                 'D', 'E', 'F', 'G', 'H', 'I', 'J']
-    labs: List[str] = ['01']
+    problem_order: List[str] = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
     for i in labs:
         try_mkdir(i, problem_order)
         copy_cmakeLists(i, problem_order)  # prepare CMakeLists
