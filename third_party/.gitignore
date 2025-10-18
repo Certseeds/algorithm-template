@@ -3,3 +3,5 @@
 !.gitignore
 !CMakeLists.txt
 !CMakeLists.release.txt
+!README.md
+!install.sh

@@ -37,9 +37,10 @@ jobs:
           gcc --version
           g++ --version
 
-      - name: prepare libopencv ccache
+      - name: prepare deps
         run: |
           sudo apt-get install libopencv-dev ccache
+          bash ./third_party/install.sh
 
       - name: Use cmake
         run: cmake --version
