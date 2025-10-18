@@ -15,7 +15,6 @@ ELSEIF (APPLE)
     MESSAGE(STATUS "Now is MacOS.")
 ELSEIF (UNIX)
     set(LIB_WAY SHARED)
-    set(USE_OPENCV true)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -fsanitize=address -fPIC")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
@@ -26,4 +25,3 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED) # instead of pthread
 
 MESSAGE(STATUS ${CMAKE_CURRENT_SOURCE_DIR}/cross_platform.cmake)
-set(USE_OPENCV False)

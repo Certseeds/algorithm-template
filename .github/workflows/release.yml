@@ -39,7 +39,6 @@ jobs:
 
       - name: prepare deps
         run: |
-          sudo apt-get install libopencv-dev ccache
           bash ./third_party/install.sh
 
       - name: Use cmake
@@ -95,17 +94,14 @@ jobs:
           SOURCE_BRANCH: ${{ steps.branch_name.outputs.SOURCE_BRANCH }}
           SOURCE_TAG: ${{ steps.branch_name.outputs.SOURCE_TAG }}
 
-      - name: prepare libopencv
-        run: |
-          sudo apt-get update && sudo apt-get install libopencv-dev
       # ensure the path and files of project
       - name: ensure the path and files of project
         run: sudo apt-get install tree; tree; mkdir -p ./cmake_build_release
 
-      - name: cmake install dependencies
+      - name: prepare deps
         run: |
-          cmake -S . -B ./cmake_build_release -DCMAKE_BUILD_TYPE=Debug
-          rm -rf ./cmake_build_release
+            bash ./third_party/install.sh
+            bash ./third_party/rename.sh
 
       - name: move cmake-fetchcontent to folder
         working-directory: ./third_party
@@ -160,21 +156,17 @@ jobs:
         env:
           SOURCE_NAME: ${{ steps.branch_name.outputs.SOURCE_NAME }}
 
+
+      - name: prepare deps
+        run: |
+            bash ./third_party/install.sh
+            bash ./third_party/rename.sh
+
       - name: git operations
         run: |
           git config --global user.name 'Certseeds'
           git config --global user.email '51754303+Certseeds@users.noreply.github.com'
-          git checkout -b release
-          mkdir cmake_build_release
-
-      - name: prepare libopencv
-        run: |
-          sudo apt-get update && sudo apt-get install libopencv-dev
-
-      - name: cmake install dependencies
-        run: |
-          cmake -S . -B ./cmake_build_release -DCMAKE_BUILD_TYPE=Debug
-          rm -rf ./cmake_build_release
+          git checkout --orphan release
 
       - name: move cmake-fetchcontent to folder
         working-directory: ./third_party
@@ -182,8 +174,8 @@ jobs:
           echo '**/.github/*' > ./.gitignore
           rm ./CMakeLists.txt
           mv ./CMakeLists.release.txt ./CMakeLists.txt
-          git add .
-          git commit -am "dependencies: add dependencies to release branch"
+          git add -A
+          git commit -am "init: with deps"
 
       - name: run script
         working-directory: ./script
