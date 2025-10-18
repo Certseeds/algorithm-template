@@ -53,7 +53,6 @@ jobs:
 
       - name: prepare deps
         run: |
-          sudo apt-get update && sudo apt-get install libopencv-dev
           bash ./third_party/install.sh
 
       - name: Use cmake
@@ -66,17 +65,9 @@ jobs:
         working-directory: ./CMAKE_DEBUG_PATH/lab_00
         run: cmake --build . --config DEBUG --parallel
 
-      - name: cmake compile algorithm/2021F
-        working-directory: ./CMAKE_DEBUG_PATH/algorithm/2021F
+      - name: cmake compile 2021F
+        working-directory: ./CMAKE_DEBUG_PATH/2021F
         run: cmake --build . --config DEBUG --parallel
-
-      - name: cmake compile algorithm/matrix
-        working-directory: ./CMAKE_DEBUG_PATH/algorithm/matrix
-        run: cmake --build . --config DEBUG --parallel
-
-      - name: cmake compile algorithm
-        working-directory: ./CMAKE_DEBUG_PATH/algorithm/
-        run: cmake --build .
 
       - name: cmake compile
         working-directory: ./CMAKE_DEBUG_PATH
