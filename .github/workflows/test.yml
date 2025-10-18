@@ -1,0 +1,38 @@
+name: output for config
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on: [ push, pull_request ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test:
+    name: test dev
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+      # ensure the path and files of project
+      - name: ensure the path and files of project
+        run: sudo apt-get install tree ;tree
+
+      - name: system
+        run: uname -a
+
+      - name: hardwares - cpu
+        run: nproc; cat /proc/cpuinfo
+
+      - name: hardwares - memory
+        run: cat /proc/meminfo | grep MemTotal
+
+      - name: hardwares - disk
+        run: df -lh
+
+      - name: Use cmake
+        run: cmake --version
+
+      - name: tree
+        run: tree
+  # This workflow contains a single job called "build"

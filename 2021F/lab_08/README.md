@@ -1,0 +1,31 @@
+# Contest1106 - CS203 2021 Fall Lab 08 Advanced Tree
+
+> cid: 1105
+
+Welcome to CS203 2021 Fall Lab 08! Enjoy this Lab!
+
+There are six problems for you to solve.
+
+Score:
+
+- A: 10
+- B: 15/10
+- C: 15/10
+- D: 20/15
+- E: 20/15
+- F: 20
+- G: undefined/20
+
+Reading the samples and hints carefully can help you understand the problem.
+
+## Problem mapping
+
+| Problem | problem id |
+|---:|---:|
+| A | 1460 |
+| B | 1461 |
+| C | 1462 |
+| D | 1463 |
+| E | 1464 |
+| F | 1465 |
+| G | 1466 |
