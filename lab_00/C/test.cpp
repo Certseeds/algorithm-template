@@ -7,7 +7,7 @@
 #include <iostream>
 #include "main.cpp"
 
-std::string getFilePath() noexcept { return "./../../../lab_00/lab_00_C/resource/"; }
+std::string getFilePath() noexcept { return "./../../../lab_00/C/resource/"; }
 
 const std::string CS203_redirect::file_paths = getFilePath();
 

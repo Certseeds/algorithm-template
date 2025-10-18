@@ -10,7 +10,7 @@
 
 #include "main.cpp"
 // 和A用一套测试数据
-std::string getFilePath() noexcept { return "./../../../../../algorithm/2021F/lab_welcome/lab_welcome_A/resource/"; }
+std::string getFilePath() noexcept { return "./../../../../2021F/lab_welcome/lab_welcome_A/resource/"; }
 
 const std::string CS203_redirect::file_paths = getFilePath();
 

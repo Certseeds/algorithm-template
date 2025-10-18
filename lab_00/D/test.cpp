@@ -7,7 +7,7 @@
 #include <tuple>
 #include "main.cpp"
 
-std::string getFilePath() noexcept { return "./../../../lab_00/lab_00_D/resource/"; }
+std::string getFilePath() noexcept { return "./../../../lab_00/D/resource/"; }
 
 const std::string CS203_redirect::file_paths = getFilePath();
 

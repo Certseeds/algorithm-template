@@ -10,7 +10,7 @@
 
 #include "main.cpp"
 
-std::string getFilePath() noexcept { return "./../../../../../algorithm/2021F/lab_07/lab_07_A/resource/"; }
+std::string getFilePath() noexcept { return "./../../../../2021F/lab_07/lab_07_A/resource/"; }
 
 const std::string CS203_redirect::file_paths = getFilePath();
 
