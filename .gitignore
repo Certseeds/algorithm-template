@@ -295,5 +295,7 @@ $RECYCLE.BIN/
 .vscode
 
 # test files begin
+!*.data.in
+!*.data.out
 *.test.out
 *.zip
