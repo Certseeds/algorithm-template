@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16.6)
 
 set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_VERSION_MINOR 13)
+set(PROJECT_VERSION_MINOR 15)
 set(PROJECT_VERSION_PATCH 0) # delete endsWith strs when master merge dev
 
 project(algorithm_template
