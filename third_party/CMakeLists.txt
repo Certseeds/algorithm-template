@@ -15,21 +15,13 @@ message(STATUS "Using local Catch2 tarball: ${CATCH2_LOCAL_TAR}")
 # 现在只使用 file:// 协议让 FetchContent 从本地 archive 加载
 get_filename_component(_abs_tar ${CATCH2_LOCAL_TAR} ABSOLUTE)
 file(TO_CMAKE_PATH ${_abs_tar} _tar_unix) # 在 Windows 上转换路径分隔
-if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-    FetchContent_Declare(
-            Catch2
-            URL file://${_tar_unix}
-            URL_HASH MD5=${CATCH2_HASH}
-            SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/catch2
-    )
-else ()
-    FetchContent_Declare(
-            Catch2
-            URL file://${_tar_unix}
-            URL_HASH MD5=${CATCH2_HASH}
-            SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/catch2
-    )
-endif ()
+
+FetchContent_Declare(
+        Catch2
+        URL file://${_tar_unix}
+        URL_HASH MD5=${CATCH2_HASH}
+        SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/catch2
+)
 
 FetchContent_MakeAvailable(Catch2)
 unset(CATCH2_HASH)
