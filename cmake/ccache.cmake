@@ -1,0 +1,11 @@
+find_program(CCACHE_FOUND ccache)
+MESSAGE("CCACHE_FOUND" ${CCACHE_FOUND})
+if (CCACHE_FOUND)
+    MESSAGE("CCACHE_FOUND TRUE")
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache) # Less useful to do it for linking, see edit2
+    set(ENV{CCACHE_COMPRESS} "true")
+    set(ENV{CCACHE_COMPRESSLEVEL} "6")
+    set(ENV{CCACHE_MAXSIZE} "400M")
+endif (CCACHE_FOUND)
+MESSAGE(STATUS ${CMAKE_CURRENT_SOURCE_DIR}/ccache.cmake)

@@ -1,0 +1,185 @@
+# This is a basic workflow to help you get started with Actions
+
+name: test and release
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    tags-ignore:
+      - '*-release'
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test:
+    name: test for release
+    # The type of runner that the job will run on
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-24.04 ]
+    env:
+      CC:   gcc-13
+      CXX:  g++-13
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: checkout code
+        uses: actions/checkout@v5
+
+      - name: hardwares - cpu
+        run: nproc; cat /proc/cpuinfo
+
+      - name: Install ccache, check gcc version
+        run: |
+          sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+          sudo apt-get update && sudo apt-get install -y ccache
+          gcc --version
+          g++ --version
+
+      - name: prepare deps
+        run: |
+          bash ./third_party/install.sh
+
+      - name: Use cmake
+        run: cmake --version
+
+      - name: cmake prepare for compile
+        run: cmake -S . -B ./CMAKE_DEBUG_PATH -DCMAKE_BUILD_TYPE=DEBUG
+
+      - name: cmake compile lab_00
+        working-directory: ./CMAKE_DEBUG_PATH/lab_00
+        run: cmake --build . --config DEBUG --parallel
+
+      - name: cmake compile
+        working-directory: ./CMAKE_DEBUG_PATH
+        run: cmake --build . --config DEBUG --parallel
+
+      - name: cmake test
+        working-directory: ./CMAKE_DEBUG_PATH
+        run: ctest  --parallel $(nproc)
+
+  # This workflow contains a single job called "build"
+  build:
+    name: publish release
+    env:
+      CC:   gcc-13
+      CXX:  g++-13
+    if: github.repository == 'Certseeds/algorithm-template'
+    needs: test
+    # The type of runner that the job will run on
+    runs-on: ubuntu-24.04
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: checkout code
+        uses: actions/checkout@v5
+
+      - name: Branch name
+        id: branch_name
+        run: |
+          echo "SOURCE_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+          echo "SOURCE_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+          echo "SOURCE_TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+      - name: tag name output
+        run: |
+          echo ${SOURCE_NAME};echo ${SOURCE_BRANCH};echo ${SOURCE_TAG}
+        env:
+          SOURCE_NAME: ${{ steps.branch_name.outputs.SOURCE_NAME }}
+          SOURCE_BRANCH: ${{ steps.branch_name.outputs.SOURCE_BRANCH }}
+          SOURCE_TAG: ${{ steps.branch_name.outputs.SOURCE_TAG }}
+
+      # ensure the path and files of project
+      - name: ensure the path and files of project
+        run: sudo apt-get install tree; tree; mkdir -p ./cmake_build_release
+
+      - name: prepare deps
+        run: |
+            bash ./third_party/install.sh
+            bash ./third_party/rename.sh
+
+      - name: move cmake-fetchcontent to folder
+        working-directory: ./third_party
+        run: |
+          rm ./CMakeLists.txt
+          mv ./CMakeLists.release.txt ./CMakeLists.txt
+
+      - name: run script
+        working-directory: ./script
+        run: python3 file_template.py
+
+      - name: zip the packet
+        working-directory: ./../
+        run: |
+          zip -r script_no_need.zip ./algorithm-template -x "*/.git/*"
+          tree
+
+      - name: release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: ./../script_no_need.zip
+          prerelease: false
+          generate_release_notes: true
+
+      - name: tree
+        run: tree
+
+  release-branch:
+    name: publish release-branch
+    env:
+      CC:   gcc-13
+      CXX:  g++-13
+    if: github.repository == 'Certseeds/algorithm-template'
+    needs: [ test, build ]
+    # The type of runner that the job will run on
+    runs-on: ubuntu-24.04
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: checkout code
+        uses: actions/checkout@v5
+
+      - name: Branch name
+        id: branch_name
+        run: |
+          echo "SOURCE_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+      - name: tag name output
+        run: |
+          echo ${SOURCE_NAME};
+        env:
+          SOURCE_NAME: ${{ steps.branch_name.outputs.SOURCE_NAME }}
+
+
+      - name: prepare deps
+        run: |
+            bash ./third_party/install.sh
+            bash ./third_party/rename.sh
+
+      - name: git operations
+        run: |
+          git config --global user.name 'Certseeds'
+          git config --global user.email '51754303+Certseeds@users.noreply.github.com'
+          git checkout --orphan release
+
+      - name: move cmake-fetchcontent to folder
+        working-directory: ./third_party
+        run: |
+          echo '**/.github/*' > ./.gitignore
+          rm ./CMakeLists.txt
+          mv ./CMakeLists.release.txt ./CMakeLists.txt
+          git add -A
+          git commit -am "init: with deps"
+
+      - name: run script
+        working-directory: ./script
+        run: python3 file_template.py
+
+      - name: git operations
+        working-directory: ./
+        run: |
+          git add .
+          git commit -am "release ${{ steps.branch_name.outputs.SOURCE_NAME }}"
+          git push --set-upstream origin release --force
