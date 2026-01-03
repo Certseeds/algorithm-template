@@ -1,28 +1,62 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-// SPDX-FileCopyrightText: 2020-2025 nanoseeds
-#include <algorithm>
-#include <cstdint>
-#include <cstdlib>
-#include <ctime>
-#include <iostream>
-#include <memory>
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2020-2026 Certseeds
+#include <list>
+#include <array>
+#include <deque>
+#include <queue>
+#include <stack>
 #include <tuple>
+#include <string>
 #include <vector>
+#include <cstdint>
+#include <cstddef>
+#include <numeric>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+#include <unordered_set>
 
-namespace tree {
+#ifndef ALGORITHM_TEST_MACRO
+#pragma GCC optimize(3, "Ofast", "inline", "no-stack-protector", "unroll-loops")
+#pragma GCC optimize("inline-small-functions")
+#pragma GCC optimize("-finline-small-functions")
+#pragma GCC target("tune=native")
+#else
+namespace lab_08_G {
+#endif
+
+using std::cin;
+using std::tie;
+using std::cout;
+using std::list;
+using std::sort;
+using std::array;
+using std::deque;
+using std::queue;
+using std::stack;
+using std::tuple;
+using std::string;
+using std::vector;
+using std::unordered_map;
+using std::unordered_set;
+using std::priority_queue;
+static constexpr const char end{'\n'};
+
+using num_t = int32_t;
+
 struct Edge {
-    int32_t to;      // 边的终点
-    int32_t next;    // 同一个起点的下一条边的索引
-    int64_t weight;  // 边的权重
+    int32_t to; // 边的终点
+    int32_t next; // 同一个起点的下一条边的索引
+    int64_t weight; // 边的权重
 };
 
 class Graph {
-   public:
+public:
     // 边的结构体定义
-    std::vector<int32_t> head;  // head[i] 存储顶点i的第一条边的索引
-    std::vector<Edge> edges;    // 存储所有边的数组
-    int32_t edge_count;         // 当前边的总数
-   public:
+    std::vector<int32_t> head; // head[i] 存储顶点i的第一条边的索引
+    std::vector<Edge> edges; // 存储所有边的数组
+    int32_t edge_count; // 当前边的总数
+public:
     /**
      * @brief 构造函数
      * @param num_nodes 顶点的数量 (假设顶点编号从 1 到 num_nodes)
@@ -64,154 +98,133 @@ class Graph {
         add_edge(v, u, w);
     }
 };
-}
 
-#ifndef ALGORITHM_TEST_MACRO
-#pragma GCC optimize(3, "Ofast", "inline", "no-stack-protector", "unroll-loops")
-#pragma GCC optimize("inline-small-functions")
-#pragma GCC optimize("-finline-small-functions")
-#pragma GCC target("tune=native")
-#else
-namespace lab_08_G {
-#endif
-using std::cin;
-using std::cout;
-using std::tuple;
-using std::vector;
-static constexpr const char end{'\n'};
+using input_type = tuple<int, int, Graph>;
+using output_type = num_t;
 
-using i32 = int32_t;
-using i64 = int64_t;
-struct ProblemInput {
-    i32 n;
-    i32 m;
-    std::shared_ptr<tree::Graph> graph;
-    i64 total_weight;
-};
+inline input_type read();
 
-using ProblemOutput = i64;
+output_type cal(input_type data);
 
-ProblemInput read_input();
-ProblemOutput solve(const ProblemInput &in);
-void write_output(const ProblemOutput &out);
-static bool can_form_paths(const ProblemInput &in, const i64 limit);
+void output(const output_type &data);
 
 int main() {
-    const auto in = read_input();
-    const auto out = solve(in);
-    write_output(out);
+    const auto input_data = read();
+    const auto output_data = cal(input_data);
+    output(output_data);
     return 0;
 }
 
-ProblemInput read_input() {
-    ProblemInput in;
-    std::cin >> in.n >> in.m;
-    int32_t u;
-    int32_t v;
-    int64_t w;
-    in.graph = std::make_shared<tree::Graph>(in.n, static_cast<int32_t>((in.n - 1) * 2));
-    in.total_weight = 0;
-    for (i32 i = 0; i < in.n - 1; ++i) {
-        std::cin >> u >> v >> w;
-        in.graph->add_undirected_edge(u, v, w);
-        in.total_weight += w;
+inline input_type read() {
+    int n, m;
+    cin >> n >> m;
+    Graph adj(n, (n - 1) * 2);
+    for (int i = 0; i < n - 1; ++i) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        adj.add_undirected_edge(u, v, w);
     }
-    return in;
+    return std::make_tuple(n, m, adj);
 }
 
+namespace {
+struct Solver {
+    int n, m;
+    const Graph &adj;
+    int cnt;
+    int mid;
 
-ProblemOutput solve(const ProblemInput &in) {
-    i64 left = 0;
-    i64 right = in.total_weight;
-    i64 answer = 0;
-    while (left <= right) {
-        const auto mid = (left + right) >> 1;
-        if (can_form_paths(in, mid)) {
-            answer = mid;
-            left = mid + 1;
-        } else {
-            right = mid - 1;
-        }
+    Solver(const int n, const int m, const Graph &adj) : n(n), m(m), adj(adj), cnt(0), mid(0) {
     }
-    return answer;
-}
 
-void write_output(const ProblemOutput &out) {
-    std::cout << out << end;
-}
-
-static bool can_form_paths(const ProblemInput &in, const i64 limit) {
-    if (limit <= 0) return true;
-    const auto &graph = *in.graph;
-    const auto n = in.n;
-    std::vector<int32_t> parent(static_cast<size_t>(n + 1), 0);
-    std::vector<int32_t> order;
-    order.reserve(static_cast<size_t>(n));
-    std::vector<int32_t> stack;
-    stack.reserve(static_cast<size_t>(n));
-    stack.push_back(1);
-    parent[1] = 0;
-    while (!stack.empty()) {
-        const auto u = stack.back();
-        stack.pop_back();
-        order.push_back(u);
-        for (auto ei = graph.head[static_cast<size_t>(u)]; ei != -1; ei = graph.edges[static_cast<size_t>(ei)].next) {
-            const auto &edge = graph.edges[static_cast<size_t>(ei)];
-            if (edge.to == parent[static_cast<size_t>(u)]) continue;
-            parent[static_cast<size_t>(edge.to)] = u;
-            stack.push_back(edge.to);
-        }
-    }
-    std::vector<i64> dp(static_cast<size_t>(n + 1), 0);
-    int32_t formed = 0;
-    std::vector<i64> lengths;
-    std::vector<bool> used;
-
-    for (auto it = order.rbegin(); it != order.rend(); ++it) {
-        const auto u = *it;
-        lengths.clear();
-        for (auto ei = graph.head[static_cast<size_t>(u)]; ei != -1; ei = graph.edges[static_cast<size_t>(ei)].next) {
-            const auto &edge = graph.edges[static_cast<size_t>(ei)];
-            if (parent[static_cast<size_t>(u)] == edge.to) continue;
-            lengths.push_back(dp[static_cast<size_t>(edge.to)] + edge.weight);
-        }
-
-        std::sort(lengths.rbegin(), lengths.rend());
-
-        used.assign(lengths.size(), false);
-        int32_t l = 0;
-        int32_t r = static_cast<int32_t>(lengths.size()) - 1;
-
-        while (l < r) {
-            if (used[l]) {
-                l++;
+    int dfs(const int u, const int p) {
+        vector<int> vec;
+        for (int i = adj.head[u]; i != -1; i = adj.edges[i].next) {
+            const auto &e = adj.edges[i];
+            if (e.to == p) {
                 continue;
             }
-            while (l < r && (used[r] || lengths[l] + lengths[r] < limit)) {
-                r--;
+            const int len = dfs(e.to, u) + e.weight;
+            if (len >= mid) {
+                cnt++;
+            } else {
+                vec.push_back(len);
             }
-            if (l < r) {
-                formed++;
-                used[l] = used[r] = true;
-                l++;
-                r--;
+        }
+        sort(vec.begin(), vec.end());
+
+        auto calc = [&](int skip) {
+            int c = 0;
+            int l = 0, r = (int) vec.size() - 1;
+            while (l < r) {
+                if (l == skip) {
+                    l++;
+                    continue;
+                }
+                if (r == skip) {
+                    r--;
+                    continue;
+                }
+                if (vec[l] + vec[r] >= mid) {
+                    c++;
+                    l++;
+                    r--;
+                } else {
+                    l++;
+                }
+            }
+            return c;
+        };
+
+        const int base = calc(-1);
+        cnt += base;
+
+        int l = 0, r = (int) vec.size() - 1;
+        int ans_idx = -1;
+        while (l <= r) {
+            const int mid_idx = l + (r - l) / 2;
+            if (calc(mid_idx) == base) {
+                ans_idx = mid_idx;
+                l = mid_idx + 1;
+            } else {
+                r = mid_idx - 1;
             }
         }
 
-        i64 carry = 0;
-        for(size_t i = 0; i < lengths.size(); ++i) {
-            if (!used[i]) {
-                if (lengths[i] >= limit) {
-                    formed++;
-                    used[i] = true;
-                } else {
-                    carry = std::max(carry, lengths[i]);
-                }
-            }
-        }
-        dp[static_cast<size_t>(u)] = carry;
+        if (ans_idx != -1) return vec[ans_idx];
+        return 0;
     }
-    return formed >= in.m;
+
+    bool check(int k) {
+        mid = k;
+        cnt = 0;
+        dfs(1, 0);
+        return cnt >= m;
+    }
+};
+}
+
+output_type cal(input_type data) {
+    const int n = std::get<0>(data);
+    const int m = std::get<1>(data);
+    const Graph &adj = std::get<2>(data);
+    Solver solver(n, m, adj);
+    int l = 1, r = 500000000;
+    int ans = 0;
+    while (l <= r) {
+        const int mid = l + (r - l) / 2;
+        if (solver.check(mid)) {
+            ans = mid;
+            l = mid + 1;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return ans;
+}
+
+void output(const output_type &data) {
+    cout << data << end;
 }
 
 static const auto faster_streams = [] {
@@ -225,7 +238,6 @@ static const auto faster_streams = [] {
     // 关闭c++风格输入输出 , 与C风格输入输出的同步,提高性能.
     return 0;
 }();
-
 #ifdef ALGORITHM_TEST_MACRO
 }
 #endif
