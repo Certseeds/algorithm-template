@@ -51,10 +51,6 @@ jobs:
         working-directory: ./CMAKE_DEBUG_PATH/lab_00
         run: cmake --build . --config DEBUG --parallel
 
-      - name: cmake compile 2021F
-        working-directory: ./CMAKE_DEBUG_PATH/2021F
-        run: cmake --build . --config DEBUG --parallel
-
       - name: cmake compile
         working-directory: ./CMAKE_DEBUG_PATH
         run: cmake --build . --config DEBUG --parallel

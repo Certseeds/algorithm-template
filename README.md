@@ -72,6 +72,8 @@ OJ系统存在着一些特殊要求-因此考虑到下面的因素, 设计了一
 
 ## Getting Started
 
+> 2021年代码已存储到单独分支, <https://github.com/Certseeds/algorithm-template/tree/2021fall>
+
 1. 下载Release中的[压缩包][download_zip]或者[另一个压缩包][download_zip_refs], 之后解压使用(简易)
 2. 使用绿色按钮[Use This Template][Use_This_Template], 生成仓库, clone下来使用(推荐)
 3. fork repo, clone下来使用(不推荐, fork的仓库只有合入主仓库才被github计入提交图)

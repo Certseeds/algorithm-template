@@ -19,7 +19,6 @@ MESSAGE(STATUS "Compiler In \n ${time_str}")
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/CMakeLists.txt)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/include)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/2021F)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party)
 
 enable_testing()
