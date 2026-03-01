@@ -7,8 +7,8 @@ set("BUILD_${LIB_WAY}_LIBS" YES)
 include(FetchContent)
 CMAKE_CMP_0135()
 
-set(CATCH2_HASH "c2fef0ffbe8af6b20e86f8d0e79b6aac")
-set(CATCH2_LOCAL_TAR ${CMAKE_CURRENT_SOURCE_DIR}/catch2.tar.gz)
+set(CATCH2_HASH "7e64ff8a07b324996a26f3f5d7e7dad8")
+set(CATCH2_LOCAL_TAR ${CMAKE_CURRENT_SOURCE_DIR}/catch.3.13.0.tar.gz)
 
 message(STATUS "Using local Catch2 tarball: ${CATCH2_LOCAL_TAR}")
 
