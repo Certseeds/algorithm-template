@@ -2,7 +2,7 @@
 set -euox pipefail
 main() {
     tar \
-      -xzvf third_party/catch2.tar.gz \
+      -xzvf third_party/catch.3.10.0.tar.gz \
       -C third_party/
 	# 定位到脚本所在目录（third_party）
 	local -r self_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
