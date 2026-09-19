@@ -13,7 +13,7 @@
 <br />
 <div align="center">
 
-<h3 align="center">CS203-DSAA-template</h3>
+<h3 align="center">Algorithm-Template</h3>
 
   <p align="center">
     An awesome Algorithm Template for IO-Driven Single-File Problem(like Online-Judge Problem) ! </br>
@@ -66,7 +66,7 @@ OJ系统存在着一些特殊要求-因此考虑到下面的因素, 设计了一
 
 ### Built With
 
-[![Google Test][gtest_image]](https://github.com/google/googletest)
+[Google Test](https://github.com/google/googletest)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -86,7 +86,7 @@ OJ系统存在着一些特殊要求-因此考虑到下面的因素, 设计了一
 
 This is an example of how to list things you need to use the software and how to install them.
 
-#### Windows
+#### 环境准备
 
 推荐使用 windows subsystem linux 2, 换好apt源之后只需要
 
@@ -137,14 +137,14 @@ git clone https://github.com/${YOUE_GITHUB_USER_NAME}/algorithm-template.git
 
 ## Usage: 执行代码和测试
 
-使用clion打开文件夹, 配置好C++环境的基础上, 会自动识别`CmakeList.txt`.
+使用clion打开文件夹, 配置好C++环境的基础上, 会自动识别 `CmakeList.txt`
 
-产生`CS203_lab${order}_${ques_Order}`, `CS203_lab${order}_${ques_Order}_test` 形式的复数个可以运行的可选项.
+产生`ALGORITHM_lab${order}_${ques_Order}`, `ALGORITHM_lab${order}_${ques_Order}_test` 形式的复数个可以运行的可选项.
 
 `lab${order}_${ques_Order}`为对应题号, 比如`lab07_01`对应lab_07的C1题.
 
-+ `CS203_lab07_01`将调用`lab_07\lab_07_C1\main.cpp`, 为将要提交的源文件.
-+ `CS203_lab07_01_test`将调用`lab_07\lab_07_C1\test.cpp`, 对其进行测试.
++ `ALGORITHM_lab07_01`将调用`lab_07\lab_07_C1\main.cpp`, 为将要提交的源文件.
++ `ALGORITHM_lab07_01_test`将调用`lab_07\lab_07_C1\test.cpp`, 对其进行测试.
 + `lab_*\lab_*_*\test.cpp`目的为方便测试, 同时便于分享测试用例.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -186,7 +186,7 @@ PS: 当然, 这种情况也只适用于规模比较小的情况, 规模再大的
 
 比如[判断二分图](./lab_00/C/main.cpp), 一张图可以有几十上百个node, 写在内部占用空间太大.
 
-而在这里, 使用`CS203_redirect`对象, 便可以省去手动输入的方式.
+而在这里, 使用`ALGORITHM_redirect`对象, 便可以省去手动输入的方式.
 
 ``` cpp
 TEST(lab_00_C, test_case_1) {
@@ -238,13 +238,7 @@ PS: 至于比较文件之间的差异, 可以使用内置的`compareFiles(string
 
 ### 为什么要选择C++做题?
 
-1. C++是dalao们的选择
-直接去
-[dalao1](https://acm.sustech.edu.cn/onlinejudge/status.php?user_id=11710724&jresult=4)
-[dalao2](https://acm.sustech.edu.cn/onlinejudge/status.php?user_id=11612908&jresult=4)
-[dalao3](https://acm.sustech.edu.cn/onlinejudge/status.php?user_id=11712510&jresult=4)
-等等dalao的解题页面看看, 会发现在排行榜榜首的人, 绝大多数题目使用的都是C++.
-
+1. C++ 参考用例更多, 相关资源更丰富
 2. 速度.
 
 + oj内一般java的最大运行时间都会是c++的2倍, 显然是暗示速度之间的差别.
@@ -252,15 +246,11 @@ PS: 至于比较文件之间的差异, 可以使用内置的`compareFiles(string
 
 3. 对数据结构的友好性
 
-DSAA既然内含Data structure, 就势必涉及到类似Node, Tree, Graph等等数据结构, 这类数据结构使用C++写, 比较方便理解.
+涉及到类似Node, Tree, Graph等等数据结构, 这类数据结构使用C++写, 比较方便理解.
 
 4. 对算法友好的性能:
 
 之前写树和图相关的题目时, 最头疼的就是Java的爆栈, 有一段时间只要用递归就爆栈, 相同算法修改为C++之后问题就消失了.
-
-5. 相关资源的丰富程度
-
-不管怎么说, c++是dalao的选择, 所以在网络上搜索题目, 得到的大多数答案都是C/C++, java的数量很少.
 
 ### 如何手动开优化
 
@@ -339,6 +329,7 @@ Don't forget to give the project a star! Thanks again!
 
 + 由于本仓库设计只包括"上交"源码这一种场景, 因此实际上不存在二进制分发以及被云服务使用这种场景.
 + 具体内容请看[`LICENSE_AGPL_V3_0.md`](./LICENSE_AGPL_V3_0.md)
+
 some code is based on this license
 
 ### CC-BY-NC-SA-4.0+ LICENSE
