@@ -98,7 +98,7 @@ OJ系统存在着一些特殊要求, 因此考虑到下面的因素, 设计了�
 
 #### 环境准备
 
-推荐使用 windows subsystem linux 2, 换好apt源之后只需要
+推荐使用 windows subsystem linux 2 Ubuntu-26.04, 换好 apt 源之后只需要
 
 ``` bash
 yes | sudo apt-get update
