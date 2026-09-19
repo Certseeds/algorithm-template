@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 3.16.6)
 
-set(PROJECT_VERSION_MAJOR 0)
-set(PROJECT_VERSION_MINOR 16)
-set(PROJECT_VERSION_PATCH 1) # delete endsWith strs when master merge dev
+set(PROJECT_VERSION_MAJOR 2026)
+set(PROJECT_VERSION_MINOR 09)
+set(PROJECT_VERSION_PATCH 19)
 
 project(algorithm_template
+        VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}
         DESCRIPTION "Template for Algorithm Based on C++11 and Modern CMake"
         HOMEPAGE_URL "https://github.com/Certseeds/algorithm-template"
         LANGUAGES CXX)
