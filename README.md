@@ -17,9 +17,9 @@
 
   <p align="center">
     An awesome Algorithm Template for IO-Driven Single-File Problem(like Online-Judge Problem) ! </br>
-    分布式<sup title="由git保证">1</sup> 去中心化<sup title="推荐使用template生成仓库, 不设置主库;没有易受打击的web页">2</sup> 的IO驱动型单文件问题<sup title="包括但不限于OJ平台题目">4</sup>解题模板
+    分布式<sup title="由git保证">1</sup> 去中心化<sup title="推荐使用template生成仓库, 不设置主库;没有易受打击的web页">2</sup> 的IO驱动型单文件问题<sup title="包括但不限于OJ平台题目">3</sup>解题模板
     <br />
-    <a href="https://github.com/Certseeds/algorithm-template/blob/dev/README.md"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Certseeds/algorithm-template/blob/master/README.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Certseeds/algorithm-template/tree/release">View Demo</a>
@@ -44,29 +44,41 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#project-structure">Project Structure</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li>
+      <a href="#usage">Usage</a>
+      <ul>
+        <li><a href="#command-line-build">Command Line Build</a></li>
+      </ul>
+    </li>
+    <li><a href="#test-introduce">Test Introduce</a></li>
+    <li><a href="#details">Details</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#thanks">Thanks</a></li>
   </ol>
 </details>
 
 ## About The Project
 
-OJ系统存在着一些特殊要求-因此考虑到下面的因素, 设计了一套代码模板, 以适应OJ系统的独特环境.
+OJ系统存在着一些特殊要求, 因此考虑到下面的因素, 设计了一套代码模板, 以适应OJ系统的独特环境.
 
 + 上交题目无需修改类名, 方法名等等内容, 只需复制粘贴.
-+ 支持为每个问题撰写测试用例, 并支持用户之间方便的交换测试用例
-+ 只依赖于Unix-Like系统, 支持C++20的编译器与仓库本身, 没有依赖包
-+ 易于拓展, 提供基本算法接口与实现
++ 支持为每个问题撰写测试用例, 并支持用户之间方便的交换测试用例.
++ 只依赖 Unix-Like 系统与一个支持 C++20 的编译器, 外部依赖仅有 Google Test.
++ 易于拓展, 提供基本算法接口与实现.
 
 ### Built With
 
-[Google Test](https://github.com/google/googletest)
++ 语言: [C++](https://isocpp.org/) — 提交用源码按 C++11 编译, 测试按 C++20 编译, 因此需要支持 C++20 的编译器.
++ 构建: [CMake](https://cmake.org/) (>= 3.16.6) 与 [ccache](https://ccache.dev/).
++ 测试: [Google Test](https://github.com/google/googletest) / [Google Mock](https://github.com/google/googletest).
++ 可选: [Podman](https://podman.io/) 容器开发环境, 见 [script/container.sh](./script/container.sh).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -83,8 +95,6 @@ OJ系统存在着一些特殊要求-因此考虑到下面的因素, 设计了一
 [Use_This_Template]: https://github.com/Certseeds/algorithm-template/generate
 
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
 
 #### 环境准备
 
@@ -133,19 +143,62 @@ git clone https://github.com/${YOUE_GITHUB_USER_NAME}/algorithm-template.git
     使用命令行, 进入`./script`下, 编辑`file_template`的`labs` & `problem_orders`,
     `python3 ./file_template.py`, 出现`produce files finish`提示, 即为创建成功.
 
+### Project Structure
+
+``` text
+.
+├── CMakeLists.txt        # 顶层构建入口, 自动发现 lab_* 目录
+├── cmake/                # 构建配置: 编译类型 / 跨平台 / 并行 / ccache / policy
+├── include/              # 公共头文件, 以 Interface Library 提供给各题目
+│   ├── gtest_main.hpp    # 测试入口, 引入 gtest/gmock 与 public.hpp
+│   ├── include/          # CS203_redirect / CS203_sequence / CS203_timer 等工具
+│   ├── class_helper/     # nonable 等基类
+│   ├── list/ tree/       # 链表 / 树 / Trie 等数据结构
+│   └── magic_macro/      # 手动开优化用的宏
+├── lab_00/               # 一个 lab, 内含若干题目
+│   ├── CMakeLists.txt    # 声明本 lab 下的题目列表
+│   └── A/                # 一道题目
+│       ├── main.cpp      # 将要提交的源文件, 含 read()/处理函数/output()
+│       └── test.cpp      # Google Test 测试
+├── script/               # 模板生成 / 一键构建 / 容器脚本
+└── .github/workflows/    # CI(提交触发) 与 CD(Tag 触发 Release)
+```
+
++ `include/` 通过 CMake Interface Library 暴露, 各题目用 `target_link_libraries` 链接.
++ `lab_*/` 由顶层 CMake 用 `file(GLOB ...)` 自动发现, 新增 lab 后重新 configure 即可.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Usage: 执行代码和测试
+## Usage
 
-使用clion打开文件夹, 配置好C++环境的基础上, 会自动识别 `CmakeList.txt`
+执行代码和测试:
 
-产生`ALGORITHM_lab${order}_${ques_Order}`, `ALGORITHM_lab${order}_${ques_Order}_test` 形式的复数个可以运行的可选项.
+### 在 CLion 中
 
-`lab${order}_${ques_Order}`为对应题号, 比如`lab07_01`对应lab_07的C1题.
+使用 CLion 打开文件夹, 配置好 C++ 环境后会自动识别 `CMakeLists.txt`, 并生成若干可运行项:
 
-+ `ALGORITHM_lab07_01`将调用`lab_07\lab_07_C1\main.cpp`, 为将要提交的源文件.
-+ `ALGORITHM_lab07_01_test`将调用`lab_07\lab_07_C1\test.cpp`, 对其进行测试.
-+ `lab_*\lab_*_*\test.cpp`目的为方便测试, 同时便于分享测试用例.
++ `ALGORITHM_lab_00_A`: 调用 `lab_00/A/main.cpp`, 即将要提交的源文件.
++ `ALGORITHM_lab_00_A_test`: 调用 `lab_00/A/test.cpp`, 对其进行测试.
+
+可运行项命名规则为 `ALGORITHM_lab_{lab 编号}_{题号}`, 其中 lab 编号为两位数字、题号为字母, 例如 `ALGORITHM_lab_00_A` 对应 `lab_00` 的 A 题.
+
+### Command Line Build
+
+仓库提供 [`script/test.sh`](./script/test.sh), 在仓库根目录执行即可完成配置、编译与 `ctest`.
+
+``` bash
+bash script/test.sh
+```
+
+脚本会在临时目录中基于 CMake 构建并运行全部测试, 结束后自动清理. 也可手动执行:
+
+``` bash
+cmake -S . -B cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
+cmake --build cmake-build-debug --parallel "$(nproc)"
+cd cmake-build-debug && ctest --output-on-failure
+```
+
+> 若需要在容器内开发, 可使用 [`script/container.sh`](./script/container.sh) 启动预配置好的镜像.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -158,6 +211,30 @@ git clone https://github.com/${YOUE_GITHUB_USER_NAME}/algorithm-template.git
 3. 可以互相分享少量代码而不触及核心逻辑, 方便协作.
 4. 便于使用测试.
 
+### 约定: `read()` / 处理函数 / `output()`
+
+每道题的 `main.cpp` 按同一套签名组织, 使读取、处理、输出彼此独立:
+
+``` cpp
+using input_type = ...;   // 输入数据的类型
+using output_type = ...;  // 输出数据的类型
+
+input_type read();                     // 从 cin 读入
+output_type solve(const input_type &); // 处理函数, 名称随题目而定
+void output(const output_type &);      // 写到 cout
+
+int main() {
+    const auto input_data = read();
+    const auto output_data = solve(input_data);
+    output(output_data);
+    return 0;
+}
+```
+
++ 处理函数名随题目而定 (如 `isBipartite`), 但签名约定一致, 便于测试直接调用.
++ `test.cpp` 通过 `#include "main.cpp"` 复用这些函数, 并用 `CS203_redirect` 重定向 IO.
++ 每个 `test.cpp` 需实现 `getFilePath()` 并据此定义 `CS203_redirect::file_paths`, 详见下文重定向部分.
+
 ### 基本测试用例展示 A+B: lab_00_A , 测试样例
 
 + 这个问题较为简单, 见[A+B](./lab_00/A/main.cpp) 解决起来不复杂.
@@ -168,7 +245,7 @@ git clone https://github.com/${YOUE_GITHUB_USER_NAME}/algorithm-template.git
 + 在本repo, 使用 `Google Test` 测试框架.
   + 比如, 我们有四组数据, 第一组, 第二组测试边界值, 第三组使用随机数测试对偶性与正确性, 第四组测试几个手动的随机值.
   + 参见[test_for_lab00_A](./lab_00/A/test.cpp)
-+ 这样一来, 我们只需要每次修改完主文件之后, run `algorithm-template_test`, 对其进行调用, 就能验证其在所有的测试用例上的正确性.
++ 这样一来, 我们只需要每次修改完主文件之后, run `ALGORITHM_lab_00_A_test`, 对其进行调用, 就能验证其在所有的测试用例上的正确性.
 
 ### 多个输出值的检查: `EXPECT_EQ`
 
@@ -186,7 +263,7 @@ PS: 当然, 这种情况也只适用于规模比较小的情况, 规模再大的
 
 比如[判断二分图](./lab_00/C/main.cpp), 一张图可以有几十上百个node, 写在内部占用空间太大.
 
-而在这里, 使用`ALGORITHM_redirect`对象, 便可以省去手动输入的方式.
+而在这里, 使用`CS203_redirect`对象, 便可以省去手动输入的方式.
 
 ``` cpp
 TEST(lab_00_C, test_case_1) {
@@ -206,11 +283,16 @@ TEST(lab_00_C, test_case_1) {
 + test case with tuple 则最优雅, 修改起来的难度最小.
 + test case with sequence 比tuple更优雅, 输入, 输出全为自动产生.
 
-PS: 此处注意, 引用文件的相对路径, 不是直接的`test/lab_00/C/resource/01.data.in`,
+PS: 此处注意, `01.data.in` 这类路径是相对于**编译产物所在目录**解析的, 而非相对于 `test.cpp`.
 
-而是编译出的文件相对于测试数据的相对路径.
+每个 `test.cpp` 中的 `getFilePath()` 返回资源目录相对编译产物目录的路径, 例如 [lab_00/C/test.cpp](./lab_00/C/test.cpp):
 
-在样例中, 编译出的文件在`algorithm-template/cmake-build-debug`下, 所以需要加`./../`
+``` cpp
+std::string getFilePath() noexcept { return "./../../../lab_00/C/resource/"; }
+const std::string CS203_redirect::file_paths = getFilePath();
+```
+
+以 `cmake-build-debug` 为例, 测试产物位于 `cmake-build-debug/lab_00/C/` 下, 因此需要 `./../../../` 回到仓库根目录, 再拼接 `lab_00/C/resource/`. 换用其它构建目录时, 相对层级可能不同, 需相应调整 `getFilePath()`.
 
 ### 输入输出重定向-Stage 2: 从文件中读取输入, 将输出定向到文件中
 
@@ -271,7 +353,7 @@ static const auto faster_streams = [] {
 }();
 ```
 
-已放置在源文件最下方, 注意**不要混用**C风格输入输出(`scanf`, `printf`)与c++风格输入输出(`cin`, `cout`)
+关闭同步的代码已放在每道题 `main.cpp` 的最下方, 注意**不要混用**C风格输入输出(`scanf`, `printf`)与c++风格输入输出(`cin`, `cout`)
 
 通常情况下, 可以将运行时间缩短到1/2甚至更少.
 
@@ -293,11 +375,9 @@ yes | sudo apt-get install libgtest-dev libgmock-dev
 + [x] CI-CD
   + [x] CI: GitHub-Actions提交触发
   + [x] CD: Tag触发的自动Release
-+ [x] ~~leetcode题目~~
-+ [x] ~~预编译头文件~~ccache加速编译
-+ [x] ~~basic文件夹添加CS205内容, 方便入门C++~~
-  + [x] ~~以及一部分rust代码~~
-+ [ ] ~~Cyaron测试数据生成~~
++ [x] 某一学期的完整题目 (见 [2021fall 分支](https://github.com/Certseeds/algorithm-template/tree/2021fall))
++ [x] ccache 加速编译
++ [ ] ~~Cyaron 测试数据生成~~
 + [ ] ~~WiKi Page~~
 
 <p align="right">(<a href="#top">back to top</a>)</p>
